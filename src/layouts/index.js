@@ -1,5 +1,9 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
+
+import "../styles/normalize.css";
+import "../styles/prismjs.css";
+//require("prismjs/themes/prism-tomorrow.css");
 
 class Template extends React.Component {
   render() {
