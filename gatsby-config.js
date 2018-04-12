@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Josh Meets Computer``",
+    title: "Josh Meets Computer",
     author: "Josh Zastrow",
   },
   plugins: [
@@ -39,7 +39,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-73474603-2`,
       },
     },
     `gatsby-plugin-offline`,
