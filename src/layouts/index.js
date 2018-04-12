@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
 
 import "../styles/normalize.css";
 import "../styles/prismjs.css";
-//require("prismjs/themes/prism-tomorrow.css");
 
 class Template extends React.Component {
   render() {
@@ -13,7 +13,7 @@ class Template extends React.Component {
       header = (
         <h1>
           <Link to={'/'} >
-            Gatsby Starter Blog
+            Josh Meets Computer
           </Link>
         </h1>
       )
@@ -21,7 +21,7 @@ class Template extends React.Component {
       header = (
         <h3>
           <Link to={'/'}>
-            Gatsby Starter Blog
+            Josh Meets Computer
           </Link>
         </h3>
       )

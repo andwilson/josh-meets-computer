@@ -4,6 +4,7 @@ module.exports = {
     author: "Josh Zastrow",
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
