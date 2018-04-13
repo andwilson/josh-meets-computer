@@ -31,7 +31,7 @@ export default () => (
   <Wrapper>
     <TitleBar>
       <Img src={boy} />
-      <h2>Josh Zastrow</h2>
+      <h2>Josh Meets Computer</h2>
       <Img src={computer} />
     </TitleBar>
     <NavBar>
