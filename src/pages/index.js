@@ -22,19 +22,11 @@ const HeroContainer = styled.div`
   z-index: 2;
 `;
 
-const HeroCenter = styled.div`
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-`;
-
 export default ({ data }) => (
   <HeroWrapper>
     <Helmet title={data.site.siteMetadata.title} />
     <HeroContainer>
-      <HomeNav />
+      <HomeNav data={data}/>
     </HeroContainer>
     <Img
       style={{
@@ -60,9 +52,19 @@ export const pageQuery = graphql`
       }
     }
     background: imageSharp(id: {regex: "/hex-bg.jpg/"}) {
-      sizes(maxWidth: 1280, grayscale: true) {
+      sizes(maxWidth: 1240, grayscale: false) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    boy: imageSharp(id: {regex: "/boy.png/"}) {
+      sizes(maxWidth: 400, grayscale: false) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    computer: imageSharp(id: {regex: "/computer.png/"}) {
+      sizes(maxWidth: 400, grayscale: false) {
         ...GatsbyImageSharpSizes
       }
     }
   }
-`
+`;
