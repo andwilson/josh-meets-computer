@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import avatar from './avatar.jpg'
+import avatar from '../../images/avatar.jpg'
 
 const Img = styled.img`
   height: 100px;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import "../styles/normalize.css";
 import "../styles/prismjs.css";
+import "../styles/base.css";
 
 const Wrapper = styled.div`
   max-width: 960px;
@@ -16,7 +17,8 @@ class Template extends React.Component {
     let header
     if (location.pathname === '/') {
       header = (
-        <div></div>
+        <div>
+        </div>
       )
     } else {
       header = (
@@ -28,18 +30,14 @@ class Template extends React.Component {
       )
     }
     return (
-      <Wrapper>
-        {header}
-        {children()}
-      </Wrapper>
+      <div>
+        <Wrapper>
+          {header}
+          {children()}
+        </Wrapper>
+      </div>
     )
   }
-}
-
-Template.propTypes = {
-  children: React.PropTypes.func,
-  location: React.PropTypes.object,
-  route: React.PropTypes.object,
 }
 
 export default Template
