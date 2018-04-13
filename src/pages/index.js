@@ -9,7 +9,7 @@ import HomeNav from '../components/HomeNav'
 const HeroWrapper = styled.div`
   position: relative;
   height: 100vh;
-  z-index: -1;
+  z-index: 1;
 `;
 
 const HeroContainer = styled.div`
@@ -36,21 +36,19 @@ export default ({ data }) => (
     <HeroContainer>
       <HomeNav />
     </HeroContainer>
-    <HeroCenter>
-      <Img
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          margin: 'auto',
-          minWidth: '50%',
-          minHeight: '50%'
-        }}
-        sizes={data.background.sizes}
-      />
-  </HeroCenter>
+    <Img
+      style={{
+        minHeight: "100%",
+        minWidth: "1024px",
+        width: "100%",
+        height: "auto",
+        position: "fixed",
+        top: 0,
+        right: 0,
+        opacity: 0.2
+      }}
+      sizes={data.background.sizes}
+    />
   </HeroWrapper>
 );
 
