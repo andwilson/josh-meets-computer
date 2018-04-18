@@ -4,6 +4,12 @@ module.exports = {
     author: "Josh Zastrow",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`roboto`, `open sans`]
+      }
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,

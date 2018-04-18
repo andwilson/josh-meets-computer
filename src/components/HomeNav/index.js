@@ -15,12 +15,22 @@ const TitleBar = styled.div`
   justify-content: space-between;
   height: 50px;
   margin-bottom: 25px;
+  > h1 {
+    font-size: 18px;
+  }
 `;
 
 const NavBar = styled.div`
   display: flex;
   justify-content: space-between;
   height: 50px;
+`;
+
+const SLink = styled(Link)`
+  font-family: open sans;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
 `;
 
 export default ({ data }) => (
@@ -32,7 +42,7 @@ export default ({ data }) => (
         }}
         sizes={data.boy.sizes}
       />
-      <h3>Josh Meets Computer</h3>
+      <h1>Josh Meets Computer</h1>
       <Img
         style={{
           width: "60px"
@@ -41,10 +51,10 @@ export default ({ data }) => (
       />
     </TitleBar>
     <NavBar>
-      <Link to={"/projects/"}>Projects</Link>
-      <Link to={"/notes/"}>Notes</Link>
-      <Link to={"/letters/"}>Letters</Link>
-      <Link to={"/about/"}>About</Link>
+      <SLink to={"/projects/"}>Projects</SLink>
+      <SLink to={"/notes/"}>Notes</SLink>
+      <SLink to={"/letters/"}>Letters</SLink>
+      <SLink to={"/about/"}>About</SLink>
     </NavBar>
   </Wrapper>
 );
