@@ -1,6 +1,8 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import styled from 'styled-components';
+import React from "react";
+import Link from "gatsby-link";
+import styled from "styled-components";
+
+import DefaultNav from "../components/DefaultNav";
 
 import "../styles/normalize.css";
 import "../styles/prismjs.css";
@@ -13,21 +15,12 @@ const Wrapper = styled.div`
 
 class Template extends React.Component {
   render() {
-    const { location, children } = this.props
-    let header
-    if (location.pathname === '/') {
-      header = (
-        <div>
-        </div>
-      )
+    const { location, children } = this.props;
+    let header;
+    if (location.pathname === "/") {
+      header = <div />;
     } else {
-      header = (
-          <h3>
-            <Link to={'/'}>
-              Josh Meets Computer
-            </Link>
-          </h3>
-      )
+      header = <DefaultNav />;
     }
     return (
       <div>
@@ -36,8 +29,8 @@ class Template extends React.Component {
           {children()}
         </Wrapper>
       </div>
-    )
+    );
   }
 }
 
-export default Template
+export default Template;
