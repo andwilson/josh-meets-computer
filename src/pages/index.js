@@ -37,7 +37,7 @@ export default ({ data }) => (
         position: "fixed",
         top: 0,
         right: 0,
-        opacity: 0.2
+        opacity: 0.15
       }}
       sizes={data.background.sizes}
     />

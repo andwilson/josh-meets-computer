@@ -3,9 +3,6 @@ import Link from "gatsby-link";
 import styled from "styled-components";
 import Img from "gatsby-image";
 
-//import boy from '../../images/boy.png';
-//import computer from '../../images/computer.png';
-
 const Wrapper = styled.div`
   width: 300px;
 `;
@@ -23,7 +20,8 @@ const TitleBar = styled.div`
 const NavBar = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  align-items: center;
+  height: 30px;
 `;
 
 const SLink = styled(Link)`
@@ -31,6 +29,9 @@ const SLink = styled(Link)`
   text-decoration: none;
   color: black;
   font-size: 16px;
+  &:hover {
+    color: #28aa55;
+  }
 `;
 
 export default ({ data }) => (
