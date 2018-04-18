@@ -1,6 +1,20 @@
 import React from "react";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
+import styled from "styled-components";
+
+const SLink = styled(Link)`
+  text-decoration: none;
+  color: #28aa55;
+  &:hover {
+    color: #23984c;
+  }
+`;
+
+const Title = styled.h1`
+  color: black;
+  border-bottom: 1px grey solid;
+`;
 
 class Projects extends React.Component {
   render() {
@@ -8,6 +22,7 @@ class Projects extends React.Component {
     return (
       <div>
         <Helmet title="Projects" />
+        <Title>Projects</Title>
         {posts.map(post => {
           if (
             post.node.path !== "/404/" &&
@@ -16,9 +31,9 @@ class Projects extends React.Component {
             return (
               <div key={post.node.frontmatter.path}>
                 <h3>
-                  <Link to={post.node.frontmatter.path}>
+                  <SLink to={post.node.frontmatter.path}>
                     {post.node.frontmatter.title}
-                  </Link>
+                  </SLink>
                 </h3>
                 <small>{post.node.frontmatter.date}</small>
                 <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
