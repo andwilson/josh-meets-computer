@@ -8,9 +8,10 @@ import "../styles/normalize.css";
 import "../styles/prismjs.css";
 import "../styles/base.css";
 
-const Wrapper = styled.div`
+const Container = styled.div`
   max-width: 960px;
   margin: auto;
+  padding: 0 10px 0 10px;
 `;
 
 class Template extends React.Component {
@@ -24,10 +25,10 @@ class Template extends React.Component {
     }
     return (
       <div>
-        <Wrapper>
           {header}
+        <Container>
           {children()}
-        </Wrapper>
+        </Container>
       </div>
     );
   }

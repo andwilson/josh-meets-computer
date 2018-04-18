@@ -2,42 +2,66 @@ import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
 
+const Wrapper = styled.div`
+  border-bottom: 1px solid grey;
+  background-color: #28aa55;
+`;
+
 const NavBar = styled.div`
+  max-width: 960px;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 0px 10px 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
-  border: 1px black solid;
   > h1 {
-    font-size: 20px;
+    padding: 0;
     margin: 0;
-    text-decoration: none;
+    line-height: 100%;
   }
 `;
 
 const Nav = styled.div`
   display: flex;
+  padding: 8px 0 8px 0;
 `;
 
 const SLink = styled(Link)`
   font-family: open sans;
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 16px;
-  margin-left: 10px;
+  margin: 0 0 0 10px;
   &:hover {
-    color: #28aa55;
+    color: #e4e4e4;
+  }
+`;
+
+const TLink = styled(Link)`
+  font-family: roboto;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding: 0;
+  margin: 0
+  &:hover {
+    color: #e4e4e4;
   }
 `;
 
 export default ({ data }) => (
-  <NavBar>
-    <h1><SLink to={"/"}>Josh Meets Computer</SLink></h1>
-    <Nav>
-      <SLink to={"/projects/"}>Projects</SLink>
-      <SLink to={"/notes/"}>Notes</SLink>
-      <SLink to={"/letters/"}>Letters</SLink>
-      <SLink to={"/about/"}>About</SLink>
-    </Nav>
-  </NavBar>
+  <Wrapper>
+    <NavBar>
+      <h1>
+        <TLink to={"/"}>Josh Meets Computer</TLink>
+      </h1>
+      <Nav>
+        <SLink to={"/projects/"} style={{ marginLeft: 0 }}>Projects</SLink>
+        <SLink to={"/notes/"}>Notes</SLink>
+        <SLink to={"/letters/"}>Letters</SLink>
+        <SLink to={"/about/"}>About</SLink>
+      </Nav>
+    </NavBar>
+  </Wrapper>
 );

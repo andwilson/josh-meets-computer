@@ -2,12 +2,15 @@ import React from "react";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
 
+import CategoryHeader from "../components/CategoryHeader";
+
 class Notes extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges;
     return (
       <div>
         <Helmet title="Notes" />
+        <CategoryHeader title="Josh Zastrow" description="hello world hellow rold" />
         {posts.map(post => {
           if (
             post.node.path !== "/404/" &&
