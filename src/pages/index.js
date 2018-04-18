@@ -1,10 +1,10 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
+import React from "react";
+import Link from "gatsby-link";
+import Helmet from "react-helmet";
+import Img from "gatsby-image";
+import styled from "styled-components";
 
-import HomeNav from '../components/HomeNav'
+import HomeNav from "../components/HomeNav";
 
 const HeroWrapper = styled.div`
   position: relative;
@@ -26,7 +26,7 @@ export default ({ data }) => (
   <HeroWrapper>
     <Helmet title={data.site.siteMetadata.title} />
     <HeroContainer>
-      <HomeNav data={data}/>
+      <HomeNav data={data} />
     </HeroContainer>
     <Img
       style={{
@@ -51,19 +51,19 @@ export const pageQuery = graphql`
         title
       }
     }
-    background: imageSharp(id: {regex: "/hex-bg.jpg/"}) {
+    background: imageSharp(id: { regex: "/hex-bg.jpg/" }) {
       sizes(maxWidth: 1240, grayscale: false) {
         ...GatsbyImageSharpSizes
       }
     }
-    boy: imageSharp(id: {regex: "/boy.png/"}) {
+    boy: imageSharp(id: { regex: "/boy.png/" }) {
       sizes(maxWidth: 400, grayscale: false) {
-        ...GatsbyImageSharpSizes
+        ...GatsbyImageSharpSizes_tracedSVG
       }
     }
-    computer: imageSharp(id: {regex: "/computer.png/"}) {
+    computer: imageSharp(id: { regex: "/computer.png/" }) {
       sizes(maxWidth: 400, grayscale: false) {
-        ...GatsbyImageSharpSizes
+        ...GatsbyImageSharpSizes_tracedSVG
       }
     }
   }

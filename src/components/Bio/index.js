@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import avatar from '../../images/avatar.jpg'
+import avatar from "../../images/avatar.jpg";
 
 const Img = styled.img`
   height: 100px;
@@ -9,13 +9,8 @@ const Img = styled.img`
 
 class Bio extends React.Component {
   render() {
-    return (
-      <Img
-        src={avatar}
-        alt={`Josh Zastrow`}
-      />
-    )
+    return <Img src={avatar} alt={`Josh Zastrow`} />;
   }
 }
 
-export default Bio
+export default Bio;
