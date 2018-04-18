@@ -1,17 +1,13 @@
 import React from "react";
 import Link from "gatsby-link";
-import get from "lodash/get";
 import Helmet from "react-helmet";
-
-import DefaultNav from "../components/DefaultNav";
 
 class Notes extends React.Component {
   render() {
-    const posts = get(this, "props.data.allMarkdownRemark.edges");
-
+    const posts = this.props.data.allMarkdownRemark.edges;
     return (
       <div>
-        <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
+        <Helmet title="Notes" />
         {posts.map(post => {
           if (
             post.node.path !== "/404/" &&
@@ -35,19 +31,10 @@ class Notes extends React.Component {
   }
 }
 
-Notes.propTypes = {
-  route: React.PropTypes.object
-};
-
 export default Notes;
 
 export const pageQuery = graphql`
   query NotesQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
