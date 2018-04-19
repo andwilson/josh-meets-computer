@@ -22,6 +22,9 @@ const Social = styled.div`
   img {
     height: 35px;
     margin: 3px;
+    &:hover {
+       opacity: 0.8;
+    }
   }
   @media (max-width: 600px) {
     flex-direction: column;
@@ -61,7 +64,8 @@ const Avatar = styled(Img)`
   margin-bottom: 0.5em;
   border: 1px solid grey;
   &:hover {
-     box-shadow: 0px 0px 2px grey
+     box-shadow: 0px 0px 2px grey;
+     opacity: 0.9;
   }
   @media (max-width: 600px) {
     width: 110px;
@@ -71,9 +75,11 @@ const Avatar = styled(Img)`
 export default ({ title, description, data }) => (
   <GridContainer>
     <Profile>
-      <Avatar
-        sizes={data.avatar.sizes}
-      />
+      <Link to={"/about"}>
+        <Avatar
+          sizes={data.avatar.sizes}
+        />
+      </Link>
       <Social>
         <a href="https://github.com/JoshZastrow">
           <img src={github} />
