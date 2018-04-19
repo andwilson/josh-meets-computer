@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 import Link from "gatsby-link";
 import styled from "styled-components";
 
@@ -7,6 +8,8 @@ import DefaultNav from "../components/DefaultNav";
 import "../styles/normalize.css";
 import "../styles/prismjs.css";
 import "../styles/base.css";
+
+import favicon from "../images/favicon.ico";
 
 const Container = styled.div`
   max-width: 960px;
@@ -25,10 +28,11 @@ class Template extends React.Component {
     }
     return (
       <div>
-          {header}
-        <Container>
-          {children()}
-        </Container>
+        <Helmet>
+          <link rel="shortcut icon" type="image/png" href={favicon} />
+        </Helmet>
+        {header}
+        <Container>{children()}</Container>
       </div>
     );
   }

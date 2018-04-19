@@ -24,7 +24,9 @@ const HeroContainer = styled.div`
 
 export default ({ data }) => (
   <HeroWrapper>
-    <Helmet title={data.site.siteMetadata.title} />
+    <Helmet>
+      <title>{data.site.siteMetadata.title}</title>
+    </Helmet>
     <HeroContainer>
       <HomeNav data={data} />
     </HeroContainer>

@@ -21,14 +21,17 @@ const Title = styled.h1`
 class Notes extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges;
+    const categoryTitle = "Notes";
+    const categoryDescription = "Irony asymmetrical hammock cloud bread. Marfa cray plaid fashion axe tumblr PBR&B godard. Plaid meh freegan kogi chicharrones, tumblr cred tote bag messenger bag schlitz irony cardigan gentrify authentic VHS. Tilde before they sold out franzen migas lyft put a bird on it.";
+
     return (
       <div>
-        <Helmet title="Notes" />
-        <Title>Notes</Title>
+        <Helmet title={categoryTitle} />
+        <CategoryHeader title={categoryTitle} description={categoryDescription} />
         {posts.map(post => {
           if (
             post.node.path !== "/404/" &&
-            post.node.frontmatter.category == "Notes"
+            post.node.frontmatter.category == categoryTitle
           ) {
             return (
               <div key={post.node.frontmatter.path}>
