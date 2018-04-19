@@ -18,7 +18,6 @@ const GridContainer = styled.div`
 
 const Social = styled.div`
   display: flex;
-  justify-self: center;
   img {
     height: 35px;
     margin: 3px;
@@ -34,13 +33,10 @@ const Social = styled.div`
 const Profile = styled.div`
   display: flex;
   flex-direction: column;
-  justify-self: center;
   align-items: center;
 `;
 
 const Info = styled.div`
-  grid-template-rows: 1 / -1;
-  grid-template-columns: 2;
   > h1 {
     color: black;
     margin: 0;
@@ -60,7 +56,6 @@ const Info = styled.div`
 const Avatar = styled(Img)`
   width: 150px;
   border-radius: 50%;
-  justify-self: center;
   margin-bottom: 0.5em;
   border: 1px solid grey;
   &:hover {
@@ -81,13 +76,13 @@ export default ({ title, description, data }) => (
         />
       </Link>
       <Social>
-        <a href="https://github.com/JoshZastrow">
+        <a href="https://github.com/JoshZastrow" target="_blank">
           <img src={github} />
         </a>
-        <a href="https://www.linkedin.com/in/joshua-zastrow-b8131540/">
+        <a href="https://www.linkedin.com/in/joshua-zastrow-b8131540/" target="_blank">
           <img src={linkedin} />
         </a>
-        <a href="https://www.instagram.com/josh.zastrow/?hl=en">
+        <a href="https://www.instagram.com/josh.zastrow/?hl=en" target="_blank">
           <img src={instagram} />
         </a>
       </Social>
