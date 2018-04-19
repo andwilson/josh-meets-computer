@@ -5,6 +5,21 @@ import styled from "styled-components";
 
 import CategoryHeader from "../components/CategoryHeader";
 
+const Post = styled.div`
+  > h3 {
+    margin-bottom: 5px;
+  }
+  > small {
+    font-family: roboto;
+    font-size: 14px;
+    color: grey;
+    font-style: italic;
+  }
+  > p {
+    margin-top: 10px;
+  }
+`;
+
 const SLink = styled(Link)`
   text-decoration: none;
   color: #28aa55;
@@ -32,7 +47,7 @@ class Letters extends React.Component {
             post.node.path !== "/404/"
           ) {
             return (
-              <div key={post.node.frontmatter.path}>
+              <Post key={post.node.frontmatter.path}>
                 <h3>
                   <SLink to={post.node.frontmatter.path}>
                     {post.node.frontmatter.title}
@@ -40,7 +55,7 @@ class Letters extends React.Component {
                 </h3>
                 <small>{post.node.frontmatter.date}</small>
                 <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-              </div>
+              </Post>
             );
           }
         })}
@@ -60,10 +75,10 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          excerpt(pruneLength: 300)
+          excerpt(pruneLength: 250)
           frontmatter {
             path
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "MMMM D, YYYY")
             title
             category
           }

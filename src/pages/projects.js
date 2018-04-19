@@ -9,7 +9,7 @@ const SLink = styled(Link)`
   text-decoration: none;
   color: #28aa55;
   &:hover {
-    color: #23984c;
+    color: #1d7f3f;
   }
 `;
 
@@ -63,7 +63,7 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 300)
           frontmatter {
             path
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "MMMM D, YYYY")
             title
             category
           }

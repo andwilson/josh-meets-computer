@@ -10,12 +10,26 @@ const SLink = styled(Link)`
   text-decoration: none;
   color: #28aa55;
   &:hover {
-    color: #32d169;
+    color: #1d7f3f;
   }
 `;
 
 const SectionTitle = styled.h2`
   color: black;
+`;
+
+const Ul = styled.ul`
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  > li {
+    padding-left: 1em;
+    text-indent: -1em;
+    &:before {
+      content: '» \0000a0';
+      padding-right: 5px;
+    }
+  }
 `;
 
 class Notes extends React.Component {
@@ -45,7 +59,7 @@ class Notes extends React.Component {
               <SectionTitle>{section}</SectionTitle>
               {posts.map(post => {
                 return (
-                  <ul>
+                  <Ul>
                     {post.node.frontmatter.section == section && (
                       <li>
                         <SLink to={post.node.frontmatter.path}>
@@ -53,7 +67,7 @@ class Notes extends React.Component {
                         </SLink>
                       </li>
                     )}
-                  </ul>
+                  </Ul>
                 );
               })}
             </div>
