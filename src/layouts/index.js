@@ -22,7 +22,7 @@ class Template extends React.Component {
     const { location, children } = this.props;
     let header;
     if (location.pathname === "/") {
-      header = <div />;
+      header = null;
     } else {
       header = <DefaultNav />;
     }
