@@ -10,6 +10,7 @@ const Title = styled.h1`
 
 const Date = styled.p`
   font-style: italic;
+  color: grey;
 `;
 
 class BlogPostTemplate extends React.Component {

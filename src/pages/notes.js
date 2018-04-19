@@ -20,13 +20,13 @@ const SectionTitle = styled.h2`
 
 const Ul = styled.ul`
   list-style: none;
-  margin-left: 0;
+  margin-left: 10px;
   padding-left: 0;
   > li {
     padding-left: 1em;
     text-indent: -1em;
     &:before {
-      content: '» \0000a0';
+      content: '\u21d2 \0000a0';
       padding-right: 5px;
     }
   }

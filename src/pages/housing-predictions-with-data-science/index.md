@@ -3,6 +3,7 @@ title: "Housing Predictions with Data Science"
 date: "2018-04-11"
 path: "/housing-predictions-with-data-science/"
 category: "Projects"
+thumbnail: "/thumbnail.jpg/"
 ---
 
 ```python

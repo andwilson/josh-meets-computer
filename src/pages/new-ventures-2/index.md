@@ -3,6 +3,7 @@ title: "New Ventures 2"
 date: "2018-01-15"
 path: "/new-ventures-2/"
 category: "Projects"
+thumbnail: "/thumbnail.jpg/"
 ---
 
 # On the Subject of New Ventures
