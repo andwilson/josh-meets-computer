@@ -13,25 +13,23 @@ const SLink = styled(Link)`
   }
 `;
 
-const Title = styled.h1`
-  color: black;
-  border-bottom: 1px grey solid;
-`;
-
 class Notes extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges;
     const categoryTitle = "Notes";
-    const categoryDescription = "Irony asymmetrical hammock cloud bread. Marfa cray plaid fashion axe tumblr PBR&B godard. Plaid meh freegan kogi chicharrones, tumblr cred tote bag messenger bag schlitz irony cardigan gentrify authentic VHS. Tilde before they sold out franzen migas lyft put a bird on it.";
+    const categoryDescription = "On a seemingly innocuous morning, up in a farmhouse in Vermont, I had an interesting talk about the extensions of the mind. In this paradigm shifting conversation, a very special idea passed on to me. It suggested that everything you put out into the world is an extension of your brain -- whether it's written on a chalk board, typed into a computer, spoken into someone else's ear.. these are your thoughts that once existed in your head but now also exist outside as well. This note section is what I like to consider the external hard drive of my brain, where I keep track of things I've learned so that I can revisit them if approached with a similar problem. ";
 
     return (
       <div>
         <Helmet title={categoryTitle} />
-        <CategoryHeader title={categoryTitle} description={categoryDescription} />
+        <CategoryHeader
+          title={categoryTitle}
+          description={categoryDescription}
+          data= {this.props.data}
+        />
         {posts.map(post => {
           if (
-            post.node.path !== "/404/" &&
-            post.node.frontmatter.category == categoryTitle
+            post.node.path !== "/404/"
           ) {
             return (
               <div key={post.node.frontmatter.path}>
@@ -55,10 +53,14 @@ export default Notes;
 
 export const pageQuery = graphql`
   query NotesQuery {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC },
+      filter: {frontmatter: {category: {eq: "Notes"}}}
+    ) {
+      totalCount
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 300)
           frontmatter {
             path
             date(formatString: "DD MMMM, YYYY")
@@ -66,6 +68,11 @@ export const pageQuery = graphql`
             category
           }
         }
+      }
+    }
+    avatar: imageSharp(id: { regex: "/avatar.jpg/" }) {
+      sizes(maxWidth: 500, grayscale: false) {
+        ...GatsbyImageSharpSizes_tracedSVG
       }
     }
   }

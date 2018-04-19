@@ -11,5 +11,6 @@ export default () => (
   <div>
     <Helmet title="About" />
     <Title>About</Title>
+    <p>Need an enthusiastic engineer on your data science, machine learning or A.I team? Please reach out to me! I am always excited at the prospect of collaborating with other passionately driven people on bigger projects. </p>
   </div>
 );
