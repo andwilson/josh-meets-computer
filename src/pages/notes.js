@@ -37,7 +37,7 @@ class Notes extends React.Component {
     const posts = this.props.data.allMarkdownRemark.edges;
     const categoryTitle = "Notes";
     const categoryDescription =
-      "On a seemingly innocuous morning, up in a farmhouse in Vermont, I had an interesting talk about the extensions of the mind. In this paradigm shifting conversation, a very special idea passed on to me. It suggested that everything you put out into the world is an extension of your brain -- whether it's written on a chalk board, typed into a computer, spoken into someone else's ear.. these are your thoughts that once existed in your head but now also exist outside as well. This note section is what I like to consider the external hard drive of my brain, where I keep track of things I've learned so that I can revisit them if approached with a similar problem. ";
+      "Below is a bit of an external hard drive for my brain, where I keep notes on the things I've learned while exploring computer science. The more I learn in the A.I space, the more I find myself going back trying to recall how I implemented one function or another. I figure if I take the time to learn something new, it's for a reason! And when the time comes to apply what I've learned, I know I'll have notes lying around somewhere ;)";
     // unique array of sections
     const sections = posts
       .map(post => post.node.frontmatter.section)

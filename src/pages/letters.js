@@ -32,7 +32,7 @@ class Letters extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges;
     const categoryTitle = "Letters";
-    const categoryDescription = "One day I came upon a realization. There will inevitably be large swaths of my life that are utterly forgotten. Pointers to memories in my brain that have deteriorated to the point where no neural pathways exist. Rich experiences lost in the abyss. Who can recall every moment of their life to vivid detail anyways? I started writing weekly open letters to my close family and friends to serve two purposes; Firstly, a weekly letter to inform the readers on my whereabouts and happenings as I travel around the work, working remotely on data projects. Secondly, a digital repository; storing every little highlight of my life as my own story unfolds.";
+    const categoryDescription = "Below are the weekly letters I've written so far. A little while ago I started writing weekly letters to my loved ones as a means to keep everyone updated and informed of my whereabouts and happenings. Soon I discovered that the process of writing about my week was beneficial in so many ways! It was meditative. It allowed me time to process what I've experienced. It helped me appreciate the good things that happened in a regular week. It gave me a permanent, detailed repository of the story of my life.";
 
     return (
       <div>
