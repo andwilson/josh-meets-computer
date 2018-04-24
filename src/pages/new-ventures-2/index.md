@@ -5,9 +5,6 @@ path: "/new-ventures-2/"
 category: "Projects"
 thumbnail: "/thumbnail.jpg/"
 ---
-
-# MIT Nuts And Bolts: New Ventures
-
 I recently completed a course at MIT that offered practical guiding advice on the mechanics of creating a new business or venture. Appropriately named 'The Nuts and Bolts Of New Ventures', this course is offered once a year to MIT students and the surrounding community.
 
 The professors and guest speakers, who are lecturers at Sloan School of Management and run the MIT 100k pitch competition, have seen their fair share of startup successes and failures. To that effect, the educational material being passed along in this course (in my opinion) is invaluable to anyone interested in pursuing a new venture.
