@@ -13,6 +13,10 @@ const Date = styled.p`
   color: grey;
 `;
 
+const Div = styled.div`
+  border-top: 1px solid grey;
+`;
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
@@ -23,8 +27,7 @@ class BlogPostTemplate extends React.Component {
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Title>{post.frontmatter.title}</Title>
         <Date>{post.frontmatter.date}</Date>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr />
+        <Div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     );
   }

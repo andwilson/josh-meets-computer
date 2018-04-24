@@ -8,6 +8,7 @@ import CategoryHeader from "../components/CategoryHeader";
 const SLink = styled(Link)`
   text-decoration: none;
   color: #28aa55;
+  transition: all 0.2s;
   &:hover {
     color: #1d7f3f;
   }
@@ -37,7 +38,7 @@ class Projects extends React.Component {
                     {post.node.frontmatter.title}
                   </SLink>
                 </h3>
-                <small>{post.node.frontmatter.date}</small>
+                <p>{post.node.frontmatter.date}</p>
                 <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
               </div>
             );
