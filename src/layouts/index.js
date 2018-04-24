@@ -48,13 +48,13 @@ export const pageQuery = graphql`
       }
     }
     boy: imageSharp(id: { regex: "/boy.png/" }) {
-      sizes(maxWidth: 400, grayscale: false) {
-        ...GatsbyImageSharpSizes_tracedSVG
+      sizes(maxWidth: 100, grayscale: false) {
+        ...GatsbyImageSharpSizes
       }
     }
     computer: imageSharp(id: { regex: "/computer.png/" }) {
-      sizes(maxWidth: 400, grayscale: false) {
-        ...GatsbyImageSharpSizes_tracedSVG
+      sizes(maxWidth: 100, grayscale: false) {
+        ...GatsbyImageSharpSizes
       }
     }
   }

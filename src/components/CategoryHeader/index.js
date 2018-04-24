@@ -58,7 +58,7 @@ const Avatar = styled(Img)`
   border-radius: 50%;
   margin-bottom: 0.5em;
   border: 1px solid grey;
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
   &:hover {
      box-shadow: 0px 0px 2px grey;
      opacity: 0.9;
