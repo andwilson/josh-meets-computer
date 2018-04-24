@@ -1,12 +1,12 @@
 ---
-title: "New Ventures 2"
+title: "MIT Nuts And Bolts: New Ventures"
 date: "2018-01-15"
 path: "/new-ventures-2/"
 category: "Projects"
 thumbnail: "/thumbnail.jpg/"
 ---
 
-# On the Subject of New Ventures
+# MIT Nuts And Bolts: New Ventures
 
 I recently completed a course at MIT that offered practical guiding advice on the mechanics of creating a new business or venture. Appropriately named 'The Nuts and Bolts Of New Ventures', this course is offered once a year to MIT students and the surrounding community.
 
