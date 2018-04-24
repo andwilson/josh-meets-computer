@@ -11,7 +11,9 @@ const TitleBar = styled.div`
   display: flex;
   justify-content: space-between;
   height: 50px;
-  margin-bottom: 25px;
+  padding-bottom: 7px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid rgba(189,189,189,1);
   > h1 {
     font-size: 18px;
   }
