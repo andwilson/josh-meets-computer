@@ -3,7 +3,6 @@ import Link from "gatsby-link";
 import styled from "styled-components";
 import Img from "gatsby-image";
 
-//import avatar from "../../images/avatar.jpg";
 import github from "../../images/github-2.svg";
 import linkedin from "../../images/linkedin-2.svg";
 import instagram from "../../images/instagram-2.svg";
@@ -21,6 +20,7 @@ const Social = styled.div`
   img {
     height: 35px;
     margin: 3px;
+    transition: all 0.2s ease;
     &:hover {
        opacity: 0.8;
     }
@@ -58,6 +58,7 @@ const Avatar = styled(Img)`
   border-radius: 50%;
   margin-bottom: 0.5em;
   border: 1px solid grey;
+  transition: all 0.2s ease;
   &:hover {
      box-shadow: 0px 0px 2px grey;
      opacity: 0.9;

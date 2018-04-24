@@ -17,14 +17,14 @@ const Container = styled.div`
   padding: 0 10px 0 10px;
 `;
 
-class Template extends React.Component {
+class Layout extends React.Component {
   render() {
     const { location, children } = this.props;
     let header;
     if (location.pathname === "/") {
       header = null;
     } else {
-      header = <DefaultNav />;
+      header = <DefaultNav data={this.props.data} />;
     }
     return (
       <div>
@@ -38,4 +38,24 @@ class Template extends React.Component {
   }
 }
 
-export default Template;
+export default Layout;
+
+export const pageQuery = graphql`
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    boy: imageSharp(id: { regex: "/boy.png/" }) {
+      sizes(maxWidth: 400, grayscale: false) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    computer: imageSharp(id: { regex: "/computer.png/" }) {
+      sizes(maxWidth: 400, grayscale: false) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+  }
+`;

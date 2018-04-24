@@ -1,11 +1,15 @@
 import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
+import Img from "gatsby-image";
 
 const Wrapper = styled.div`
-  border-bottom: 1px solid grey;
+
   background-color: #28aa55;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(189,189,189,1);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(189,189,189,1);
+  box-shadow: 0px 1px 2px 0px rgba(189,189,189,1);
 `;
 
 const NavBar = styled.div`
@@ -16,8 +20,11 @@ const NavBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+const Title = styled.div`
+  display: flex;
   > h1 {
-    padding: 0;
     margin: 0;
     line-height: 100%;
   }
@@ -33,7 +40,8 @@ const SLink = styled(Link)`
   text-decoration: none;
   color: white;
   font-size: 16px;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 20px;
+  transition: all 0.2s ease;
   &:hover {
     color: #e4e4e4;
   }
@@ -45,20 +53,41 @@ const TLink = styled(Link)`
   color: white;
   font-size: 20px;
   padding: 0;
-  margin: 0
+  margin: 0;
+  transition: all 0.2s ease;
   &:hover {
     color: #e4e4e4;
   }
 `;
 
+const Boy = styled(Img)`
+  margin: 5px 10px 10px 0;
+  width: 15px;
+`;
+
+const Computer = styled(Img)`
+  margin: 5px 0 10px 5px;
+  width: 30px;
+`;
+
 export default ({ data }) => (
   <Wrapper>
     <NavBar>
-      <h1>
-        <TLink to={"/"}>Josh Meets Computer</TLink>
-      </h1>
+      <Title>
+        <Boy
+          sizes={data.boy.sizes}
+        />
+        <h1>
+          <TLink to={"/"}>{data.site.siteMetadata.title}</TLink>
+        </h1>
+        <Computer
+          sizes={data.computer.sizes}
+        />
+      </Title>
       <Nav>
-        <SLink to={"/projects/"} style={{ marginLeft: 0 }}>Projects</SLink>
+        <SLink to={"/projects/"} style={{ marginLeft: 0 }}>
+          Projects
+        </SLink>
         <SLink to={"/notes/"}>Notes</SLink>
         <SLink to={"/letters/"}>Letters</SLink>
         <SLink to={"/about/"}>About</SLink>

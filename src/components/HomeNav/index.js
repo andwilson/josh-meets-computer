@@ -29,6 +29,7 @@ const SLink = styled(Link)`
   text-decoration: none;
   color: black;
   font-size: 16px;
+  transition: all 0.2s ease;
   &:hover {
     color: #28aa55;
   }
@@ -39,14 +40,14 @@ export default ({ data }) => (
     <TitleBar>
       <Img
         style={{
-          width: "60px"
+          width: "25px"
         }}
         sizes={data.boy.sizes}
       />
       <h1>Josh Meets Computer</h1>
       <Img
         style={{
-          width: "60px"
+          width: "50px"
         }}
         sizes={data.computer.sizes}
       />
