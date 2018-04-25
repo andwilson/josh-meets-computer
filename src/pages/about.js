@@ -4,55 +4,85 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 import FA from "react-fontawesome";
 
+import github from "../images/github-2.svg";
+import linkedin from "../images/linkedin-2.svg";
+import instagram from "../images/instagram-2.svg";
+
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-column-gap: 10px;
-`;
-
-const Social = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  > h2 {
-    margin: 5px 0 5px 0;
-  }
-  > p {
-    color: grey;
-    font-size: 12px;
-    margin: 5px 0 5px 0;
-  }
-`;
-
-const Description = styled.div`
-  > p {
-    @media (max-width: 600px) {
-      font-size: 12px;
-    }
-  }
-`;
-
-const Title = styled.h1`
-  color: black;
-  margin: 0;
-  > span {
-    color: #28aa55;
+  grid-gap: 1em;
+  grid-template:
+    "avatar title"
+    "description description"
+    "contact contact"
+    "social social" 80px / 1fr 2fr;
+  @media (min-width: 600px) {
+    grid-template:
+      "avatar title"
+      "contact description"
+      "social description" / 1fr 2fr;
   }
 `;
 
 const Avatar = styled(Img)`
+  grid-area: avatar;
+  margin: auto;
   width: 150px;
   border-radius: 50%;
-  margin-bottom: 0.5em;
   border: 1px solid grey;
   @media (max-width: 600px) {
     width: 110px;
   }
 `;
 
+const Title = styled.h1`
+  grid-area: title;
+  align-self: center;
+  color: black;
+  margin: 0;
+
+  > span {
+    color: #28aa55;
+  }
+`;
+
+const Description = styled.p`
+  grid-area: description;
+  margin: 0;
+  padding-bottom: 1em;
+  border-bottom: 1px solid grey;
+`;
+
+const Contact = styled.div`
+  grid-area: contact;
+  margin: auto;
+  > h2 {
+    margin: 0 0 0.5em 0;
+  }
+  > p {
+    margin: 0 0 0.5em 0;
+    color: grey;
+  }
+`;
+
+const Social = styled.div`
+  display: flex;
+  justify-content: center;
+  grid-area: social;
+  img {
+    height: 40px;
+    margin: 0 10px 0 20px;
+    transition: all 0.2s ease;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+`;
+
 export default ({ data }) => (
   <div>
     <Helmet>
+      <title>About</title>
       <link
         href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         rel="stylesheet"
@@ -61,8 +91,18 @@ export default ({ data }) => (
       />
     </Helmet>
     <Grid>
-      <Social>
-        <Avatar sizes={data.avatar.sizes} />
+      <Avatar sizes={data.avatar.sizes} />
+      <Title>
+        Hi. My name is <span>Josh Zastrow</span>.
+      </Title>
+      <Description>
+        Need an enthusiastic engineer on your data science, machine learning or
+        A.I team? Please reach out to me! I am always excited at the prospect of
+        collaborating with other passionately driven people on bigger projects.
+        Being a nomadic Engineer, I spend a good amount of time abroad, but am
+        open for grabbing a coffee if you are in the San Francisco area.
+      </Description>
+      <Contact>
         <h2>Contact</h2>
         <p>
           <FA name="phone-square" /> +1 (240) 418-4040
@@ -70,20 +110,21 @@ export default ({ data }) => (
         <p>
           <FA name="envelope-square" /> j.a.zastrow.jr@gmail.com
         </p>
+      </Contact>
+      <Social>
+        <a href="https://github.com/JoshZastrow" target="_blank">
+          <img src={github} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/joshua-zastrow-b8131540/"
+          target="_blank"
+        >
+          <img src={linkedin} />
+        </a>
+        <a href="https://www.instagram.com/josh.zastrow/?hl=en" target="_blank">
+          <img src={instagram} />
+        </a>
       </Social>
-      <Description>
-        <Title>
-          Hi. My name is <span>Josh Zastrow</span>.
-        </Title>
-        <p>
-          Need an enthusiastic engineer on your data science, machine learning
-          or A.I team? Please reach out to me! I am always excited at the
-          prospect of collaborating with other passionately driven people on
-          bigger projects. Being a nomadic Engineer, I spend a good amount of
-          time abroad, but am open for grabbing a coffee if you are in the San
-          Francisco area.
-        </p>
-      </Description>
     </Grid>
   </div>
 );
