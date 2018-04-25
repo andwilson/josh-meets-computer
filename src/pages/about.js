@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 import Img from "gatsby-image";
+import FA from "react-fontawesome";
 
 const Grid = styled.div`
   display: grid;
@@ -53,8 +54,10 @@ export default ({ data }) => (
   <div>
     <Helmet>
       <link
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous"
       />
     </Helmet>
     <Grid>
@@ -62,9 +65,11 @@ export default ({ data }) => (
         <Avatar sizes={data.avatar.sizes} />
         <h2>Contact</h2>
         <p>
-          <i class="fa fa-cloud"></i>+1 (240) 418-4040
+          <FA name="phone-square" /> +1 (240) 418-4040
         </p>
-        <p>j.a.zastrow.jr@gmail.com</p>
+        <p>
+          <FA name="envelope-square" /> j.a.zastrow.jr@gmail.com
+        </p>
       </Social>
       <Description>
         <Title>
