@@ -6,7 +6,7 @@ import styled from "styled-components";
 import DefaultNav from "../components/DefaultNav";
 
 import "../styles/normalize.css";
-import "../styles/prismjs.css";
+import "../styles/prism-dark.css";
 import "../styles/base.css";
 
 import favicon from "../images/favicon.ico";
