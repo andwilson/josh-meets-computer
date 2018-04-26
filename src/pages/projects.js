@@ -9,7 +9,6 @@ import CategoryHeader from "../components/CategoryHeader";
 const SLink = styled(Link)`
   transition: all 0.2s;
   &:hover {
-
   }
 `;
 
@@ -23,19 +22,24 @@ const Grid = styled.div`
   margin-top: 1em;
 `;
 
+const Project = styled.div`
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.5s ease;
+  &:hover {
+    opacity: 0.9;
+    -webkit-box-shadow: 0px 0px 2px grey;
+    -moz-box-shadow: 0px 0px 2px grey;
+    box-shadow: 0px 0px 2px grey;
+  }
+`;
+
 const SImg = styled(Img)`
   width: "100%";
   height: "auto";
   z-index: -1;
+  border: 1px solid grey;
   border-radius: 10px;
-`;
-
-const Project = styled.div`
-  position: relative;
-  transition: all 0.5s;
-  &:hover {
-      opacity: 0.9;
-  }
 `;
 
 const Description = styled.div`
