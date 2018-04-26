@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 import FA from "react-fontawesome";
 
+import ContactForm from "../components/ContactForm"
+
 import github from "../images/github-2.svg";
 import linkedin from "../images/linkedin-2.svg";
 import instagram from "../images/instagram-2.svg";
@@ -69,9 +71,10 @@ const Social = styled.div`
   display: flex;
   justify-content: center;
   grid-area: social;
+  border-bottom: 1px solid grey;
   img {
     height: 40px;
-    margin: 0 10px 0 20px;
+    margin: 0 15px 0 15px;
     transition: all 0.2s ease;
     &:hover {
       opacity: 0.8;
@@ -103,7 +106,6 @@ export default ({ data }) => (
         open for grabbing a coffee if you are in the San Francisco area.
       </Description>
       <Contact>
-        <h2>Contact</h2>
         <p>
           <FA name="phone-square" /> +1 (240) 418-4040
         </p>
@@ -126,26 +128,7 @@ export default ({ data }) => (
         </a>
       </Social>
     </Grid>
-    <form name="contact" method="POST" netlify>
-      <p>
-        <label>
-          Your Name: <input type="text" name="name" />
-        </label>
-      </p>
-      <p>
-        <label>
-          Your Email: <input type="email" name="email" />
-        </label>
-      </p>
-      <p>
-        <label>
-          Message: <textarea name="message" />
-        </label>
-      </p>
-      <p>
-        <button type="submit">Send</button>
-      </p>
-    </form>
+    <ContactForm />
   </div>
 );
 
