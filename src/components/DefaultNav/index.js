@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 
 const Wrapper = styled.div`
-
   background-color: #28aa55;
   margin-bottom: 18px;
   -webkit-box-shadow: 0px 1px 2px 0px rgba(189,189,189,1);

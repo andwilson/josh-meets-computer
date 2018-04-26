@@ -8,10 +8,40 @@ import CategoryHeader from "../components/CategoryHeader";
 
 const SLink = styled(Link)`
   text-decoration: none;
-  color: #28aa55;
+  color: white;
   transition: all 0.2s;
   &:hover {
-    color: #1d7f3f;
+    color: #e4e4e4;
+  }
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 1em;
+`;
+
+const SImg = styled(Img)``;
+
+const Project = styled.div`
+  position: relative;
+`;
+
+const Description = styled.div`
+  position: absolute;
+  padding: 1em;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  > h3 {
+    margin: 0;
+  }
+  > p {
+    color: white;
+  }
+  > p:nth-child(2) {
+    font-style: italic;
+    color: #e4e4e4;
   }
 `;
 
@@ -30,25 +60,37 @@ class Projects extends React.Component {
           description={categoryDescription}
           data={this.props.data}
         />
-        {posts.map(post => {
-          if (post.node.path !== "/404/") {
-            return (
-              <div key={post.node.frontmatter.path}>
-                <h3>
-                  <SLink to={post.node.frontmatter.path}>
-                    {post.node.frontmatter.title}
-                  </SLink>
-                </h3>
-                <p>{post.node.frontmatter.date}</p>
-                <p>{post.node.frontmatter.thumbnail.id}</p>
-                <Img
-                  sizes={post.node.frontmatter.thumbnail.childImageSharp.sizes}
-                />
-                <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-              </div>
-            );
-          }
-        })}
+        <Grid>
+          {posts.map(post => {
+            if (post.node.path !== "/404/") {
+              return (
+                <Project key={post.node.frontmatter.path}>
+                  <SImg
+                    sizes={
+                      post.node.frontmatter.thumbnail.childImageSharp.sizes
+                    }
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      zIndex: -1
+                    }}
+                  />
+                  <Description>
+                    <h3>
+                      <SLink to={post.node.frontmatter.path}>
+                        {post.node.frontmatter.title}
+                      </SLink>
+                    </h3>
+                    <p>{post.node.frontmatter.date}</p>
+                    <p
+                      dangerouslySetInnerHTML={{ __html: post.node.excerpt }}
+                    />
+                  </Description>
+                </Project>
+              );
+            }
+          })}
+        </Grid>
       </div>
     );
   }
@@ -73,7 +115,10 @@ export const pageQuery = graphql`
             category
             thumbnail {
               childImageSharp {
-                sizes(maxWidth: 800) {
+                sizes(
+                  duotone: { highlight: "#28aa55", shadow: "#1d7f3f" }
+                  maxWidth: 800
+                ) {
                   ...GatsbyImageSharpSizes
                 }
               }
