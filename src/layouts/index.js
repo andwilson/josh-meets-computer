@@ -14,7 +14,7 @@ import favicon from "../images/favicon.ico";
 const Container = styled.div`
   max-width: 960px;
   margin: auto;
-  padding: 0 10px 0 10px;
+  padding: 0 12px 12px 12px;
 `;
 
 class Layout extends React.Component {

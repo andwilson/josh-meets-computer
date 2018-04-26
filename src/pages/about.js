@@ -17,12 +17,14 @@ const Grid = styled.div`
     "avatar title"
     "description description"
     "contact contact"
-    "social social" 80px / 1fr 2fr;
+    "social social"
+    "form form" / 1fr 2fr;
   @media (min-width: 600px) {
     grid-template:
       "avatar title"
       "contact description"
-      "social description" / 1fr 2fr;
+      "social description"
+      "resume form" / 1fr 2fr;
   }
 `;
 
@@ -74,12 +76,16 @@ const Social = styled.div`
   border-bottom: 1px solid grey;
   img {
     height: 40px;
-    margin: 0 15px 0 15px;
+    margin: 0 15px 15px 15px;
     transition: all 0.2s ease;
     &:hover {
       opacity: 0.8;
     }
   }
+`;
+
+const Form = styled.div`
+  grid-area: form;
 `;
 
 export default ({ data }) => (
@@ -127,8 +133,8 @@ export default ({ data }) => (
           <img src={instagram} />
         </a>
       </Social>
+      <Form><ContactForm /></Form>
     </Grid>
-    <ContactForm />
   </div>
 );
 
