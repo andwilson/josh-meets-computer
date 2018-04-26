@@ -7,37 +7,53 @@ import Img from "gatsby-image";
 import CategoryHeader from "../components/CategoryHeader";
 
 const SLink = styled(Link)`
-  text-decoration: none;
-  color: white;
   transition: all 0.2s;
   &:hover {
-    color: #e4e4e4;
+
   }
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr;
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
   grid-gap: 1em;
+  margin-top: 1em;
 `;
 
-const SImg = styled(Img)``;
+const SImg = styled(Img)`
+  width: "100%";
+  height: "auto";
+  z-index: -1;
+  border-radius: 10px;
+`;
 
 const Project = styled.div`
   position: relative;
+  transition: all 0.5s;
+  &:hover {
+      opacity: 0.9;
+  }
 `;
 
 const Description = styled.div`
   position: absolute;
   padding: 1em;
+  @media (min-width: 800px) {
+    padding: 2em;
+  }
   z-index: 2;
   top: 0;
   left: 0;
-  > h3 {
+  > h2 {
+    color: white;
     margin: 0;
   }
   > p {
     color: white;
+    font-size: 12px;
   }
   > p:nth-child(2) {
     font-style: italic;
@@ -65,27 +81,20 @@ class Projects extends React.Component {
             if (post.node.path !== "/404/") {
               return (
                 <Project key={post.node.frontmatter.path}>
-                  <SImg
-                    sizes={
-                      post.node.frontmatter.thumbnail.childImageSharp.sizes
-                    }
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      zIndex: -1
-                    }}
-                  />
-                  <Description>
-                    <h3>
-                      <SLink to={post.node.frontmatter.path}>
-                        {post.node.frontmatter.title}
-                      </SLink>
-                    </h3>
-                    <p>{post.node.frontmatter.date}</p>
-                    <p
-                      dangerouslySetInnerHTML={{ __html: post.node.excerpt }}
+                  <SLink to={post.node.frontmatter.path}>
+                    <SImg
+                      sizes={
+                        post.node.frontmatter.thumbnail.childImageSharp.sizes
+                      }
                     />
-                  </Description>
+                    <Description>
+                      <h2>{post.node.frontmatter.title}</h2>
+                      <p>{post.node.frontmatter.date}</p>
+                      <p
+                        dangerouslySetInnerHTML={{ __html: post.node.excerpt }}
+                      />
+                    </Description>
+                  </SLink>
                 </Project>
               );
             }
@@ -117,7 +126,8 @@ export const pageQuery = graphql`
               childImageSharp {
                 sizes(
                   duotone: { highlight: "#28aa55", shadow: "#1d7f3f" }
-                  maxWidth: 800
+                  maxWidth: 600
+                  maxHeight: 400
                 ) {
                   ...GatsbyImageSharpSizes
                 }
