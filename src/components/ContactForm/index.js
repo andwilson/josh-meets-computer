@@ -38,7 +38,7 @@ const Form = styled.form`
     box-shadow: inset 1px 1px 2px 0px rgba(189,189,189,0.3);
     border: 1px solid rgba(189,189,189,1);
     padding: 7px;
-    font-size: 12px;
+    resize: none;
     :focus {
       outline: none;
       background-color: #eafaf0;
