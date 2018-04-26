@@ -32,7 +32,8 @@ class Letters extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges;
     const categoryTitle = "Letters";
-    const categoryDescription = "Below are the weekly letters I've written so far. A little while ago I started writing weekly letters to my loved ones as a means to keep everyone updated and informed of my whereabouts and happenings. Soon I discovered that the process of writing about my week was beneficial in so many ways! It was meditative. It allowed me time to process what I've experienced. It helped me appreciate the good things that happened in a regular week. It gave me a permanent, detailed repository of the story of my life.";
+    const categoryDescription =
+      "Below are the weekly letters I've written so far. A little while ago I started writing weekly letters to my loved ones as a means to keep everyone updated and informed of my whereabouts and happenings. Soon I discovered that the process of writing about my week was beneficial in so many ways! It was meditative. It allowed me time to process what I've experienced. It helped me appreciate the good things that happened in a regular week. It gave me a permanent, detailed repository of the story of my life.";
 
     return (
       <div>
@@ -40,12 +41,10 @@ class Letters extends React.Component {
         <CategoryHeader
           title={categoryTitle}
           description={categoryDescription}
-          data= {this.props.data}
+          data={this.props.data}
         />
         {posts.map(post => {
-          if (
-            post.node.path !== "/404/"
-          ) {
+          if (post.node.path !== "/404/") {
             return (
               <Post key={post.node.frontmatter.path}>
                 <h3>
@@ -69,16 +68,16 @@ export default Letters;
 export const pageQuery = graphql`
   query LettersQuery {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC },
-      filter: {frontmatter: {category: {eq: "Letters"}}}
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { category: { eq: "Letters" } } }
     ) {
       totalCount
       edges {
         node {
-          excerpt(pruneLength: 250)
+          excerpt(pruneLength: 300)
           frontmatter {
             path
-            date(formatString: "MMMM D, YYYY")
+            date(formatString: "DD MMMM, YYYY")
             title
             category
           }

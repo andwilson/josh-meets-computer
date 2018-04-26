@@ -2,6 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import styled from "styled-components";
+import Img from "gatsby-image";
 
 import CategoryHeader from "../components/CategoryHeader";
 
@@ -39,6 +40,10 @@ class Projects extends React.Component {
                   </SLink>
                 </h3>
                 <p>{post.node.frontmatter.date}</p>
+                <p>{post.node.frontmatter.thumbnail.id}</p>
+                <Img
+                  sizes={post.node.frontmatter.thumbnail.childImageSharp.sizes}
+                />
                 <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
               </div>
             );
@@ -66,6 +71,13 @@ export const pageQuery = graphql`
             date(formatString: "MMMM D, YYYY")
             title
             category
+            thumbnail {
+              childImageSharp {
+                sizes(maxWidth: 800) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
         }
       }

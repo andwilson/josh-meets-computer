@@ -26,7 +26,7 @@ const Ul = styled.ul`
     padding-left: 1em;
     text-indent: -1em;
     &:before {
-      content: '\u21d2 \0000a0';
+      content: "\u21d2 \0000a0";
       padding-right: 5px;
     }
   }
