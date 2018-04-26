@@ -126,7 +126,7 @@ export default ({ data }) => (
         </a>
       </Social>
     </Grid>
-    <form name="contact" method="POST" netlify action="/">
+    <form name="contact" method="POST" netlify>
       <p>
         <label>
           Your Name: <input type="text" name="name" />
