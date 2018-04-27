@@ -5,6 +5,7 @@ date: "2018-04-11"
 path: "/Housing-prediction-engine/"
 category: "Projects"
 section: "lol"
+thumbnail: "boston.jpg"
 
 ---
 
