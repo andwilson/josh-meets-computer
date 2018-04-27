@@ -5,12 +5,11 @@ path: "/new-ventures-2/"
 category: "Projects"
 section: "lol"
 thumbnail: "mit.jpg"
+
 ---
-I recently completed a course at MIT that offered practical guiding advice on the mechanics of creating a new business or venture. Appropriately named 'The Nuts and Bolts Of New Ventures', this course is offered once a year to MIT students and the surrounding community.
+This past winter MIT offered an extracurricular course called "Nuts and Bolts of New Ventures", where lecturers from Sloan School of Management and run the MIT 100k pitch competition bring practical guiding advice on the mechanics of creating a new business or venture. This course is offered once a year to MIT students and the surrounding community, and has brought many entreprenuers and business professionals of all walks of life together to learn new things about starting a business or even to refresh their knowledge on the subject.
 
-The professors and guest speakers, who are lecturers at Sloan School of Management and run the MIT 100k pitch competition, have seen their fair share of startup successes and failures. To that effect, the educational material being passed along in this course (in my opinion) is invaluable to anyone interested in pursuing a new venture.
-
-This essay is my attempt to capture some of the information shared. The following sections are a more cohesive representation of the notes taken during the course. These notes are focused around the act of planning for a new venture and creating a business plan.
+The write-up that follows is my attempt to capture some of the information shared. The following sections are a more cohesive representation of the notes taken during the course. These notes are focused around the act of planning for a new venture and creating a business plan. Anyways, let's get into it!
 
 ## Planning For a New Venture
 
