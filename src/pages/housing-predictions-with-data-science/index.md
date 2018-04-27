@@ -2,7 +2,7 @@
 ---
 title: "Building a Housing Prediction Engine"
 date: "2018-04-11"
-path: "/Housing-prediction-with-data-science/"
+path: "/housing-predictions-with-data-science/"
 category: "Projects"
 section: "lol"
 thumbnail: "boston.jpg"
