@@ -1,12 +1,9 @@
-
 ---
 title: "Building a Housing Prediction Engine"
 date: "2018-04-11"
 path: "/housing-predictions-with-data-science/"
 category: "Projects"
-section: "lol"
 thumbnail: "boston.jpg"
-
 ---
 
 What does an Engineer need to do to deploy a Machine Learning model to a software application? There is a lot that into a full pipeline -- from aggregating the data from source, cleaning, pre-processing and transforming to a model-friendly input, training the model to the point of generating accurate predictions, then maybe even deploying the trained model (and possibly the pre-processing algorithms) as a function call in a software application. Even in that list there can be more steps.
@@ -31,7 +28,7 @@ from keras.layers import Dense
 ```
 
     Using TensorFlow backend.
-    
+
 
 
 ```python
@@ -65,7 +62,7 @@ I'll be working with the Boston Housing dataset, downloadable straight from the 
     B - 1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town
     LSTAT - Percent lower status of the population
     MEDV - Median value of owner-occupied homes in 1000's
-    
+
 This dataset is used to describe the median value of owner-occupied homes during the 1980's. The goal is to build a regression model that predects the expected median value based on the thirteen features provided in the dataset.
 
 
@@ -75,7 +72,7 @@ print('Data loaded. Rows: {}, Columns: {}'.format(*x_train.shape))
 ```
 
     Data loaded. Rows: 404, Columns: 13
-    
+
 
 ## Exploring the Data
 This dataset is quite small, which will probably not give us a super accurate model, but at least it's easy to work with. With the dataset in hand, time to do some exploring. I am interested in things like missing values, properly formatted data points, spread, outliers and relationships in the data.
@@ -95,9 +92,9 @@ trainDF.head()
 ```
 
     Number of zero values per column:
-    
-    CRIM	ZN	INDUS	CHAS	NOX	RM	AGE	DIS	RAD	TAX	PTRATIO	B	LSTAT	
-    0	300	0	379	0	0	0	0	0	0	0	0	0	
+
+    CRIM	ZN	INDUS	CHAS	NOX	RM	AGE	DIS	RAD	TAX	PTRATIO	B	LSTAT
+    0	300	0	379	0	0	0	0	0	0	0	0	0
 
 
 
@@ -231,9 +228,9 @@ trainDF.head()
 ```python
 fig, axes= plt.subplots(4, 3)
 _ = pd.DataFrame(x_train, columns=x_headers).drop('CHAS',1).plot(kind='box',
-                                                                 subplots=True, 
-                                                                 ax=axes, 
-                                                                 showfliers=False, 
+                                                                 subplots=True,
+                                                                 ax=axes,
+                                                                 showfliers=False,
                                                                  vert=False,
                                                                  colormap='jet')
 
@@ -249,7 +246,7 @@ _ = fig.suptitle("Spread of Features",fontsize=20)
 fig, axes= plt.subplots(4, 3)
 _ = pd.DataFrame(p.scale(x_train), columns=x_headers).drop('CHAS',1).plot(kind='hist',
                                                                           bins=20,
-                                                                          subplots=True, 
+                                                                          subplots=True,
                                                                           ax=axes)
 
 _ = fig.suptitle("Distribution of Scaled Features",fontsize=20)
@@ -275,7 +272,7 @@ for ax in axes.flat:
     ax.set_title(headers[i], fontweight='bold', fontsize=12)
     ax.scatter(df.iloc[:,i], y_train, s=15, marker='o', edgecolor='grey', linewidth='0.5')
     i += 1
-    
+
 plt.subplots_adjust(top=0.92, hspace=0.4)
 ```
 
@@ -301,7 +298,7 @@ A common statistical technique to perform on a new dataset is multivariate analy
 
 ```python
 %reload_ext autoreload
-from dataviz import graph_animator 
+from dataviz import graph_animator
 from matplotlib import rc
 from IPython.display import HTML
 %matplotlib notebook
@@ -318,7 +315,7 @@ viz = graph_animator()
       File "C:\Users\joshu\Anaconda3\envs\MLenv\lib\site-packages\matplotlib\animation.py", line 1499, in _stop
         self.event_source.remove_callback(self._loop_delay)
     AttributeError: 'NoneType' object has no attribute 'remove_callback'
-    
+
 
 
     <IPython.core.display.Javascript object>
@@ -338,25 +335,25 @@ The chosen model architecture for this problem was a two layer neural network wi
 ```python
 class NeuralNetwork():
     """
-    Two (hidden) layer neural network model. 
+    Two (hidden) layer neural network model.
     First and second layer contain the same number of hidden units
     """
     def __init__(self, input_dim, units, std=0.0001):
         self.params = {}
         self.input_dim = input_dim
-        
+
         self.params['W1'] = np.random.rand(self.input_dim, units)
         self.params['W1'] *= std
         self.params['b1'] = np.zeros((units))
-        
+
         self.params['W2'] = np.random.rand(units, units)
         self.params['W2'] *= std * 10  # Compensate for vanishing gradients
         self.params['b2'] = np.zeros((units))
-        
+
         self.params['W3'] = np.random.rand(units, 1)
         self.params['b3'] = np.zeros((1,))
-        
-    
+
+
     def mse_loss(self, x, y=None, drop_p=0.9, reg=0.01, evaluate=False, predict=False):
 
         # Unpack variables
@@ -364,164 +361,164 @@ class NeuralNetwork():
         W2, b2 = self.params['W2'], self.params['b2']
         W3, b3 = self.params['W3'], self.params['b3']
         N, D = x.shape
-    
+
         ###############################################
         # Forward Pass
         ###############################################
         Fx = None
-        
+
         # First Layer
-        x1 = np.dot(x, W1) + b1 
-        
+        x1 = np.dot(x, W1) + b1
+
         # Activation
         a1 = np.maximum(x1, 0)
-        
+
         # Drop Out
         drop1 = np.random.choice([1,0],size=x1.shape, p=[drop_p, 1-drop_p]) / drop_p
         a1 *= drop1
-        
+
         # Second Layer
         x2 = np.dot(a1, W2) + b2  
-        
+
         # Activation
         a2 = np.maximum(x2, 0)
-        
+
         # Drop Out
         drop2 = np.random.choice([1,0], size=x2.shape, p=[drop_p, 1-drop_p]) / drop_p
         a2 *= drop2
-        
+
         # Final Layer
         x3 = np.dot(a2, W3) + b3
-        
+
         # Output
         Fx = x3
-        
+
         if predict:
             return Fx
-        
+
         # Mean Squared Error Cost Function
         mse_loss = np.sum((Fx - y.reshape(-1,1))**2, axis=0) / N
         mae_loss = np.sum(np.absolute(Fx - y.reshape(-1,1)), axis=0) / N
         wght_loss = 0.5 * reg * (np.sum(W1**2) + np.sum(W2**2) + np.sum(W3**3))
         loss = mse_loss + wght_loss
-        
+
         if evaluate:
-            return {'loss':loss, 
-                    'mean_absolute_error': mae_loss[0], 
-                    'mean_squared_error': mse_loss[0], 
+            return {'loss':loss,
+                    'mean_absolute_error': mae_loss[0],
+                    'mean_squared_error': mse_loss[0],
                     'weight_loss': wght_loss}
-        
+
         #############################################
         # Backpropagation
         #############################################
-        
+
         grads = {}
-        
+
         # Output
         dFx = 2 * (Fx.copy() - y) / N  # [50, 1]
-        
+
         # Final Layer
         dx3 = np.dot(dFx, W3.T)   
         dW3 = np.dot(x2.T, dFx)
         db3 = np.sum(dFx * N, axis=0)
-        
+
         # Drop Out
         dx3 *= drop2
-        
+
         # activation
         da2 = a2.copy()
         da2[da2 > 0] = 1
         da2[da2 <= 0] = 0
         da2 *= dx3
-        
+
         # Second Layer
         dx2 = np.dot(da2, W2.T)
         dW2 = np.dot(x1.T, da2)
         db2 = np.sum(da2, axis=0)
-        
+
         # Drop out
         dx2 *= drop1
-        
+
         # activation
         da1 = a1.copy()
         da1[da1 > 0] = 1
         da1[da1 < 0] = 0
         da1 *= dx2
-        
+
         # First Layer
-        dx1 = np.dot(da1, W1.T) 
+        dx1 = np.dot(da1, W1.T)
         dW1 = np.dot(x.T, da1)
         db1 = np.sum(da1, axis=0)
-        
+
         grads['W3'] = dW3
         grads['b3'] = db3
         grads['W2'] = dW2
         grads['b2'] = db2
         grads['W1'] = dW1
         grads['b1'] = db1
-        
+
         grads['W3'] += dW3 * reg
         grads['W2'] += dW2 * reg
         grads['W1'] += dW1 * reg
-        
+
         return mae_loss, loss, grads
-    
-    
-    def fit(self, X, y, validation_data, epochs=80, 
+
+
+    def fit(self, X, y, validation_data, epochs=80,
             learning_rate=1e-3, learning_rate_decay=0.99,
             reg=1e-5, batch_size=50, dropout_val=0.95):
-        
+
         assert type(validation_data) == tuple
         x_val, y_val = validation_data
-        
+
         num_train = X.shape[0]
         iters_per_epoch = max(num_train // batch_size, 1)
         val_acc = 0
-        
+
         loss_history = []
         val_loss_history = []
         mae_history = []
         val_mae_history = []
-        
+
         for e in range(epochs):
             for it in range(iters_per_epoch):
                 x_batch = None
                 y_batch = None
 
-                batch_indices = np.random.choice(num_train, 
-                                                 batch_size, 
+                batch_indices = np.random.choice(num_train,
+                                                 batch_size,
                                                  replace=False)
 
                 x_batch = X[batch_indices]
                 y_batch = y[batch_indices]
 
-                mae, loss, grads = self.mse_loss(x_batch, 
-                                            y_batch, 
-                                            drop_p=dropout_val, 
+                mae, loss, grads = self.mse_loss(x_batch,
+                                            y_batch,
+                                            drop_p=dropout_val,
                                             reg=reg)
 
                 val_mae, val_loss, _ = self.mse_loss(x_val, y_val)
-                
+
                 for key in self.params:
                     self.params[key] -= learning_rate * grads[key]
 
                 if it % iters_per_epoch == 0:
                     learning_rate *= learning_rate_decay
-            
+
             # Record cost values for this epoch
             loss_history.append(loss)
             mae_history.append(mae)
             val_loss_history.append(val_loss)
             val_mae_history.append(val_mae)
-            
-        return {'loss': loss_history, 
+
+        return {'loss': loss_history,
                 'mean_absolute_error': mae_history,
                 'val_loss': val_loss_history,
                 'val_mean_absolute_error': val_mae_history}
-            
+
     def evaluate(self, X, y):
         return self.mse_loss(X, y, drop_p=1, evaluate=True)
-    
+
     def predict(self, X):
         return self.mse_loss(X, drop_p=1, predict=True)
 ```
@@ -530,7 +527,7 @@ class NeuralNetwork():
 
 If the dataset is small, then there won't be enough samples to be statistically representative of the data at hand. Few data points means the model will be very prone to overfitting, and an overly complex model with a large architecture will optimize very well to the training data but will be too finely tuned to be able to generalize to new examples. For this reason, the model was built as a two layer neural network. Relu activations were included for predicting with non-linearities.
 
-The loss function / optimization function on this model is the Mean Squared Error, which calculates the distance between the predicted value and the ground truth value, squares the difference then sums this value across all examples. Squaring the difference will exponentially penalize inaccurate estimates, creating a steeper gradient descent in initial training. 
+The loss function / optimization function on this model is the Mean Squared Error, which calculates the distance between the predicted value and the ground truth value, squares the difference then sums this value across all examples. Squaring the difference will exponentially penalize inaccurate estimates, creating a steeper gradient descent in initial training.
 
 The model will be measured by the mean absolute error. This is just the absolute difference between the predicted value and the actual value, translates to actual dollar difference between the prediction and the actual median cost of housing.
 
@@ -547,25 +544,25 @@ class plot_handler():
         self.cols = plot_cols
         self.fig = plt.figure(facecolor='white', figsize=(16,16))
         self.grid = gridspec.GridSpec(self.rows, self.cols)
-        
-        self.grid.update(left=0.1, 
-                         right=0.9, 
+
+        self.grid.update(left=0.1,
+                         right=0.9,
                          wspace=0.2,
                          hspace=.15,
-                         top=0.9, 
+                         top=0.9,
                          bottom=0.1)
 
         self.ax = {}
         self.xlimit = None
         self.ylimit = None
-        
+
     def __call__(self):
         plt.show
-        
+
     def add_plot(self, top, bottom, left, right, name, title):
         self.ax[name] = self.fig.add_subplot(self.grid[top:bottom, left:right])
         self.ax[name].set_title(title,fontweight="bold", size=14)
-        
+
         # self.ax[name].set_xticks([])
         # self.ax[name].set_yticks([])
     def plot_exists(self, name):
@@ -573,10 +570,10 @@ class plot_handler():
             return True
         else:
             return False
-        
+
     def plot(self, data, plot_name, ylim=None, c='b', alpha=1.0):
         self.ax[plot_name].plot(data,  '-', c=c, alpha=alpha)
-        
+
         if not ylim:
             self.ax[plot_name].set_ylim([0,ylim])
 ```
@@ -587,7 +584,7 @@ K-fold validation is the technique of splitting your data during training and av
 Generally, if different shuffling of data before splitting into test and train yield a different model performance, then there is not enough data and k-folding would be a good approach.
 
 ## Pre-processing the data
-Most predictive models work best under the assumption that the data is centered about zero, and that all features have an equal magnitude of variance. This equal variance allows the cost function of the model to weight all features equally. If some features are more important than others, they can be scaled differently so that the features variability contributes more to the cost function. Because of this, it's a good idea to translate the dataset so it is centered around zero and scale each feature to have a unit standard deviation. 
+Most predictive models work best under the assumption that the data is centered about zero, and that all features have an equal magnitude of variance. This equal variance allows the cost function of the model to weight all features equally. If some features are more important than others, they can be scaled differently so that the features variability contributes more to the cost function. Because of this, it's a good idea to translate the dataset so it is centered around zero and scale each feature to have a unit standard deviation.
 
 It's worth noting that some models, like Decision Tree algorithms are robust to different scales.
 
@@ -621,10 +618,10 @@ legends = ['Train', 'Train', 'Validation', 'Validation']
 history_set = {metric: np.zeros(shape=(epoch_count, shuff_count * split_count)) for metric in metrics}
 
 plotter = plot_handler(2, 1)
-plotter.add_plot(top=0,bottom=1,left=0,right=1, 
-                 name='Loss', 
+plotter.add_plot(top=0,bottom=1,left=0,right=1,
+                 name='Loss',
                  title='Average Loss')
-plotter.add_plot(top=1,bottom=2, left=0, right=1, 
+plotter.add_plot(top=1,bottom=2, left=0, right=1,
                  name='Mean Absolute Error',
                  title='House Price Error: Estimate vs Actual (in $1000s)')
 ############################################
@@ -633,13 +630,13 @@ best_model = NeuralNetwork(input_dim=x_train.shape[1], units=64)  # base_model()
 
 while i < shuff_count:
     i += 1
-    data_folds = mdl.KFold(n_splits=split_count, 
-                           shuffle=True, 
+    data_folds = mdl.KFold(n_splits=split_count,
+                           shuffle=True,
                            random_state=seed).split(data)
-    
+
     for dfold in data_folds:
         train, valid = dfold
-        
+
         # Seperate each k fold of train data into a train and validation set
         xt = scale.transform(data[train,:-1])
         yt = data[train,-1:]
@@ -650,25 +647,25 @@ while i < shuff_count:
 
         model = NeuralNetwork(input_dim=x_train.shape[1], units=64)  # base_model()
         history = model.fit(xt, yt, validation_data=(xv, yv), epochs=epoch_count)
-        
+
         for m in metrics:
             # history_set[m][:, b] = history.history[m]
             history_set[m][:, b] = history[m]
 
         for metric, plot in zip(metrics, subplot):
             color = 'blue' if  metric[:3] == 'val' else 'green'
-            plotter.ax[plot].plot(history[metric], 
-                                  c=color, 
+            plotter.ax[plot].plot(history[metric],
+                                  c=color,
                                   linewidth=2,
                                   alpha=0.2)
-        
+
         # Evaluate each model, keep the best one
         curr_evaluation = model.evaluate(scale.transform(x_test), y_test)  #, verbose=0)
         best_evaluation = best_model.evaluate(scale.transform(x_test), y_test)  #, verbose=0)
-        
+
         if curr_evaluation['mean_squared_error'] < best_evaluation['mean_squared_error']:
             best_model = model
-            
+
         b += 1
 
 # Plot average of all folds
@@ -678,7 +675,7 @@ for metric, plot in zip(metrics, subplot):
                           c=color,
                           linewidth=3,
                           alpha=1.0)
-    
+
 # Add Legend
 train = mpatches.Patch(color='green', label='Train')
 valid = mpatches.Patch(color='blue', label='Validation')
@@ -715,10 +712,10 @@ print(round(mae * 1000, 2))
 ```
 
     Base Model mean absolute error on test results: $3056.36
-    
+
 
 ## Determining Feature Importance
-Are there certain features that play a larger role in the final prediction? One way to see the importance of certain features is to corrupt one of the features and see how it affects the prediction capabilities of the model. Features can be ranked based on the results of the model's prediction capabilities when the feature is rendered useless. 
+Are there certain features that play a larger role in the final prediction? One way to see the importance of certain features is to corrupt one of the features and see how it affects the prediction capabilities of the model. Features can be ranked based on the results of the model's prediction capabilities when the feature is rendered useless.
 
 
 ```python
@@ -733,26 +730,26 @@ def rankFeatures(x, y, model, column_names, metric='mean_squared_error'):
     """
     num_features = x.shape[1]
     errors = []
-    
+
     base_err = model.evaluate(x, y[:, None])[metric]
-    
+
     for i in range(num_features):
         hold = x[:, i]
         np.random.shuffle(x[:, i])
 
         shuffled_acc = model.evaluate(x, y[:, None])[metric]
         errors.append(shuffled_acc)
-        
+
         x[:,i] = hold
-    
+
     max_error = np.max(errors)
     feat_rank = [err / max_error for err in errors]
-    
+
     errors = [round(err - base_err,2)*1000 for err in errors]
     data = pd.DataFrame({'Features':column_names, 'Increased Error ($)':errors, 'Importance':feat_rank})
     data.sort_values(by=['Importance'], ascending=[0], inplace=True)
     data.reset_index(inplace=True, drop=True)
-    
+
     return data
 ```
 
@@ -891,7 +888,7 @@ with open('model.pkl', 'wb') as f:
 ## Creating S3 bucket for Model
 I want to be able to access the model from a lambda function, so I'm going to setup an S3 bucket on AWS and upload the pickled model to that bucket. From command line interface, I'll copy my model to my S3 bucket
 
-    $ aws s3 cp model.pkl s3://<my-bucket-name> 
+    $ aws s3 cp model.pkl s3://<my-bucket-name>
 
 ## Creating Web app
 
@@ -899,7 +896,7 @@ Next I'll create an app folder
 
     $ mkdir app
 
-In that folder create an api.py file. 
+In that folder create an api.py file.
 
 This is API will instantiate my model and allow for a POST request that recieves a json data packet of input data and returns a json packet with the prediction.
 
@@ -950,7 +947,7 @@ This is API will instantiate my model and allow for a POST request that recieves
 
 I'll need a JSON data packet to send the API, so in a bin/ folder I'll drop in a sample:
 
-    { 
+    {
         "data": [
                     [9.18702, 0.0, 18.1, 0.0, 0.7, 5.536, 100.0, 1.5804, 24.0, 666.0, 20.2, 396.9, 23.6]
                 ]
@@ -959,7 +956,7 @@ I'll need a JSON data packet to send the API, so in a bin/ folder I'll drop in a
 I'll run the program through command line to get it going
 
     $ python app/api.py
-    
+
      * Restarting with stat
      * Debugger is active!
      * Debugger PIN: 111-813-852
@@ -990,20 +987,20 @@ And in a new terminal, send the data packet to the model and see it return the p
 With the local version working, I'll deploy to a lambda instance using Zappa. This requires that I make a virtual environment with the required packages to run the web app, to initialize a settings file which creates an S3 bucket, an AWS API gateway and a lambda function for me, and returns a URL string to run a post request:
 
     $ mkdir env
-    
+
     $ python -m venv appEnv
-    
+
     $ pip install pip==9.0.1 zappa flask numpy keras scikit-learn awscli dill
-    
+
     $ zappa init
-    
+
     $ zappa deploy
-    
+
 ## Making API Calls
 Last step is to POST to the API, then we have a ML back end ready for our web app.
-    
+
     $ http POST https://[redacted].execute-api.us-east-1.amazonaws.com/dev < bin/data.json
-    
+
     {
     "prediction": [
         [
