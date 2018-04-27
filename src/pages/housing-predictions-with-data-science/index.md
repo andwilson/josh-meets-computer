@@ -1,8 +1,10 @@
 
 ---
-title: "Data Science Walkthrough: Housing Prediction Engine"
+title: "Building a Housing Prediction Engine"
 date: "2018-04-11"
-page: "/projects/"
+path: "/Housing-prediction-engine/"
+category: "Projects"
+section: "lol"
 
 ---
 
