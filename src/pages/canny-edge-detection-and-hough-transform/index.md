@@ -223,25 +223,4 @@ color_edges = np.dstack((edge_only, edge_only, edge_only))
 # Draw the lines on the edge image
 combo = cv2.addWeighted(color_edges, 0.8, line_image, 1, 0)
 plt.imshow(combo)
-```
 
-
-    ---------------------------------------------------------------------------
-
-    error                                     Traceback (most recent call last)
-
-    <ipython-input-48-abc7c0f3188c> in <module>()
-         21
-         22 # Draw the lines on the edge image
-    ---> 23 combo = cv2.addWeighted(color_edges, 0.8, line_image, 1, 0)
-         24 plt.imshow(combo)
-
-
-    error: ..\..\..\modules\core\src\arithm.cpp:639: error: (-209) The operation is neither 'array op array' (where arrays have the same size and the same number of channels), nor 'array op scalar', nor 'scalar op array' in function cv::arithm_op
-
-
-
-
-```python
-
-```
