@@ -106,14 +106,3 @@ plt.show()
 
 
 ![png](output_5_1.png)
-
-
-
-```python
-
-```
-
-
-```python
-
-```

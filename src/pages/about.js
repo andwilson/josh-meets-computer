@@ -17,6 +17,7 @@ const Grid = styled.div`
     "avatar title"
     "description description"
     "contact contact"
+    "resume resume"
     "social social"
     "form form" / 1fr 2fr;
   @media (min-width: 600px) {
@@ -88,6 +89,10 @@ const Form = styled.div`
   grid-area: form;
 `;
 
+const Resume = styled.div`
+  grid-area: resume;
+`;
+
 export default ({ data }) => (
   <div>
     <Helmet>
@@ -133,6 +138,11 @@ export default ({ data }) => (
           <img src={instagram} />
         </a>
       </Social>
+      <Resume>
+        <a href="../images/JAZ-Resume-April-2018.pdf" download>
+          Download my resume
+        </a>
+      </Resume>
       <Form><ContactForm /></Form>
     </Grid>
   </div>
