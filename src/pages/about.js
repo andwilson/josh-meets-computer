@@ -4,11 +4,13 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 import FA from "react-fontawesome";
 
-import ContactForm from "../components/ContactForm"
+import ContactForm from "../components/ContactForm";
 
 import github from "../images/github-2.svg";
 import linkedin from "../images/linkedin-2.svg";
 import instagram from "../images/instagram-2.svg";
+
+import resume from "./JAZ-Resume-April-2018.pdf";
 
 const Grid = styled.div`
   display: grid;
@@ -91,6 +93,21 @@ const Form = styled.div`
 
 const Resume = styled.div`
   grid-area: resume;
+  justify-self: center;
+  margin: 10px 0 20px 0;
+  > a {
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #1d7f3f;
+    background-color: #28aa55;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 7px
+    :hover {
+      background-color: #1d7f3f;
+    }
+  }
 `;
 
 export default ({ data }) => (
@@ -139,11 +156,13 @@ export default ({ data }) => (
         </a>
       </Social>
       <Resume>
-        <a href="../images/JAZ-Resume-April-2018.pdf" download>
-          Download my resume
+        <a href={resume} download="JAZ-Resume-April-2018.pdf">
+          Download resume <FA name="arrow-circle-down" />
         </a>
       </Resume>
-      <Form><ContactForm /></Form>
+      <Form>
+        <ContactForm />
+      </Form>
     </Grid>
   </div>
 );

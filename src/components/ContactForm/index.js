@@ -1,6 +1,7 @@
 import React from "react";
 import { navigateTo } from "gatsby-link";
 import styled from "styled-components";
+import FA from "react-fontawesome";
 
 const H2 = styled.h2`
   margin: 10px 0 1em 0;
@@ -109,7 +110,9 @@ export default class ContactForm extends React.Component {
           <label>Message:</label>
           <textarea name="message" onChange={this.handleChange} />
           <div></div>
-          <button type="submit">SEND</button>
+          <button type="submit">
+            SEND <FA name="arrow-circle-right" />
+          </button>
         </Form>
       </div>
     );
