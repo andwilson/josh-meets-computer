@@ -333,30 +333,6 @@ The chosen model architecture for this problem was a two layer neural network wi
 
 
 ```python
-# Construct simple model
-def base_model():
-    model = Sequential()
-    
-    model.add(Dense(units=64, 
-                    input_dim=num_features,
-                    kernel_initializer='normal',
-                    activation='relu',
-                    use_bias=True))
-    model.add(Dense(units=64, 
-                    kernel_initializer='normal',
-                    activation='relu',
-                    use_bias=True))
-    model.add(Dense(units=1, 
-                    kernel_initializer='normal',
-                    activation='linear',
-                    use_bias=True))
-    model.compile(loss='mean_squared_error', 
-                  optimizer='sgd', 
-                  metrics=['mae'])
-
-    return model
-
-
 class NeuralNetwork():
     """
     Two (hidden) layer neural network model. 
