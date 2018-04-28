@@ -37,7 +37,7 @@ class Notes extends React.Component {
     const posts = this.props.data.allMarkdownRemark.edges;
     const categoryTitle = "Notes";
     const categoryDescription =
-      "Below is a bit of an external hard drive for my brain, where I keep notes on the things I've learned while exploring computer science. The more I learn in the A.I space, the more I find myself going back trying to recall how I implemented one function or another. I figure if I take the time to learn something new, it's for a reason! And when the time comes to apply what I've learned, I know I'll have notes lying around somewhere ;)";
+      "Below is a bit of an external hard drive for my brain, where I keep notes on the things I've learned while exploring computer science and building projects. I organized my code journals by areas of interest, each note usually has some description of what it is used for and some code snippets I wrote on implementation. Feel free to poke around.";
     // unique array of sections
     const sections = posts
       .map(post => post.node.frontmatter.section)
