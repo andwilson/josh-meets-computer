@@ -1,12 +1,9 @@
-
 ---
 title: "Social Network Prediction Problem"
 date: "2018-04-17"
 path: "/link-prediction-problem/"
 category: "Notes"
 section: "Network Analysis"
-
-
 ---
 
 
