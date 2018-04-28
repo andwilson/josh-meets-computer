@@ -2,12 +2,11 @@
 ---
 title: "HITS Algorithm: Hubs and Authority"
 date: "2018-04-18"
-page: "/hits-algorithm/"
+path: "/hits-algorithm/"
 category: "Notes"
 section: "Network Analysis"
 
 ---
-
 
 Algorithm runs k iterations, updating the hub value and authority value of all nodes.
 
