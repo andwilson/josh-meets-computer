@@ -3,7 +3,6 @@ title: "Week #1: 2018 and Project 12"
 date: "2018-01-22"
 path: "/2018-01-22-letter/"
 category: "Letters"
-section: "lol"
 ---
 Hi,
 

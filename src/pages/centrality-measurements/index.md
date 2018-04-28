@@ -1,11 +1,9 @@
-
 ---
 title: "Graph Search Algorithms"
 date: "2018-04-13"
 path: "/centrality-measurements/"
 category: "Notes"
 section: "Network Analysis"
-
 ---
 
 # Centrality Measurements
@@ -51,10 +49,10 @@ G = nx.wheel_graph(12).to_directed()
 def degreeCentrality(G):
     num_nodes = len(G.nodes())
     centrality = {n: 0 for n in G.nodes()}
-    
+
     for n in G.nodes():
         centrality[n] = np.round(G.in_degree(n) / (num_nodes - 1), 2)
-        
+
     return centrality
 
 centrality = DegreeCentrality(G)
@@ -164,10 +162,10 @@ def closenessCentrality(G, node):
     Closeness defined by the number of [other] nodes in the network
     divided by the sum of all the nodes divided by the nodes distance from them
     """
-    
+
     paths = all_shortest_paths(G, node)
     n1_to = {n: len(p) - 1 for n, p in paths.items()}
-    
+
     closeness = (G.number_of_nodes() - 1) / sum([n1_to[n2] for n2 in G.nodes()])
 
     return closeness
@@ -175,25 +173,25 @@ def closenessCentrality(G, node):
 
 def all_shortest_paths(G, source):
     assert source in G, 'Source node not in Graph'
-    
+
     this_level = [source]
     paths_to = {source: [source]}
-    
+
     return _all_shortest_paths_from(this_level, G.adj, paths_to)
 
 def _all_shortest_paths_from(first_level, adj_to, paths_to):
     next_level = first_level
-    
+
     while next_level:
         curr_level = next_level
         next_level = []
-        
+
         for curr_node in curr_level:
             for next_node in adj_to[curr_node]:
                 if next_node not in paths_to:
                     paths_to[next_node] = paths_to[curr_node] + [next_node]
                     next_level += [next_node]
-                    
+
     return paths_to
 
 ```
@@ -255,7 +253,7 @@ paths_containing_n = 0
 u_v = [i for i in it.combinations(nodes, 2)]
 
 for n in nodes:
-    for path in u_v: 
+    for path in u_v:
         v1, v2 = path
         if v1 == n or v2 == n: continue
         paths_containing_n = 0
@@ -265,13 +263,13 @@ for n in nodes:
             if n in p:
                 paths_containing_n +=1
         if n == 'D':
-            print('shortest paths between {} and {}:\n{} path(s) with D / {} path(s) = {}\n'.format(*path, 
-                                                                                     paths_containing_n, 
+            print('shortest paths between {} and {}:\n{} path(s) with D / {} path(s) = {}\n'.format(*path,
+                                                                                     paths_containing_n,
                                                                                      total_number_paths,
                                                                                      paths_containing_n/total_number_paths))
         betweenness[n] += (paths_containing_n /
                            total_number_paths)
-                
+
 node = max(betweenness, key=betweenness.get)
 print('Node with highest betweenness centrality:', node, '\nScore:',betweenness[node])
 ```
@@ -282,52 +280,52 @@ print('Node with highest betweenness centrality:', node, '\nScore:',betweenness[
 
     shortest paths between G and C:
     1 path(s) with D / 1 path(s) = 1.0
-    
+
     shortest paths between G and E:
     0 path(s) with D / 1 path(s) = 0.0
-    
+
     shortest paths between G and B:
     1 path(s) with D / 1 path(s) = 1.0
-    
+
     shortest paths between G and F:
     0 path(s) with D / 1 path(s) = 0.0
-    
+
     shortest paths between G and A:
     1 path(s) with D / 1 path(s) = 1.0
-    
+
     shortest paths between C and E:
     1 path(s) with D / 1 path(s) = 1.0
-    
+
     shortest paths between C and B:
     0 path(s) with D / 1 path(s) = 0.0
-    
+
     shortest paths between C and F:
     1 path(s) with D / 1 path(s) = 1.0
-    
+
     shortest paths between C and A:
     0 path(s) with D / 1 path(s) = 0.0
-    
+
     shortest paths between E and B:
     1 path(s) with D / 1 path(s) = 1.0
-    
+
     shortest paths between E and F:
     0 path(s) with D / 1 path(s) = 0.0
-    
+
     shortest paths between E and A:
     1 path(s) with D / 1 path(s) = 1.0
-    
+
     shortest paths between B and F:
     1 path(s) with D / 1 path(s) = 1.0
-    
+
     shortest paths between B and A:
     0 path(s) with D / 1 path(s) = 0.0
-    
+
     shortest paths between F and A:
     1 path(s) with D / 1 path(s) = 1.0
-    
-    Node with highest betweenness centrality: D 
+
+    Node with highest betweenness centrality: D
     Score: 9.0
-    
+
 
 ## Normalized Betweenness Centrality
 dividing the centrality by the number of pairs in the network
@@ -343,7 +341,7 @@ def betweennessCentrality(G):
     u_v = [i for i in it.combinations(nodes, 2)]
 
     for n in nodes:
-        for path in u_v: 
+        for path in u_v:
             v1, v2 = path
             if v1 == n or v2 == n: continue
             paths_containing_n = 0
@@ -359,12 +357,12 @@ def betweennessCentrality(G):
     # Normalize ################################################
     N = len(nodes)
     betweenness = {n: betweenness[n] / (0.5 * (N-1) * (N-2)) for n in nodes}#
-    ############################################################ 
-    
+    ############################################################
+
     return betweenness
-    
+
 betweenness = betweennessCentrality(G)
-    
+
 node = max(betweenness, key=betweenness.get)
 print('Node with highest betweenness Centrality:{}'.format(node))
 print('Normalized Score:',betweenness[node])
@@ -372,7 +370,7 @@ print('Normalized Score:',betweenness[node])
 
     Node with highest betweenness Centrality:0
     Normalized Score: 0.7
-    
+
 
 
 ```python
@@ -390,9 +388,9 @@ assert degreeCentrality(G)[0] == nx.degree_centrality(G)[0]
           1 assert betweennessCentrality(G)[0] == nx.betweenness_centrality(G)[0]
           2 assert closenessCentrality(G, 0) == nx.closeness_centrality(G)[0]
     ----> 3 assert degreeCentrality(G)[0] == nx.degree_centrality(G)[0]
-    
 
-    AssertionError: 
+
+    AssertionError:
 
 
 
@@ -404,5 +402,3 @@ nx.degree_centrality(G)[0]
 
 
     2.0
-
-

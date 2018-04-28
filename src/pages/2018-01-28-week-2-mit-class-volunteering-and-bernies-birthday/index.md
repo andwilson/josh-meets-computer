@@ -3,7 +3,6 @@ title: "Week #2: MIT Class, Volunteering and Bernies Birthday"
 date: "2018-01-28"
 path: "/2018-01-28-letter/"
 category: "Letters"
-section: "lol"
 ---
 Hi all,
 

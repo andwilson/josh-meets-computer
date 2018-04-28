@@ -1,11 +1,9 @@
-
 ---
 title: "Graph Types"
 date: "2018-04-02"
 path: "/graph-types/"
 category: "Notes"
 section: "Network Analysis"
-
 ---
 
 **Undirected** - generally used for symmetric relationships, these graphs have edges between nodes that do not have an orientation (or direction). An example could be a family and friends network -- if one person is a family member of another, we can assume that the same is true in the opposite direction.
@@ -43,14 +41,14 @@ def plot_graph(G, weight_name=None):
     '''
     %matplotlib notebook
     import matplotlib.pyplot as plt
-    
+
     fig = plt.figure(figsize=(8,8))
     fig.suptitle(weight_name)
     pos = nx.spring_layout(G)
     edges = G.edges()
     weights = None
     plt.axis('off')
-    
+
     if weight_name:
         weights = [int(G[u][v][weight_name]) for u,v in edges]
         labels = {i:k for i, k in nx.get_edge_attributes(G, weight_name).items() if k != 0}
@@ -66,16 +64,16 @@ help(relG.add_edge)
 ```
 
     Help on method add_edge in module networkx.classes.graph:
-    
+
     add_edge(u, v, attr_dict=None, **attr) method of networkx.classes.graph.Graph instance
         Add an edge between u and v.
-        
+
         The nodes u and v will be automatically added if they are
         not already in the graph.
-        
+
         Edge attributes can be specified with keywords or by providing
         a dictionary with key/value pairs.  See examples below.
-        
+
         Parameters
         ----------
         u, v : nodes
@@ -87,35 +85,35 @@ help(relG.add_edge)
         attr : keyword arguments, optional
             Edge data (or labels or objects) can be assigned using
             keyword arguments.
-        
+
         See Also
         --------
         add_edges_from : add a collection of edges
-        
+
         Notes
         -----
         Adding an edge that already exists updates the edge data.
-        
+
         Many NetworkX algorithms designed for weighted graphs use as
         the edge weight a numerical value assigned to a keyword
         which by default is 'weight'.
-        
+
         Examples
         --------
         The following all add the edge e=(1,2) to graph G:
-        
+
         >>> G = nx.Graph()   # or DiGraph, MultiGraph, MultiDiGraph, etc
         >>> e = (1,2)
         >>> G.add_edge(1, 2)           # explicit two-node form
         >>> G.add_edge(*e)             # single edge as tuple of two nodes
         >>> G.add_edges_from( [(1,2)] ) # add edges from iterable container
-        
+
         Associate data to edges using keywords:
-        
+
         >>> G.add_edge(1, 2, weight=3)
         >>> G.add_edge(1, 3, weight=7, capacity=15, length=342.7)
-    
-    
+
+
 
 ## Employee Relationships and Shared Movie Interests
 The challenge set in front of me is to determine if there is a correlation between employees movie interests and their relationship with one another. I have data that measures employee relationships, and I have data that recorded the movies each employee has watched. The plan is to correlate the employee relationship attributes with the shared movie interest attributes.
@@ -174,16 +172,16 @@ plot_graph(G, weight_name='weight')
 
 
 ```python
-# Get left and right bipartite nodes 
+# Get left and right bipartite nodes
 mov_nodes = bipartite.sets(emp_movG)[0]
 emp_nodes = bipartite.sets(emp_movG)[1]
 
 print('List of Movies','\n---------------')
-for i in mov_nodes: print(i) 
+for i in mov_nodes: print(i)
 print()
 print('List of Employees','\n----------------')
 for i in emp_nodes: print(i)
-    
+
 print()
 print('Employee Movie Choices file','\n----------------------')
 !cat Employee_Movie_Choices.txt
@@ -192,7 +190,7 @@ print('Employee Relationship file','\n----------------------')
 !cat Employee_Relationships.txt
 ```
 
-    List of Movies 
+    List of Movies
     ---------------
     Mean Girls
     The Dark Knight
@@ -205,8 +203,8 @@ print('Employee Relationship file','\n----------------------')
     Anaconda
     Kung Fu Panda
     Snakes on a Plane
-    
-    List of Employees 
+
+    List of Employees
     ----------------
     Joan
     Claude
@@ -216,8 +214,8 @@ print('Employee Relationship file','\n----------------------')
     Frida
     Georgia
     Andy
-    
-    Employee Movie Choices file 
+
+    Employee Movie Choices file
     ----------------------
     #Employee	Movie
     Andy	Anaconda
@@ -244,8 +242,8 @@ print('Employee Relationship file','\n----------------------')
     Vincent	The Godfather
     Vincent	The Shawshank Redemption
     Vincent	The Social Network
-    
-    Employee Relationship file 
+
+    Employee Relationship file
     ----------------------
     Andy	Claude	0
     Andy	Frida	20
@@ -275,7 +273,7 @@ print('Employee Relationship file','\n----------------------')
     Lee	Pablo	0
     Lee	Vincent	0
     Pablo	Vincent	-20
-    
+
 
 
 ```python
@@ -367,7 +365,7 @@ corrDF.corr('pearson')
 ```
 
     Final Correlation Between relationships and movie interests:
-    
+
 
 
 
@@ -451,7 +449,7 @@ bipartite.sets(B)
 
 
 ## Projected Graphs
-Within the subgroups of Bipartitite Graphs, there can be Projected Graphs describing the relationship amongst the left and right Bipartite subgroups. For example, in a Bipartite Graph describing fans and their favorite sports teams (left and right Bipartite), you could create a Projected Graph on the fans describing which fans support the same teams, where the edges between fans desribes the number or category of team two fan nodes have in common. These kind of relationships can be useful for viral marketing, finding similarities amongst individuals and customizing marketing material accordingly. 
+Within the subgroups of Bipartitite Graphs, there can be Projected Graphs describing the relationship amongst the left and right Bipartite subgroups. For example, in a Bipartite Graph describing fans and their favorite sports teams (left and right Bipartite), you could create a Projected Graph on the fans describing which fans support the same teams, where the edges between fans desribes the number or category of team two fan nodes have in common. These kind of relationships can be useful for viral marketing, finding similarities amongst individuals and customizing marketing material accordingly.
 
 
 ```python
@@ -462,7 +460,7 @@ P.edges(data=True)
 ```
 
     Described share connections amongst L-group in Bipartite Graph
-    
+
 
 
 
@@ -475,6 +473,6 @@ P.edges(data=True)
 Existing connections indicate a high probability of where a new connection will be added -- two nodes that share a connection have a high probability of becoming connected themselves/
 
 ## Measuring
-Local Clustering Coefficient, which can be computed on a node by the number of pairs of connections divided by the number of pairs of connections from the nodes connections. 
+Local Clustering Coefficient, which can be computed on a node by the number of pairs of connections divided by the number of pairs of connections from the nodes connections.
 
-Global Clustering Coefficient, which can be described by taking the average of all the local clustering coefficients from each node, or by transiity -- number of triangles divided by the number of open triads 
+Global Clustering Coefficient, which can be described by taking the average of all the local clustering coefficients from each node, or by transiity -- number of triangles divided by the number of open triads
