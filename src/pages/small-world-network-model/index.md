@@ -1,10 +1,9 @@
-
 ---
 title: "Small World Network Model"
 date: "2018-04-16"
 path: "/small-world-network-model/"
 section: "Network Analysis"
-category: "Notes
+category: "Notes"
 ---
 
 # Small World Network Model
