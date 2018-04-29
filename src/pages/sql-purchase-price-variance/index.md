@@ -1,5 +1,4 @@
-
----
+--- 
 title: "SQL Development for Financial Variance Reporting"
 date: "2018-04-08"
 path: "/sql-purchase-price-variance/"
