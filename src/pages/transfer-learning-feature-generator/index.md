@@ -1,4 +1,3 @@
-
 ---
 title: "Transfer Learning Feature Generator"
 date: "2017-11-17"
