@@ -67,6 +67,7 @@ function encode(data) {
     .join("&");
 }
 
+
 export default class ContactForm extends React.Component {
   constructor(props) {
     super(props);
