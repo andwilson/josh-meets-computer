@@ -1,5 +1,5 @@
 ---
-title: "Graph Search Algorithms"
+title: "Graph Centrality Measurements"
 date: "2018-04-13"
 path: "/centrality-measurements/"
 category: "Notes"
