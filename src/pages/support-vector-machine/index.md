@@ -1,7 +1,7 @@
 ---
 title: "Support Vector Machine"
 date: "2018-04-30"
-page: "/support-vector-machine/"
+path: "/support-vector-machine/"
 category: "Notes"
 section: "Machine Learning"
 ---
