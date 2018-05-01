@@ -3,7 +3,7 @@ title: "Building a Housing Prediction Engine"
 date: "2018-04-11"
 path: "/housing-predictions-with-data-science/"
 category: "Projects"
-thumbnail: "boston.jpg"
+thumbnail: "thumbnail.jpg"
 ---
 
 What does an Engineer need to do to deploy a Machine Learning model to a software application? There is a lot that into a full pipeline -- from aggregating the data from source, cleaning, pre-processing and transforming to a model-friendly input, training the model to the point of generating accurate predictions, then maybe even deploying the trained model (and possibly the pre-processing algorithms) as a function call in a software application. Even in that list there can be more steps.
