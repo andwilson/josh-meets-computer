@@ -3,7 +3,7 @@ title: "Support Vector Machine"
 date: "2018-04-30"
 path: "/support-vector-machine/"
 category: "Notes"
-section: "Machine Learning"
+section: "Machine Learning Algorithms"
 ---
 
 Support Vector Machine is a machine learning model that makes use of an L2 hinge loss function to optimize a linear classification model. It's best described by it's loss function, which seeks to create a margin between the score it gives to the correct label, and the score it gives to the other incorrect labels.
