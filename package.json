@@ -1,14 +1,11 @@
 {
-  "name": "gatsby-starter-blog-no-styles",
-  "description": "Starter Gatsby Blog No Styles",
+  "name": "joshmeetscomputer.com",
+  "description": "Josh Zastrows personal online portfolio",
   "version": "1.0.0",
-  "author": "Noah Glusenkamp <noah.glusenkamp@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
-  },
+  "author": "Andrew Wilson",
   "dependencies": {
     "fontawesome": "^4.7.2",
-    "gatsby": "^1.8.12",
+    "gatsby": "^1.9.256",
     "gatsby-image": "^1.0.45",
     "gatsby-link": "^1.6.8",
     "gatsby-plugin-google-analytics": "^1.0.4",
@@ -29,7 +26,8 @@
     "gatsby-transformer-sharp": "^1.6.22",
     "lodash": "^4.15.0",
     "react-fontawesome": "^1.6.1",
-    "styled-components": "^3.2.5"
+    "styled-components": "^3.2.5",
+    "yarn": "^1.6.0"
   },
   "devDependencies": {
     "prettier": "^1.6.1"
@@ -46,7 +44,6 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }

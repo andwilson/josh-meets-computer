@@ -3,7 +3,7 @@ title: "SQL Development for Financial Variance Reporting"
 date: "2018-04-08"
 path: "/sql-purchase-price-variance/"
 category: "Projects"
-thumbnail: "PPVReport.jpg"
+thumbnail: "thumbnail.jpg"
 ---
 
 This write up walks through the development of a business query that identifies cost variances in invoices and purchase orders. I will be explaining the logic used to develop the sub-queries as well as the final join to produce the query results.

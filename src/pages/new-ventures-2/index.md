@@ -3,7 +3,7 @@ title: "MIT Nuts And Bolts: New Ventures"
 date: "2018-01-15"
 path: "/new-ventures-2/"
 category: "Projects"
-thumbnail: "mit.jpg"
+thumbnail: "thumbnail.jpg"
 ---
 This past winter MIT offered an extracurricular course called "Nuts and Bolts of New Ventures", where lecturers from Sloan School of Management and run the MIT 100k pitch competition bring practical guiding advice on the mechanics of creating a new business or venture. This course is offered once a year to MIT students and the surrounding community, and has brought many entreprenuers and business professionals of all walks of life together to learn new things about starting a business or even to refresh their knowledge on the subject.
 

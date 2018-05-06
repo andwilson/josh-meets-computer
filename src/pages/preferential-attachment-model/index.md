@@ -2,7 +2,7 @@
 title: "Preferential Attachment Model"
 date: "2018-04-18"
 path: "/preferential-attachment-model/"
-section: "Network Analysis" 
+section: "Network Analysis"
 category: "Notes"
 ---
 
@@ -61,7 +61,7 @@ The rich get richer phenomenon operates on the mechanics of the Power law. f(x) 
 - Populations exibit Power law. A city grows in proportion to it's current size (rabbits and mice population growth is more evident)
 - Websites exhibit Power law. As a website increases in popularity, more websites begin to link back to that website.
 - People's social influence exhibit a Power Law. As a persons popularity increases, there is an increase likelihood for new people to have heard mention of the persons name.
-- Number of copies of a gene in a Genome is proportional to the number of copies that already exist. As mutation events occur, the likelihood of a specific gene to get copied is a function of how many times that gene already occurs on the genome. 
+- Number of copies of a gene in a Genome is proportional to the number of copies that already exist. As mutation events occur, the likelihood of a specific gene to get copied is a function of how many times that gene already occurs on the genome.
 
 
 ```python
@@ -94,20 +94,20 @@ ax2.set_ylabel('Average Shortest Path')
 for m in range(2,12, 2):
     ave_clustering = []
     ave_pathLength = []
-    
+
     node_population = list(range(500, 3000, 500))
     for k in node_population:
         G = nx.barabasi_albert_graph(k, m)
         ave_clustering.append(nx.average_clustering(G))
         ave_pathLength.append(nx.average_shortest_path_length(G))
-              
+
     ax1.plot(node_population, ave_clustering, label='m={}'.format(m))
     ax2.plot(node_population, ave_pathLength, label='m={}'.format(m))
     ax1.legend()
     ax2.legend()  
-    
+
 plt.show()
-    
+
 ```
 
 
