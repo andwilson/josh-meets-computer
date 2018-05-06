@@ -1,0 +1,191 @@
+<svg height="1359pt" viewBox="0.00 0.00 226.00 1359.00" width="226pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(4 1355)">
+<title>G</title>
+<polygon fill="white" points="-4,4 -4,-1355 222,-1355 222,4 -4,4" stroke="none"/>
+<!-- 2524340933688 -->
+<g class="node" id="node1"><title>2524340933688</title>
+<polygon fill="none" points="0,-1314.5 0,-1350.5 218,-1350.5 218,-1314.5 0,-1314.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-1328.8">First-Convolution_input: InputLayer</text>
+</g>
+<!-- 2524341036704 -->
+<g class="node" id="node2"><title>2524341036704</title>
+<polygon fill="none" points="24,-1241.5 24,-1277.5 194,-1277.5 194,-1241.5 24,-1241.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-1255.8">First-Convolution: Conv2D</text>
+</g>
+<!-- 2524340933688&#45;&gt;2524341036704 -->
+<g class="edge" id="edge1"><title>2524340933688-&gt;2524341036704</title>
+<path d="M109,-1314.31C109,-1306.29 109,-1296.55 109,-1287.57" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-1287.53 109,-1277.53 105.5,-1287.53 112.5,-1287.53" stroke="black"/>
+</g>
+<!-- 2524341036984 -->
+<g class="node" id="node3"><title>2524341036984</title>
+<polygon fill="none" points="41,-1168.5 41,-1204.5 177,-1204.5 177,-1168.5 41,-1168.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-1182.8">First-Relu: Activation</text>
+</g>
+<!-- 2524341036704&#45;&gt;2524341036984 -->
+<g class="edge" id="edge2"><title>2524341036704-&gt;2524341036984</title>
+<path d="M109,-1241.31C109,-1233.29 109,-1223.55 109,-1214.57" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-1214.53 109,-1204.53 105.5,-1214.53 112.5,-1214.53" stroke="black"/>
+</g>
+<!-- 2524341037096 -->
+<g class="node" id="node4"><title>2524341037096</title>
+<polygon fill="none" points="15.5,-1095.5 15.5,-1131.5 202.5,-1131.5 202.5,-1095.5 15.5,-1095.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-1109.8">Second-Convolution: Conv2D</text>
+</g>
+<!-- 2524341036984&#45;&gt;2524341037096 -->
+<g class="edge" id="edge3"><title>2524341036984-&gt;2524341037096</title>
+<path d="M109,-1168.31C109,-1160.29 109,-1150.55 109,-1141.57" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-1141.53 109,-1131.53 105.5,-1141.53 112.5,-1141.53" stroke="black"/>
+</g>
+<!-- 2524341037432 -->
+<g class="node" id="node5"><title>2524341037432</title>
+<polygon fill="none" points="32.5,-1022.5 32.5,-1058.5 185.5,-1058.5 185.5,-1022.5 32.5,-1022.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-1036.8">Second-Relu: Activation</text>
+</g>
+<!-- 2524341037096&#45;&gt;2524341037432 -->
+<g class="edge" id="edge4"><title>2524341037096-&gt;2524341037432</title>
+<path d="M109,-1095.31C109,-1087.29 109,-1077.55 109,-1068.57" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-1068.53 109,-1058.53 105.5,-1068.53 112.5,-1068.53" stroke="black"/>
+</g>
+<!-- 2524341037544 -->
+<g class="node" id="node6"><title>2524341037544</title>
+<polygon fill="none" points="12.5,-949.5 12.5,-985.5 205.5,-985.5 205.5,-949.5 12.5,-949.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-963.8">First-Max-Pool: MaxPooling2D</text>
+</g>
+<!-- 2524341037432&#45;&gt;2524341037544 -->
+<g class="edge" id="edge5"><title>2524341037432-&gt;2524341037544</title>
+<path d="M109,-1022.31C109,-1014.29 109,-1004.55 109,-995.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-995.529 109,-985.529 105.5,-995.529 112.5,-995.529" stroke="black"/>
+</g>
+<!-- 2524341037712 -->
+<g class="node" id="node7"><title>2524341037712</title>
+<polygon fill="none" points="35,-876.5 35,-912.5 183,-912.5 183,-876.5 35,-876.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-890.8">First-Dropout: Dropout</text>
+</g>
+<!-- 2524341037544&#45;&gt;2524341037712 -->
+<g class="edge" id="edge6"><title>2524341037544-&gt;2524341037712</title>
+<path d="M109,-949.313C109,-941.289 109,-931.547 109,-922.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-922.529 109,-912.529 105.5,-922.529 112.5,-922.529" stroke="black"/>
+</g>
+<!-- 2524341037768 -->
+<g class="node" id="node8"><title>2524341037768</title>
+<polygon fill="none" points="21.5,-803.5 21.5,-839.5 196.5,-839.5 196.5,-803.5 21.5,-803.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-817.8">Third-Convolution: Conv2D</text>
+</g>
+<!-- 2524341037712&#45;&gt;2524341037768 -->
+<g class="edge" id="edge7"><title>2524341037712-&gt;2524341037768</title>
+<path d="M109,-876.313C109,-868.289 109,-858.547 109,-849.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-849.529 109,-839.529 105.5,-849.529 112.5,-849.529" stroke="black"/>
+</g>
+<!-- 2524341038104 -->
+<g class="node" id="node9"><title>2524341038104</title>
+<polygon fill="none" points="38.5,-730.5 38.5,-766.5 179.5,-766.5 179.5,-730.5 38.5,-730.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-744.8">Third-Relu: Activation</text>
+</g>
+<!-- 2524341037768&#45;&gt;2524341038104 -->
+<g class="edge" id="edge8"><title>2524341037768-&gt;2524341038104</title>
+<path d="M109,-803.313C109,-795.289 109,-785.547 109,-776.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-776.529 109,-766.529 105.5,-776.529 112.5,-776.529" stroke="black"/>
+</g>
+<!-- 2524341038216 -->
+<g class="node" id="node10"><title>2524341038216</title>
+<polygon fill="none" points="18,-657.5 18,-693.5 200,-693.5 200,-657.5 18,-657.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-671.8">Fourth-Convolution: Conv2D</text>
+</g>
+<!-- 2524341038104&#45;&gt;2524341038216 -->
+<g class="edge" id="edge9"><title>2524341038104-&gt;2524341038216</title>
+<path d="M109,-730.313C109,-722.289 109,-712.547 109,-703.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-703.529 109,-693.529 105.5,-703.529 112.5,-703.529" stroke="black"/>
+</g>
+<!-- 2524341038552 -->
+<g class="node" id="node11"><title>2524341038552</title>
+<polygon fill="none" points="35,-584.5 35,-620.5 183,-620.5 183,-584.5 35,-584.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-598.8">Fourth-Relu: Activation</text>
+</g>
+<!-- 2524341038216&#45;&gt;2524341038552 -->
+<g class="edge" id="edge10"><title>2524341038216-&gt;2524341038552</title>
+<path d="M109,-657.313C109,-649.289 109,-639.547 109,-630.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-630.529 109,-620.529 105.5,-630.529 112.5,-630.529" stroke="black"/>
+</g>
+<!-- 2524341038664 -->
+<g class="node" id="node12"><title>2524341038664</title>
+<polygon fill="none" points="4,-511.5 4,-547.5 214,-547.5 214,-511.5 4,-511.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-525.8">Second-Max-Pool: MaxPooling2D</text>
+</g>
+<!-- 2524341038552&#45;&gt;2524341038664 -->
+<g class="edge" id="edge11"><title>2524341038552-&gt;2524341038664</title>
+<path d="M109,-584.313C109,-576.289 109,-566.547 109,-557.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-557.529 109,-547.529 105.5,-557.529 112.5,-557.529" stroke="black"/>
+</g>
+<!-- 2524341038832 -->
+<g class="node" id="node13"><title>2524341038832</title>
+<polygon fill="none" points="26.5,-438.5 26.5,-474.5 191.5,-474.5 191.5,-438.5 26.5,-438.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-452.8">Second-Dropout: Dropout</text>
+</g>
+<!-- 2524341038664&#45;&gt;2524341038832 -->
+<g class="edge" id="edge12"><title>2524341038664-&gt;2524341038832</title>
+<path d="M109,-511.313C109,-503.289 109,-493.547 109,-484.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-484.529 109,-474.529 105.5,-484.529 112.5,-484.529" stroke="black"/>
+</g>
+<!-- 2524341038888 -->
+<g class="node" id="node14"><title>2524341038888</title>
+<polygon fill="none" points="60,-365.5 60,-401.5 158,-401.5 158,-365.5 60,-365.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-379.8">Flatten: Flatten</text>
+</g>
+<!-- 2524341038832&#45;&gt;2524341038888 -->
+<g class="edge" id="edge13"><title>2524341038832-&gt;2524341038888</title>
+<path d="M109,-438.313C109,-430.289 109,-420.547 109,-411.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-411.529 109,-401.529 105.5,-411.529 112.5,-411.529" stroke="black"/>
+</g>
+<!-- 2524341039000 -->
+<g class="node" id="node15"><title>2524341039000</title>
+<polygon fill="none" points="48,-292.5 48,-328.5 170,-328.5 170,-292.5 48,-292.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-306.8">First-Affine: Dense</text>
+</g>
+<!-- 2524341038888&#45;&gt;2524341039000 -->
+<g class="edge" id="edge14"><title>2524341038888-&gt;2524341039000</title>
+<path d="M109,-365.313C109,-357.289 109,-347.547 109,-338.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-338.529 109,-328.529 105.5,-338.529 112.5,-338.529" stroke="black"/>
+</g>
+<!-- 2524340932904 -->
+<g class="node" id="node16"><title>2524340932904</title>
+<polygon fill="none" points="40.5,-219.5 40.5,-255.5 177.5,-255.5 177.5,-219.5 40.5,-219.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-233.8">Fifth-Relu: Activation</text>
+</g>
+<!-- 2524341039000&#45;&gt;2524340932904 -->
+<g class="edge" id="edge15"><title>2524341039000-&gt;2524340932904</title>
+<path d="M109,-292.313C109,-284.289 109,-274.547 109,-265.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-265.529 109,-255.529 105.5,-265.529 112.5,-265.529" stroke="black"/>
+</g>
+<!-- 2524340932960 -->
+<g class="node" id="node17"><title>2524340932960</title>
+<polygon fill="none" points="32.5,-146.5 32.5,-182.5 185.5,-182.5 185.5,-146.5 32.5,-146.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-160.8">Third-Dropout: Dropout</text>
+</g>
+<!-- 2524340932904&#45;&gt;2524340932960 -->
+<g class="edge" id="edge16"><title>2524340932904-&gt;2524340932960</title>
+<path d="M109,-219.313C109,-211.289 109,-201.547 109,-192.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-192.529 109,-182.529 105.5,-192.529 112.5,-192.529" stroke="black"/>
+</g>
+<!-- 2524340933016 -->
+<g class="node" id="node18"><title>2524340933016</title>
+<polygon fill="none" points="16,-73.5 16,-109.5 202,-109.5 202,-73.5 16,-73.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-87.8">Final-Connected-Layer: Dense</text>
+</g>
+<!-- 2524340932960&#45;&gt;2524340933016 -->
+<g class="edge" id="edge17"><title>2524340932960-&gt;2524340933016</title>
+<path d="M109,-146.313C109,-138.289 109,-128.547 109,-119.569" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-119.529 109,-109.529 105.5,-119.529 112.5,-119.529" stroke="black"/>
+</g>
+<!-- 2524340933352 -->
+<g class="node" id="node19"><title>2524340933352</title>
+<polygon fill="none" points="45,-0.5 45,-36.5 173,-36.5 173,-0.5 45,-0.5" stroke="black"/>
+<text font-family="Times New Roman,serif" font-size="14.00" text-anchor="middle" x="109" y="-14.8">Softmax: Activation</text>
+</g>
+<!-- 2524340933016&#45;&gt;2524340933352 -->
+<g class="edge" id="edge18"><title>2524340933016-&gt;2524340933352</title>
+<path d="M109,-73.3129C109,-65.2895 109,-55.5475 109,-46.5691" fill="none" stroke="black"/>
+<polygon fill="black" points="112.5,-46.5288 109,-36.5288 105.5,-46.5289 112.5,-46.5288" stroke="black"/>
+</g>
+</g>
+</svg>
