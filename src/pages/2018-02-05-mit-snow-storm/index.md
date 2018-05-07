@@ -1,7 +1,7 @@
 ---
-title: "Week #3: VT And Just Josh, Volunteering"
-date: "2018-02-13"
-path: "/2018-02-13-just-josh/"
+title: "Week #3: MIT, Snow storm and back in VT"
+date: "2018-02-05"
+path: "/2018-02-05-mit-snow-storm/"
 category: "Letters"
 ---
 
