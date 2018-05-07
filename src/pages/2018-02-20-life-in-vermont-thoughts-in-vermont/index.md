@@ -4,6 +4,7 @@ date: "2018-02-20"
 path: "/2018-02-20-life-in-vermont-thoughts-in-vermont/"
 category: "Letters"
 ---
+
 Hi,
 
 Thinking back on this week, there has been this very interesting juxtaposition between the possibly unexceptional daily life, and the trans-formative discussions that occurred during the same time frame. 
