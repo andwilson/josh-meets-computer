@@ -1,4 +1,3 @@
-
 ---
 title: "Image Recognition with a Convolutional Neural Network"
 date: "2018-05-05"
