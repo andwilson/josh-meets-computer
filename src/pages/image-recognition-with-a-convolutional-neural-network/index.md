@@ -8,7 +8,9 @@ thumbnail: "thumbnail.jpg"
 
 In this write up I will be developing a Convolutional Neural Network to do image recognition. I will be working with the CIFAR-10 dataset. This is a very popular image dataset for developing and testing Machine Learning algorithms.
 
-Due to image size and data quality, it is a lot faster and less expensive to train a model on the CIFAR10 dataset and test variations in optimization parameters or architectures, while still being applicable to image related challenges. This dataset size and structure is also transferable to real world datasets of images, because most available datasets are not that large. It is quite hard to curate an image dataset the size of ImageNet. Other applications of a model developed against the CIFAR10 is for datasets that have small image sizes. An example could be segmented photos of lung modules or small features of larger images that were curated into a dataset for classification tasks.
+Due to image size and data quality, it is a lot faster and less expensive to train a model on the CIFAR10 dataset and test variations in optimization parameters or architectures, while still being applicable to image related challenges. This dataset size and structure is also relatable to real world datasets of images -- with the exception of the few tech giants, most datasets are not that large. 
+
+The small image sizes is also unique to CIFAR10. This is relatable to real world challenges that offer small images as the dataset. An example could be segmented photos of lung modules or small features of larger images that were curated into a dataset for classification tasks.
 
 To give myself a motivational hypothetical secenario, a client has given me a repository of images and they ask if I can build a model that will correctly recognize a series of classes from a bunch of images. My assumption here is that this request can be predicted, and that there is sufficient data to make this prediction:
 
