@@ -5,7 +5,7 @@ path: "/2018-03-04-birthday/"
 category: "Letters"
 ---
 
-![video](birthday_video.mov)
+![video](Birthday.gif)
 
 Hi all,
 
