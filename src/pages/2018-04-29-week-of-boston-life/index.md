@@ -1,0 +1,30 @@
+---
+title: "Week #15: A Week of Boston Life"
+date: "2018-04-29"
+path: "/2018-04-29-week-of-boston-life/"
+category: "Letters"
+---
+
+Hi,
+
+As I write this, I am sitting at the dining table of my S Whitney apartment in Boston, racking my brain to think of what to write. I was convinced for a moment that I truly had nothing interesting to write about. Then, as I worked through the days of my week, pleasant memories started flooding in. May still have nothing interesting, but as they say, there is no such thing as uninteresting people, only uninterested people! Just kidding, I'm sure a couple of my letters are objectively boring.
+
+I started reading a book called Bandwidth. It's an action book about a technology lobbyist in the near future who finds himself targeted by powerful evil corporations due to his work for other important tech companies. That description may be way off -- I've only read the first few pages, but I did notice that the author makes heavy use of adjectives and descriptors that seem to be pretty engaging. One sentence reads "Dag swirled the glass, the silver tequila leaving healthy legs on the sides of the tumbler as he inhaled its grassy bouquet". Maybe I should try writing these journals in the style of an action novel.
+
+It was a Sunday night. I most notably remember the amorphous support of a thousand dollar bean bag chair caressing me as Hochiang fiddled with his projector screen. We were upstairs in his room, getting ready for the first episode of a brand new season of West World. This is a show about a cowboy wild frontier retreat  built by a vacation company, filled with nearly-self-aware androids who play the part of the wild west locals, inhumanely taken advantage of by the human patrons. My favorite thing about all these A.I shows are the diverse set of narratives people play out for an A.I future.
+
+The next morning Hochiang asked if I wanted to work out of Boston Public Library with him. This was a bit of a surprise for me, since Hochiang has a maxed out office setup in his room and usually doesn't like to go elsewhere to work. Nonetheless, we hopped on the green line and hopped off at Copley square, did a quick tour of the libary before settling into the study hall -- equipped with old fashioned green shaded table lamps and towering book shelves all around. Around 6pm we started to get a bit hungry and went over to a small ramen shop off of Boylston street. I feel like I've been eating a lot of japanese food recently, which I'm not sure if this is a good thing considering I'm about to spend three months in Japan. 
+
+On Tuesday around mid day, I decided to change my work spot and give the Boston Public Library a go. I had been working at Northeastern's Library all morning, but a new friend I met a few days prior had wanted to meet up for a coworking session. Her name is Cara, she had just moved from San Francisco with her boyfriend, and is in the process of looking for a new job. She showed me this product called Sococo -- a company she used to intern at. It allows you to create a virtual office and work virtually with your coworkers. It's very similar to what Andrew and I have been talking about, so we've been using it all week. I found it took some effort to get used to using the app, but after a short bit it became kind of fun to hop around offices and stay connected to your fellow remote workers. 
+
+On Thursday I checked out this robot restaurant called Spyce with Melissa in Downtown Crossing. It's a "startup" made by a couple MIT students, where your super-healthy-acai-sprouted bowl is stir fried by robots. I imagined it would be robot arms expertly tossing my food in big woks, but in actuality it is a bunch of heated saucepans tumbling tossed in ingredients before dumping the food out on a conveyor belt of bowls. It's a little interesting in the fact that robot solutions to replace humans probably won't look anything like humans. 
+
+While working my way through the robot veggie bowl, I got a text from Jonas. Jonas is a program manager in the IT Security space. I met him at Venture Cafe two years ago, and aside from being casual friends, we have collaborated on some projects in the past. He wanted to meet up so I told him to join us over in Downtown Crossing and we went to grab a drink at Highball lounge downtown. He's in between jobs, but had an interview lined up at Google. If he gets it maybe I can work with him at Google!
+
+On my walk over to the CIC office in Kendall, I ran into Flavia working on a park bench. She encouraged me to sign up for a yoga thing Saturday morning in the South End at this ice cream shop. So I did, and that Saturday Morning morning I made my way over to South End. Turns out she didn't end up making it to the class, so I ended up making some new friends that morning.
+
+ I did some food shopping for most of the day, stopping by Haymarket for some freshly shucked clams and oysters. On my way home I got a call from Andrew Takao. He was also by my house and wanted to stop by. He and Sanae were going to a beer festival in the South End and wanted to see if I would join them. Its an annual thing that I always pass on, so this year I decided to finally do one. Elodie had flown into Boston for the weekend and we made plans to do dinner, but she joined us for the beerfest instead. We got soft pretzels and baseball style hot-dogs, so the whole evening felt like a classic American outing. Andrew and Sanae went home, Elodie went to meet up with her other friends, and Christina came over to join me for a night out in Boston. We went to her friend Meagan's house for a birthday party then to a too-fancy bar downtown called Yvonne's. There, we ran into some of Christina's friends having a girls night out. A tequila shot later and we convinced them to come back to Meagan's house. The night ended with Tina and I taking a taxi back to our neck of the woods. All in all a good night. 
+
+I think that wraps up this post for now, talk to you next week.
+
+Josh
