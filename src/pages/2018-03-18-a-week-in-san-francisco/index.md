@@ -27,7 +27,7 @@ At 3:30am Saturday, alarm went off, I woke up on the floor of Lara's apartment a
 
 Leaving at 4am to Lake Tahoe seemed to be the sweet spot. It took us 4 hours to get there, and while the access road to the ski mountains have been closed all night due to massive snowfall, it had opened right as we got to it! We decided to ski a full day at Alpine Meadows, and I have never skied in so much snow before. It was everywhere, and the mountain was filled with skiers trying to dig themselves out of the snow whenever they fell through. It was an insane workout trying to plow through so much snow. Falling was soft and easy, getting back up was quite an exercise. It was a bit challenging the first day because it was still snowing, and with the flat light hitting the snow it was impossible to see the variable features until you plowed into a snow pile. I always made it through the mounds of snow, but my skies didn't always come with me. I definitely need to up the DIN settings. 
 
-![Squaw](squaw.jpg)
+![Squaw](squaw.JPG)
 
 By Sunday the skies cleared up, and it was a perfectly blue day shining on an incredibly fun mountain filled with snow. The adventure of new terrain, comfortable weather, great friends and not a care in the world -- I wish I could have stretched that day into infinity.
 
