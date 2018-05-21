@@ -19,7 +19,7 @@ I figured it would be a relatively short course, seems like it needed only about
 
 During this time, Andrew also pivoted a bit and started working on a portfolio website for me. On one hand it's not the Project 12 site we've been striving to work on, but on the other hand I can't quite complain since the site he's working on now will be enormously helpful to me. He plans on making two of them, one for me and one for him, so we both have portfolio sites where we can easily drop content as we create stuff. I can even drop my model on the portfolio site he's making, so if he completes any one of these sites then it's a win in my book. One other cool thing about this week is that we worked remotely with our friend / old roommate Zach and friend / old roommate Andrew Takao this week at CIC. A full crew of remote workers and friends working together! It's definitely awesome to work alongside your closest friends. 
 
-![Working at CIC](CIC.jpg)
+![Working at CIC](CIC.JPG)
 
 Andrew and I drove up to the Ski house at the end of the week, and Andrew's girlfriend Claire drove down from Ottowa with her friend Tonya. Turns out nobody else decided to come up to the ski house that weekend (I think most people wanted to ski Tuckerman's Ravine that weekend), so we just paled around a bit. Tonya never snowboarded before, so all of us decided to snowboard for the day (Claire skis, she borrowed Lauren's gear) while Andrew taught Tonya how to snowboard. Fun day for sure, I'm definitely getting a bit better at snowboarding. Conditions were pretty terrible though -- most of everything was iced over. I was super scared to fall; on a snowboard catching an edge is not pretty. 
 
