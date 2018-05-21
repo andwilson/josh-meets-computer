@@ -834,20 +834,26 @@ Adagrad.save('Adagrad.h5')
     
 
 # Wrapping Up
-There was a 10% drop in accuracy when moving from the validation set to the test set. This can be explored further; performing an analysis on the classes that were mislabeled and try to gain an intuition of what is causing the model to misclassify. There are also many other techniques to employ in order to improve the accuracy of the model. Here are some ideas not explored in this write-up:
+There was a 10% drop in accuracy when moving from the validation set to the test set. This is probably a sign of overfitting -- the model is not generalizing perfectly to new unseen test data. This can be either a data problem, a training problem or a model problem. 
+
+There's a lot more that can be done with model optimziation. A good starting point would be to look at the data. Performing an analysis on the classes that were mislabeled could give me an intuition of what is causing the model to misclassify. There are also many other techniques to employ in order to improve the accuracy of the model. Here are some ideas not explored in this write-up:
+
+ - **Data Augmentation:**
+     - The data can be augmented by padding the images by a quarter length on all sides then taking a subset of the image. Some objects may not be perfectly centered, so this technique would place the object in different positions in the image and most likely lead to better prediction capabilities.
+     - The data can be further transformed to a more uniform distribution. PCA Whitening can be applied across samples, possibly helping prominent features of each class images stand out.
+     
+ - **Learning Optimization**
+     - Increasing Regularization parameters. Make adjustments to cost function, try to adjust the lambda value with an L2 regularization cost to penalize the weights a bit more heavily.
+     - Adam was a good optimizer to pick, the model could be retrained from the beginning just using Adam. The parameters for Adam can be tuned, and the training callback can be built out to include the gradient and weight values at each epoch. Generally the ratio of the gradients (before being scaled by the learning rate!) to the weights should be about 1e-3. If it is lower than this, then the learning rate might be set too low (or visa versa). 
+     
+ - **Model Architecture:**
+     - Incorporating Batch Normalization layers. This could improve the overall accuracy of the model by adding a bit of robustness against bad initialization parameters on the weights. It will add a regularization effect on each layer which may reduce overfitting.
+     - Are Max Pooling Layers necessary? Perhaps increasing the stride from 1 to 2 and removing some pooling layers would make training more efficient
+     - Incorporating leaky Relu (setting Relu to output a value slightly larger than zero instead of zero). This may reduce the phenomenon of vanishing gradients if this is occuring during training.
+     
  - **Weight Analysis:**
      - The initialization values of the weights can be adjusted. Perhaps a gaussian distribution or a different random pattern can be used for inistialization.
      - The gradients and weight values can be visualized and reviewed. What do the convolutional masks look like? There should be a somewhat distinct shape activation shown in the weight filters.
      - initializing the biases. Adding intitialization values to the biases can help out the Relu function. This makes sure the Relu functions are fine at the very beginning of training and allows for the gradients to propogate through the model properly.
- - **Model Architecture:**
-     - Are Max Pooling Layers necessary? Perhaps increasing the stride from 1 to 2 and removing some pooling layers would make training more efficient
-     - Incorporating Batch Normalization layers. This could improve the overall accuracy of the model by adding a bit of robustness against bad initialization parameters on the weights.
-     - Incorporating leaky Relu (setting Relu to output a value slightly larger than zero instead of zero). This may reduce the phenomenon of vanishing gradients.
-     - 
- - **Data Augmentation:**
-     - The data can be further transformed to a more uniform distribution. PCA Whitening can be applied across samples, possibly helping prominent features of each class images stand out.
-     - The data can be augmented by padding the images by a quarter length on all sides then taking a subset of the image. Some objects may not be perfectly centered, so this technique would place the object in different positions in the image and most likely lead to better prediction capabilities.
- - **Learning Optimization**
-     - Adam was a good optimizer to pick, the model could be retrained from the beginning just using Adam. The parameters for Adam can be tuned, and the training callback can be built out to include the gradient and weight values at each epoch. Generally the ratio of the gradients (before being scaled by the learning rate!) to the weights should be about 1e-3. If it is lower than this, then the learning rate might be set too low (or visa versa).
-     
+
 Until next time!
