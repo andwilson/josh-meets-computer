@@ -1,5 +1,5 @@
 ---
-title: "Week #17: San Francisco and Yosemite Weekend
+title: "Week #17: San Francisco and Yosemite Weekend"
 date: "2018-05-20"
 path: "/2018-05-20-san-francisco-yosemite-weekend/"
 category: "Letters"
