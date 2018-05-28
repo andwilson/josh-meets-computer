@@ -1,5 +1,5 @@
 ---
-title: "Week #18: A week in San Francisco"
+title: "Week #19: Hello Hawaii!"
 date: "2018-05-27"
 path: "/2018-05-27-hello-hawaii/"
 category: "Letters"
