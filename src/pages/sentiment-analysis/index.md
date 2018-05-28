@@ -31,6 +31,9 @@ import matplotlib.pyplot as plt
 from IPython.display import Markdown, display
 ```
 
+    Using TensorFlow backend.
+    
+
 ## Download Data
 The data comes in pre-processed, where each training sample is an array of word indexes based on a list of most frequently used words. 
 
@@ -221,24 +224,35 @@ Fortunately the data as pulled from the keras dataset is already tokenized, but 
 ```python
 from sklearn.model_selection import train_test_split
 from torch.utils import data
+
 x_train, x_valid, y_train, y_valid = train_test_split(X_train, Y_train, test_size=0.2, random_state=0)
+
+# Pad to proper dimensions
+x_train = preprocessing.sequence.pad_sequences(x_train, maxlen=100)
+x_valid = preprocessing.sequence.pad_sequences(x_valid, maxlen=100)
+
+dtype = torch.long
 
 # PyTorch Preperation
 if torch.cuda.is_available():
     device = torch.device("cuda")                   # a CUDA device object
-    x_train = torch.tensor(x_train, device=device)  # directly create a tensor on GPU
-    y_train = torch.tensor(y_train, device=device)  
-    x_valid = torch.tensor(x_valid, device=device)
-    y_valid = torch.tensor(y_valid, device=device)
+    x_train = torch.from_numpy(x_train)  # directly create a tensor on GPU
+    y_train = torch.from_numpy(y_train)
+    x_valid = torch.from_numpy(x_valid)
+    y_valid = torch.from_numpy(y_valid)
 else:
     print('CUDA is not available. creating CPU tensors')
-    x_train = torch.tensor(x_train, dtype=torch.long)     
-    y_train = torch.tensor(y_train, dtype=torch.float)  # directly create a tensor on GPU
-    x_valid = torch.tensor(x_valid, dtype=torch.long)
-    y_valid = torch.tensor(y_valid, dtype=torch.float)
+    device = torch.device('cpu')
+    x_train = torch.from_numpy(x_train)     
+    y_train = torch.from_numpy(y_train)  # directly create a tensor on GPU
+    x_valid = torch.from_numpy(x_valid)
+    y_valid = torch.from_numpy(y_valid)
     
 print('new train shape:', x_train.shape)
 print('validation size:', x_valid.shape)
+
+y_train = y_train.unsqueeze(-1).float()
+y_valid = y_valid.unsqueeze(-1).float()
 
 train = data.TensorDataset(x_train, y_train)
 valid = data.TensorDataset(x_valid, y_valid)
@@ -254,13 +268,15 @@ valid = data.TensorDataset(x_valid, y_valid)
 
 ```python
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
+import torch.nn as nn
 import torch.optim as optim
 from keras.models import Sequential 
 from keras.layers import Flatten, Dense 
 from keras.layers import Embedding
+from torchsummary import summary
 
+import pdb
 torch.manual_seed(1)
 class Flat(nn.Module):
     def forward(self, x):
@@ -269,22 +285,27 @@ class Flat(nn.Module):
 # PyTorch implementation
 class sentimentNet(nn.Module):
     
-    def __init__(self, batch_size, num_words, input_size, embedding_size):
+    def __init__(self, num_words, input_size, embedding_size):
         super(sentimentNet, self).__init__()
         
         self.embedding1 = nn.Embedding(num_words, embedding_size) 
-        self.flatten = Flat()
         self.linear1 = nn.Linear(input_size * embedding_size, 1)
-        
     def forward(self, inputs):
-        embed1 = self.embedding1(inputs)
-        flatt1 = self.flatten(embed1)
+        embed1 = self.embedding1(inputs.long())
+        flatt1 = embed1.view(-1, self.num_flat_features(embed1))
         layer1 = self.linear1(flatt1)
         output = F.log_softmax(layer1, dim=1)
         
         return output
 
-modelT = sentimentNet(batch_size=10, num_words=10000, input_size=100, embedding_size=8)
+    def num_flat_features(self, x):
+        size = x.size()[1:]  # all dimensions except the batch dimension
+        num_features = 1
+        for s in size:
+            num_features *= s
+        return num_features
+    
+modelT = sentimentNet(num_words=10000, input_size=100, embedding_size=8)
 
 # Keras implementation
 modelK = Sequential([
@@ -300,7 +321,6 @@ print(modelK.summary())
 
     sentimentNet(
       (embedding1): Embedding(10000, 8)
-      (flatten): Flat()
       (linear1): Linear(in_features=800, out_features=1, bias=True)
     )
     
@@ -322,31 +342,27 @@ print(modelK.summary())
     None
     
 
-## Define Optimization Strategy
-
-
-```python
-import collections
-
-# PyTorch
-hist = collections.defaultdict(lambda:[])
-costFN = nn.BCELoss()
-optimizer = optim.SGD(modelT.parameters(), lr=1e-3, momentum=0.9)
-
-# Keras
-modelK.compile(optimizer='SGD', loss='binary_crossentropy', metrics=['acc']) 
-```
-
 ## Train Model
 
 
 ```python
 from torch.utils import data
+import collections
 
-datagen = data.DataLoader(train, batch_size=32, shuffle=False)
+# data generator
+datagen = data.DataLoader(train, batch_size=10, shuffle=False)
 
-num_epochs = 3
+# PyTorch optimizers
+costFN = nn.BCELoss()
+optimizer = torch.optim.SGD(modelT.parameters(), lr=0.001, momentum=0.9)
 
+# Keras optimizers
+modelK.compile(optimizer='SGD', loss='binary_crossentropy', metrics=['acc']) 
+
+num_epochs = 5
+hist = collections.defaultdict(lambda:[])
+
+# PyTorch Training
 for epoch in range(num_epochs):
     print("Epoch {} / {}".format(epoch, num_epochs))
     running_loss = 0.0
@@ -361,61 +377,84 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
         
-         # print statistics
-        running_loss += loss.item()
+        for param in model.parameters():
+            param.data -= learning_rate * param.grad
         if i % 200 == 199:    # print every 2000 mini-batches
             
             hist['loss'] += [loss.item()]
-            print('[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, running_loss / 200))
+            print('sample {} --> loss: {}'.format(i + 1, loss.item()))
             running_loss = 0.0
 
-print('Finished Training')
 ```
-
-    C:\Users\joshu\Anaconda3\envs\MLenv\lib\site-packages\torch\nn\functional.py:1474: UserWarning: Using a target size (torch.Size([32])) that is different to the input size (torch.Size([32, 1])) is deprecated. Please ensure they have the same size.
-      "Please ensure they have the same size.".format(target.size(), input.size()))
-    
-
-    [1,   200] loss: 13.772
-    [1,   400] loss: 13.941
-    [1,   600] loss: 13.708
-    [2,   200] loss: 13.772
-    [2,   400] loss: 13.941
-    [2,   600] loss: 13.708
-    [3,   200] loss: 13.772
-    [3,   400] loss: 13.941
-    [3,   600] loss: 13.708
-    Finished Training
-    
-
-### Observations
-Loss output is way too high, it is also not decreasing. This is not a good sign; will need to troubleshoot the model. Next steps should be to manually calculate the loss with a single example and look at the output, take a look at the weights and compare to keras Model.
 
 
 ```python
-history = model.fit(X_train, Y_train, epochs=10, batch_size=32, validation_split=0.2)
+# Keras Training
+history = modelK.fit(x_train.numpy(), y_train.numpy(), epochs=20, batch_size=32, validation_split=0.2, verbose=0)
+print('Finished Training')
 ```
 
-    Train on 20000 samples, validate on 5000 samples
-    Epoch 1/10
-    20000/20000 [==============================] - 3s 162us/step - loss: 0.1071 - acc: 0.9658 - val_loss: 0.3840 - val_acc: 0.8536
-    Epoch 2/10
-    20000/20000 [==============================] - 3s 128us/step - loss: 0.0931 - acc: 0.9700 - val_loss: 0.3977 - val_acc: 0.8508
-    Epoch 3/10
-    20000/20000 [==============================] - 3s 131us/step - loss: 0.0807 - acc: 0.9758 - val_loss: 0.4132 - val_acc: 0.8496
-    Epoch 4/10
-    20000/20000 [==============================] - 3s 135us/step - loss: 0.0690 - acc: 0.9800 - val_loss: 0.4283 - val_acc: 0.8482
-    Epoch 5/10
-    20000/20000 [==============================] - 3s 130us/step - loss: 0.0588 - acc: 0.9846 - val_loss: 0.4447 - val_acc: 0.8466
-    Epoch 6/10
-    20000/20000 [==============================] - 3s 136us/step - loss: 0.0499 - acc: 0.9876 - val_loss: 0.4601 - val_acc: 0.8444
-    Epoch 7/10
-    20000/20000 [==============================] - 3s 130us/step - loss: 0.0417 - acc: 0.9900 - val_loss: 0.4809 - val_acc: 0.8426
-    Epoch 8/10
-    20000/20000 [==============================] - 3s 137us/step - loss: 0.0347 - acc: 0.9917 - val_loss: 0.4983 - val_acc: 0.8412
-    Epoch 9/10
-    20000/20000 [==============================] - 3s 138us/step - loss: 0.0286 - acc: 0.9938 - val_loss: 0.5200 - val_acc: 0.8378
-    Epoch 10/10
-    20000/20000 [==============================] - 3s 136us/step - loss: 0.0236 - acc: 0.9950 - val_loss: 0.5411 - val_acc: 0.8386
+    Finished Training
     
+
+
+```python
+fig, ax = plt.subplots(1, 2, figsize=(12,6))
+ax[0].plot(history.history['loss'], label='Train')
+ax[0].plot(history.history['val_loss'], label='Validation')
+ax[0].set_xlabel('Epoch')
+ax[0].set_ylabel('Loss')
+ax[0].set_title('Training History'); 
+ax[0].legend()
+
+ax[1].plot(history.history['acc'], label='Train')
+ax[1].plot(history.history['val_acc'], label='Validation')
+ax[1].set_xlabel('Epoch')
+ax[1].set_ylabel('Accuracy')
+ax[1].set_title('Accurcary History'); 
+ax[1].legend()
+plt.show()
+```
+
+
+![png](output_26_0.png)
+
+
+### Observations
+Need to troubleshoot loss of PyTorch model -- doesn't match Keras output. I'll keep training the keras model here, but since this write-up is focused around using PyTorch I won't go into too much optimization techniques with Keras.
+
+
+```python
+history = modelK.fit(x_train.numpy(), y_train.numpy(), epochs=20, batch_size=32, validation_split=0.2, verbose=0)
+print('Finished Training')
+```
+
+    Finished Training
+    
+
+
+```python
+fig, ax = plt.subplots(1, 2, figsize=(12,6))
+ax[0].plot(history.history['loss'], label='Train')
+ax[0].plot(history.history['val_loss'], label='Validation')
+ax[0].set_xlabel('Epoch')
+ax[0].set_ylabel('Loss')
+ax[0].set_title('Training History'); 
+ax[0].legend()
+
+ax[1].plot(history.history['acc'], label='Train')
+ax[1].plot(history.history['val_acc'], label='Validation')
+ax[1].set_xlabel('Epoch')
+ax[1].set_ylabel('Accuracy')
+ax[1].set_title('Accurcary History'); 
+ax[1].legend()
+plt.show()
+```
+
+
+![png](output_29_0.png)
+
+
+### Observations:
+
+There is a 10% drop in accuracy between the train and validation sets, which means that there may be some ovefitting going on. Looks like Loss is still decreasing, so the model can be trained further. If overfitting becomes a bigger problem, regularization techniques can be applied to the models cost function or architecture to reduce overfitting. Since this write-up was focused around writing a model implementation in PyTorch, I won't be diving too much into optimization. To be continued!
