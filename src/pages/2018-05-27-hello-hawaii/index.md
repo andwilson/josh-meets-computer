@@ -23,11 +23,12 @@ We all had work the next day, so Andrew and I worked from Kyron's apartment whil
 We went back to the house to catch up on more work, and when Kyron got back, we grabbed our gear and went for a hike up this relatively short but steep mountain that overlooks a lot of Honolulu. The trail is this old, decrepit railroad that literally goes straight up the mountain. The rail is intact the whole way up, but every few steps or so are missing tracks to walk on, so you need to balance along the rail or clamber up the mountain trail on either side. In one section, the ground itself falls away and next thing you know you're hiking 20 feet above ground along these rails. About 2/3rds up the mountain curves up, and the rail road tracks get very steep. I always had a 'just one more step' mentality the whole way up, but there were definitely moments where that 'one more step' was a challenge in and of itself.
 
 ![Hiking trail along railroad tracks](railroad.jpg)
+
 ![Us when we finally got to the top](summit.jpg)
 
 Afterwards we hopped in Kyron's truck and drove over to this local spot in a very nice neighborhood. We parked on the street of this manicured suburban neighborhood and walked seemingly into the bushes and down a short steep dirt trail into a rocky cliff overlooking the ocean. A bunch of locals were hanging out there waiting for the sun to set. We dropped our towels and shirts, picked up some fins, walked over to the edge of the rocky overlook and one by one jumped into the water below. Super cool thing to do on a weekday evening!
 
-![Secret hang out spot in Hawaii](cove.jpg)
+![Secret hang out spot in Hawaii](cove.JPG)
 
 
 We snagged dinner that night at Kona Brewery. Bartender was super cool and gave us a ton of samples. The cool thing about the Kona brewery (and a lot of the breweries) is the indoor-outdoor vibe of the place. 
@@ -39,22 +40,22 @@ We snagged dinner that night at Kona Brewery. Bartender was super cool and gave 
 Between work hours, we did a decent amount of outdoor stuff. We went to two more cliff jumping spots. One I didn't do, but Andrew jumped in. The rocks were a bit sharp climbing back up so Andrew asked for me to throw down his flip flops. The wind took both of them, one ended up falling in a crack, never to be seen again. Fortunately there are super great and cheap flip flops here, but Andrew ended up picking up some water shoes.
 ​
 
-![Cliffside overlook](overlook.jpg)
+![Cliffside overlook](overlook.JPG)
 
 We went Kayaking one of the days. Picked up a rental from a local shop and drove to this super tiny beach / dock area. We kayaked all the way over to this island which had some more cliff jumping spots. The beach where we docked had a lone seal sleeping along the shoreline. We pulled up our kayaks, had a bit of lunch then climbed into the island. The coastline of the rest of the island was all this volcanic rock-like formations where the blue wave white wash would crash up against. We climbed up and into this cove that was sheltered a bit from the big crashing waves and took turns jumping off to the lagoon below. 
 
-![Getting ready to embark on a canoe voyage](canoes.jpg)
+![Getting ready to embark on a canoe voyage](canoes.JPG)
 
-![A little nerve-wrecking to jump, but worth it!](cave-jumping.jpg)
+![A little nerve-wrecking to jump, but worth it!](cave-jumping.JPG)
 
 Later we went over to a food truck area and grabbed shrimp from this famous truck called Giovanni's. They coat these super tender shrimp in a lemon butter sauce served with rice and a ton of fried garlic. From there we walked along some famous beach / surf spots before heading home.
 
-![shrimp dinner at Giovanni's](shrimp.jpg)
+![shrimp dinner at Giovanni's](shrimp.JPG)
 ![The food truck](giovannis.jpg)
 
 Today we spent the morning checking out Pearl Harbor. It was cool catching up on history and seeing the military base. It's interesting hearing about the history of Pearl Harbor and the Japanese invasion from our eyes, especially right before heading to Japan. I might try to pay a visit to Hiroshima and get a fuller picture of World War II. The most historic monument at Pearl Harbor is the sunken USS Arizona, where a ship piercing missile penetrated the ammunition area causing the entire battleship to spontaneously explode, instantly killing over 1000 crew members aboard. The sunken ship is still there, and unfortunately the memorial was closed due to technical issues with the ramp but we got some drive by photos.
 
-![USS Arizona at Pearl Harbor](pearl-harbor.jpg)
+![USS Arizona at Pearl Harbor](pearl-harbor.JPG)
 Seems like this letter was more like photo-journalism. Anyways, tomorrow I'm going to try to get a full day of work in before jetting off to Japan! Next week will be all about Osaka, Japans Kitchen.
 
 Talk to you later,
