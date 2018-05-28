@@ -31,9 +31,6 @@ import matplotlib.pyplot as plt
 from IPython.display import Markdown, display
 ```
 
-    Using TensorFlow backend.
-    
-
 ## Download Data
 The data comes in pre-processed, where each training sample is an array of word indexes based on a list of most frequently used words. 
 
@@ -224,12 +221,17 @@ Fortunately the data as pulled from the keras dataset is already tokenized, but 
 ```python
 from sklearn.model_selection import train_test_split
 from torch.utils import data
+from keras.utils import to_categorical
+from keras import preprocessing
 
 x_train, x_valid, y_train, y_valid = train_test_split(X_train, Y_train, test_size=0.2, random_state=0)
 
 # Pad to proper dimensions
 x_train = preprocessing.sequence.pad_sequences(x_train, maxlen=100)
 x_valid = preprocessing.sequence.pad_sequences(x_valid, maxlen=100)
+
+y_train = to_categorical(y_train, 2)
+y_valid = to_categorical(y_valid, 2)
 
 dtype = torch.long
 
@@ -244,15 +246,12 @@ else:
     print('CUDA is not available. creating CPU tensors')
     device = torch.device('cpu')
     x_train = torch.from_numpy(x_train)     
-    y_train = torch.from_numpy(y_train)  # directly create a tensor on GPU
+    y_train = torch.from_numpy(y_train).float()  # directly create a tensor on GPU
     x_valid = torch.from_numpy(x_valid)
-    y_valid = torch.from_numpy(y_valid)
+    y_valid = torch.from_numpy(y_valid).float()
     
 print('new train shape:', x_train.shape)
 print('validation size:', x_valid.shape)
-
-y_train = y_train.unsqueeze(-1).float()
-y_valid = y_valid.unsqueeze(-1).float()
 
 train = data.TensorDataset(x_train, y_train)
 valid = data.TensorDataset(x_valid, y_valid)
@@ -275,9 +274,10 @@ from keras.models import Sequential
 from keras.layers import Flatten, Dense 
 from keras.layers import Embedding
 from torchsummary import summary
-
+from torch.utils import data
+import collections
 import pdb
-torch.manual_seed(1)
+
 class Flat(nn.Module):
     def forward(self, x):
         return x.view(x.size()[0], -1)
@@ -289,12 +289,13 @@ class sentimentNet(nn.Module):
         super(sentimentNet, self).__init__()
         
         self.embedding1 = nn.Embedding(num_words, embedding_size) 
-        self.linear1 = nn.Linear(input_size * embedding_size, 1)
+        self.linear1 = nn.Linear(input_size * embedding_size, 2)
+        
     def forward(self, inputs):
         embed1 = self.embedding1(inputs.long())
         flatt1 = embed1.view(-1, self.num_flat_features(embed1))
         layer1 = self.linear1(flatt1)
-        output = F.log_softmax(layer1, dim=1)
+        output = F.softmax(layer1, dim=1)
         
         return output
 
@@ -311,7 +312,7 @@ modelT = sentimentNet(num_words=10000, input_size=100, embedding_size=8)
 modelK = Sequential([
     Embedding(10000, 8, input_length=100, name='embedding1'),
     Flatten(name='flatten'),
-    Dense(1, activation='sigmoid', name='linear1')
+    Dense(2, activation='softmax', name='linear1')
 ]) 
 
 print(modelT)
@@ -321,7 +322,7 @@ print(modelK.summary())
 
     sentimentNet(
       (embedding1): Embedding(10000, 8)
-      (linear1): Linear(in_features=800, out_features=1, bias=True)
+      (linear1): Linear(in_features=800, out_features=2, bias=True)
     )
     
     
@@ -333,10 +334,10 @@ print(modelK.summary())
     _________________________________________________________________
     flatten (Flatten)            (None, 800)               0         
     _________________________________________________________________
-    linear1 (Dense)              (None, 1)                 801       
+    linear1 (Dense)              (None, 2)                 1602      
     =================================================================
-    Total params: 80,801
-    Trainable params: 80,801
+    Total params: 81,602
+    Trainable params: 81,602
     Non-trainable params: 0
     _________________________________________________________________
     None
@@ -346,54 +347,74 @@ print(modelK.summary())
 
 
 ```python
-from torch.utils import data
-import collections
-
 # data generator
 datagen = data.DataLoader(train, batch_size=10, shuffle=False)
 
 # PyTorch optimizers
 costFN = nn.BCELoss()
-optimizer = torch.optim.SGD(modelT.parameters(), lr=0.001, momentum=0.9)
-
-# Keras optimizers
-modelK.compile(optimizer='SGD', loss='binary_crossentropy', metrics=['acc']) 
+optimizer = torch.optim.SGD(modelT.parameters(), lr=0.01, momentum=0.9)
 
 num_epochs = 5
 hist = collections.defaultdict(lambda:[])
+repeats = set()
 
 # PyTorch Training
 for epoch in range(num_epochs):
-    print("Epoch {} / {}".format(epoch, num_epochs))
+    print("Epoch {} / {}: loss:".format(epoch, num_epochs), end='')
     running_loss = 0.0
     
-    for i, data_batch in enumerate(datagen, 0):
+    for i, data_batch in enumerate(datagen):
         inputs, labels = data_batch
-        
+
         optimizer.zero_grad()  # reset grads
+        pred = modelT(inputs.long())
+        loss = costFN(pred, labels)
         
-        outputs = modelT(inputs)
-        loss = costFN(outputs, labels)
         loss.backward()
         optimizer.step()
-        
-        for param in model.parameters():
-            param.data -= learning_rate * param.grad
-        if i % 200 == 199:    # print every 2000 mini-batches
-            
-            hist['loss'] += [loss.item()]
-            print('sample {} --> loss: {}'.format(i + 1, loss.item()))
-            running_loss = 0.0
 
+        if i % 500 == 499:    # print every 2000 mini-batches
+            hist['loss'] += [loss.item()]
+            running_loss = 0.0
+            
+    print(loss.item())
 ```
+
+    Epoch 0 / 5: loss:19.34171485900879
+    Epoch 1 / 5: loss:19.34171485900879
+    Epoch 2 / 5: loss:19.34171485900879
+    Epoch 3 / 5: loss:19.34171485900879
+    Epoch 4 / 5: loss:19.34171485900879
+    
+
+### Observations
+It looks like the loss is not decreasing at the end of each epoch. For some reason the backpropogation is not working for my network (using `loss.backward()` and `optimizer.step`). This is clearly a bug that I'll need to look into further.
+
+### Continuing, using Keras model
 
 
 ```python
 # Keras Training
-history = modelK.fit(x_train.numpy(), y_train.numpy(), epochs=20, batch_size=32, validation_split=0.2, verbose=0)
+from keras import optimizers
+
+sgd = optimizers.SGD(lr=0.001, decay=1e-6, momentum=0.9, nesterov=True)
+
+modelK.compile(optimizer=sgd, loss='binary_crossentropy', metrics=['acc']) 
+history = modelK.fit(x_train.numpy(), y_train.numpy(), epochs=5, batch_size=32, validation_split=0.2, verbose=1)
 print('Finished Training')
 ```
 
+    Train on 16000 samples, validate on 4000 samples
+    Epoch 1/5
+    16000/16000 [==============================] - 2s 103us/step - loss: 0.6939 - acc: 0.4949 - val_loss: 0.6932 - val_acc: 0.4988
+    Epoch 2/5
+    16000/16000 [==============================] - 1s 88us/step - loss: 0.6932 - acc: 0.5068 - val_loss: 0.6929 - val_acc: 0.5070
+    Epoch 3/5
+    16000/16000 [==============================] - 1s 87us/step - loss: 0.6924 - acc: 0.5147 - val_loss: 0.6924 - val_acc: 0.5165
+    Epoch 4/5
+    16000/16000 [==============================] - 1s 89us/step - loss: 0.6916 - acc: 0.5204 - val_loss: 0.6919 - val_acc: 0.5235
+    Epoch 5/5
+    16000/16000 [==============================] - 1s 91us/step - loss: 0.6908 - acc: 0.5334 - val_loss: 0.6913 - val_acc: 0.5275
     Finished Training
     
 
@@ -417,7 +438,7 @@ plt.show()
 ```
 
 
-![png](output_26_0.png)
+![png](output_27_0.png)
 
 
 ### Observations
@@ -452,7 +473,7 @@ plt.show()
 ```
 
 
-![png](output_29_0.png)
+![png](output_30_0.png)
 
 
 ### Observations:
