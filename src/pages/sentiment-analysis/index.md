@@ -278,10 +278,7 @@ from torch.utils import data
 import collections
 import pdb
 
-class Flat(nn.Module):
-    def forward(self, x):
-        return x.view(x.size()[0], -1)
-    
+
 # PyTorch implementation
 class sentimentNet(nn.Module):
     
@@ -292,12 +289,12 @@ class sentimentNet(nn.Module):
         self.linear1 = nn.Linear(input_size * embedding_size, 2)
         
     def forward(self, inputs):
-        embed1 = self.embedding1(inputs.long())
-        flatt1 = embed1.view(-1, self.num_flat_features(embed1))
-        layer1 = self.linear1(flatt1)
-        output = F.softmax(layer1, dim=1)
+        out = self.embedding1(inputs.long())
+        out = out.view(-1, self.num_flat_features(out))
+        out = self.linear1(out)
+        out = F.softmax(out, dim=1)
         
-        return output
+        return out
 
     def num_flat_features(self, x):
         size = x.size()[1:]  # all dimensions except the batch dimension
@@ -348,49 +345,61 @@ print(modelK.summary())
 
 ```python
 # data generator
-datagen = data.DataLoader(train, batch_size=10, shuffle=False)
+datagen = data.DataLoader(train, batch_size=100, shuffle=False)
 
 # PyTorch optimizers
+learning_rate = 0.01
 costFN = nn.BCELoss()
-optimizer = torch.optim.SGD(modelT.parameters(), lr=0.01, momentum=0.9)
+optimizer = torch.optim.SGD(modelT.parameters(), lr=0.1, momentum=0.9)
 
 num_epochs = 5
 hist = collections.defaultdict(lambda:[])
-repeats = set()
 
 # PyTorch Training
 for epoch in range(num_epochs):
     print("Epoch {} / {}: loss:".format(epoch, num_epochs), end='')
-    running_loss = 0.0
     
     for i, data_batch in enumerate(datagen):
         inputs, labels = data_batch
-
+        
         optimizer.zero_grad()  # reset grads
         pred = modelT(inputs.long())
         loss = costFN(pred, labels)
         
         loss.backward()
-        optimizer.step()
-
-        if i % 500 == 499:    # print every 2000 mini-batches
-            hist['loss'] += [loss.item()]
-            running_loss = 0.0
+        # optimizer.step()
+        
+        for f in modelT.parameters():
+            f.data.sub_(f.grad.data * learning_rate)
             
-    print(loss.item())
+    hist['loss'] += [loss.data]
+            
+    print(loss.data)
 ```
 
-    Epoch 0 / 5: loss:19.34171485900879
-    Epoch 1 / 5: loss:19.34171485900879
-    Epoch 2 / 5: loss:19.34171485900879
-    Epoch 3 / 5: loss:19.34171485900879
-    Epoch 4 / 5: loss:19.34171485900879
+    Epoch 0 / 5: loss:tensor(0.6571)
+    Epoch 1 / 5: loss:tensor(0.6281)
+    Epoch 2 / 5: loss:tensor(0.6189)
+    Epoch 3 / 5: loss:tensor(0.6150)
+    Epoch 4 / 5: loss:tensor(0.6129)
     
 
-### Observations
-It looks like the loss is not decreasing at the end of each epoch. For some reason the backpropogation is not working for my network (using `loss.backward()` and `optimizer.step`). This is clearly a bug that I'll need to look into further.
 
-### Continuing, using Keras model
+```python
+plt.plot(hist['loss'])
+plt.gca().set_title('Training Loss History over 4 Epochs');
+```
+
+
+![png](output_25_0.png)
+
+
+### Observations
+It looks like the loss is decreasing, but I had to set the learning rate very high. It would be useful to see what the gradient values are as compared the the weights -- the intuition here is that it should be a 1:3 ratio. 
+
+The training loss isn't the complete picture here; the error as compared to validation set will help describe if overfitting or bias is occuring on the model. Generally, until the loss starts to level out on the training set, the model is under-fitting; it hasn't learned a representation of the data yet and there is more room for improvement. However at some point in the learning process the model begins to learn the intricacies of the test data too well, and starts to perform poorly on unseen data (the validation set). This is where over-fitting begins to occer, and can be visualized by comparing the error of the validation set vs the training set during training.
+
+### Repeating Training, with Keras
 
 
 ```python
@@ -438,20 +447,17 @@ plt.show()
 ```
 
 
-![png](output_27_0.png)
+![png](output_28_0.png)
 
 
 ### Observations
-Need to troubleshoot loss of PyTorch model -- doesn't match Keras output. I'll keep training the keras model here, but since this write-up is focused around using PyTorch I won't go into too much optimization techniques with Keras.
+What's interesting is that the learning rate on the Keras model is set much lower than the Pytorch model. Perhaps there is better weight initialization, but the PyTorch model did not decrease until I set the learning rate to 0.1! It might be a worthwhile exercise to compare the weights between the two models and the gradient steps to make sure they match. I'll keep training the keras model a little more below
 
 
 ```python
 history = modelK.fit(x_train.numpy(), y_train.numpy(), epochs=20, batch_size=32, validation_split=0.2, verbose=0)
 print('Finished Training')
 ```
-
-    Finished Training
-    
 
 
 ```python
@@ -473,9 +479,9 @@ plt.show()
 ```
 
 
-![png](output_30_0.png)
+![png](output_31_0.png)
 
 
 ### Observations:
 
-There is a 10% drop in accuracy between the train and validation sets, which means that there may be some ovefitting going on. Looks like Loss is still decreasing, so the model can be trained further. If overfitting becomes a bigger problem, regularization techniques can be applied to the models cost function or architecture to reduce overfitting. Since this write-up was focused around writing a model implementation in PyTorch, I won't be diving too much into optimization. To be continued!
+There is a 10% drop in accuracy between the train and validation sets, which means that there is not a perfect generalization capability of the model. It also looks like Loss is still decreasing, so the model can be trained further. If overfitting becomes a bigger problem, regularization techniques can be applied to the models cost function or architecture to reduce overfitting. Since this write-up was focused around writing a model implementation in PyTorch, I won't be diving too much into optimization. To be continued!
