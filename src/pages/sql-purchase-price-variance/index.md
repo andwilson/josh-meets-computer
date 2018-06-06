@@ -339,4 +339,4 @@ WHERE (not TranHist.PartTran_TranType in ('ADJ-CST', 'ADJ-PUR')
 ## Next Steps: Report Building
 After the query is developed, the next steps is to design the report. The resulting query and data source is deployed to an SSRS report, then I use matrices and grouping to show the data in a more user friendly manner. In this particular report, the data was grouped by fiscal period then by supplier then by part, where each purchase quantities, cost and variance are broken out line by line. The development of the SSRS report is out of the scope of this write up, but below is a sample of the final output:
 
-![SSRS-Report](SSRS_1.jpg)
+![SSRS-Report](thumbnail.jpg)
