@@ -146,7 +146,7 @@ If you would like to change how or where the resulting arrays are stored outside
 
 The resulting data transformations is a collection of sparse activations far removed from the data rich image input. I fed an image through each model, then plotted each filter activation of the final layer for four benchmark Machine Learning Models. The low level activations from the data rich input of the cute cat are not really interpretable -- but that's what makes machine learning models so black box!
 
-![Transfer Model's interpretation of a cat](results/CatResults.png)
+![Transfer Model's interpretation of a cat](CatResults.png)
 
 The code for this visualizer can be found [here](https://github.com/JoshZastrow/Transfer-Learning/blob/master/visualizer.py#L23). It also shows how to make use of the model without the accompanying data pipeline.
 
