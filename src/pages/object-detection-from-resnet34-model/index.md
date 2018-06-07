@@ -6,11 +6,13 @@ category: "Projects"
 thumbnail: "thumbnail.jpg"
 ---
 
-**DISCLAIMER: POST STILL UNDER CONSTRUCTION**
-
 Object Detection is still one of the big open problems in the Computer Vision world. Convolutional Neural Networks have made incredible strides towards solving this problem, which have led to robust A.I systems dealing with face detection, people counting, object tracking and image content filtering. 
 
 In the write-up below I walk through steps taken to develop an algorithm that will make a prediction on what is in the image and where it is. The code leverages the fastai library; a framework for quickly processing data and training transfer-learning models, written on top of PyTorch. Kudos to Jeremy Howard for his excellent courses on deep learning and the library he has created.
+
+The goal of this project is to walk through data preparation techniques and algorithm development in order to build a model that can identify and locate objects in an image. 
+
+#### Libraries used
 
 
 ```python
@@ -31,7 +33,7 @@ def printmd(string):
     display(Markdown(string))
 ```
 
-## Preparing and Preprocessing Data
+## The Dataset
 ---
 I downloaded and unzipped the PASCAL image dataset, which contains I believe roughly 50k images, along with meta data describing each image. The PASCAL dataset is one of the most popular datasets for training an object detection or image segmentation model. 
 
@@ -87,7 +89,11 @@ for k in data.keys():
        +-- name <class 'str'>
     
 
-## Create key-pairs for IDs
+## Preparing and Preprocessing Data
+The following steps detail preprocessing steps taken to restructure the data so it's more accessible during development. 
+
+
+#### Create File and Category Dictionary from image IDs
 
 
 ```python
@@ -200,7 +206,7 @@ print('converted box configuration:\n\t'
     	
     
 
-### Create Label Dictionary from Annotations
+### Create Ground Truth Dictionary from Annotations
 Time to extract the labels and the bounding boxes into a dictionary.
 
 
@@ -230,7 +236,7 @@ printmd('**Testing Label Dictionary on Image ID 17:**')
     bbox: [ 77  89 335 402] label: horse
     
 
-### Working with only the Largest Labeled Object 
+### Single Object Detection: Working with only the Largest Labeled Object 
 
 For starters we're going to do recognition and detection on the largest object in the image. The dataset has multiple annotations per image (as seen above with Image 17), which may affect the ability of our model to predict the single largest image, but we can address that later.
 
@@ -472,10 +478,7 @@ _ = plt.title('Denormalized data point')
 torch.cuda.device(0)
 ```
 
-
-
-
-    <torch.cuda.device at 0x7f9f7791dc88>
+    <torch.cuda.device at 0x7fa8fa70bef0>
 
 
 
@@ -486,7 +489,6 @@ The first part of this Object Detection journey is to build a model to at least 
 
 ```python
 base_model = resnet34
-trainer = ConvLearner.pretrained(resnet34, bbox_data)
 ```
 
 
@@ -505,7 +507,7 @@ trainer.lr_find(1e-5, 100)
     HBox(children=(IntProgress(value=0, description='Epoch', max=1), HTML(value='')))
 
 
-     78%|███████▊  | 25/32 [00:04<00:01,  5.20it/s, loss=12.6]
+     78%|███████▊  | 25/32 [00:04<00:01,  5.50it/s, loss=11.9]
     
 
 
@@ -544,14 +546,10 @@ trainer.fit(lr, 1, cycle_len=1)
 
 
     epoch      trn_loss   val_loss   accuracy   
-        0      1.226583   0.6512     0.796     
+        0      1.225846   0.659903   0.804     
     
-    
 
-
-
-
-    [array([ 0.6512]), 0.79599999761581419]
+    [array([ 0.6599]), 0.80400000286102291]
 
 
 
@@ -583,10 +581,6 @@ trainer.fit(lr_sched, n_cycle=1)
     epoch      trn_loss   val_loss   accuracy   
         0      1.20484    1.030448   0.752     
     
-    
-
-
-
 
     [array([ 1.03045]), 0.75199999952316288]
 
@@ -635,11 +629,6 @@ trainer.fit(lr_sched/5, 1, cycle_len=1)
 
     epoch      trn_loss   val_loss   accuracy   
         0      0.466305   0.730799   0.81      
-    
-    
-
-
-
 
     [array([ 0.7308]), 0.81000000238418579]
 
@@ -660,11 +649,6 @@ trainer.fit(lr_sched/5, 1, cycle_len=2)
     epoch      trn_loss   val_loss   accuracy   
         0      0.344427   0.665965   0.808     
         1      0.244174   0.643385   0.806     
-    
-    
-
-
-
 
     [array([ 0.64338]), 0.8059999976158142]
 
@@ -730,13 +714,6 @@ with open(CSV_BB, 'r') as f:
 ## Creating a CNN Model for Object Detection
 ---
 
-
-```python
-f_model=resnet34
-sz=224
-bs=4
-```
-
 ### Visualize Augmented Data with Bounding Box
 
 
@@ -766,32 +743,296 @@ fig.tight_layout()
 ```
 
 
-![png](output_60_0.png)
+![png](output_59_0.png)
 
 
-### Combine Bounding Box and Labels to One Dataset
+## Combing Labels and Bounding Boxes With Images into One Dataset
 
 
 ```python
-# Custom PyTorch dataset
+RESNET = resnet34
+sz = 224
+bs = 64
+val_idxs = get_cv_idxs(len(filename))
+
+# my cloud Computer has slightly different path than local
+if os.path.isdir('data/pascal/VOCdevkit'):
+    PATH = Path('data/pascal/VOCdevkit')
+else:
+    PATH = Path('data/pascal')
+    print(PATH)
+with open(PATH/'../pascal_train2007.json', 'r') as f:
+    data = json.load(f)
+    
+(PATH/'tmp').mkdir(exist_ok=True)
+CSV = PATH/'tmp/largest-labels.csv'
+CSV_BB = PATH/'tmp/largest-bbox.csv'
+JPEGS = 'VOC2007/JPEGImages'
+
 class ConcatLblDataset(Dataset):
     
-    def __init__(self, init_data, more_data):
-        self.init_data = init_data
-        self.more_data = more_data
+    def __init__(self, ds, y2): 
+        self.ds = ds
+        self.y2 = y2
         
-    def __len__(self):
-        return len(self.init_data)
+    def __len__(self): 
+        return len(self.ds)
     
-    def __item__(self, i):
-        x, y = self._init_data[i]
-        return (x, (y, self.more_data[i]))
+    def __getitem__(self, i):
+        x, y = self.ds[i]
+        return (x, (y, self.y2[i]))
     
-# Concatenate the labels to one dataset
-train = ConcatLblDataset(bbox_data.trn_ds, lbls_data.trn_y)
-valid = ConcatLblDataset(bbox_data.val_ds, lbls_data.trn_y)
+augs = [RandomFlip(tfm_y=TfmType.COORD),
+        RandomRotate(30, tfm_y=TfmType.COORD),
+        RandomLighting(0.1,0.1, tfm_y=TfmType.COORD)]
 
-# # Replace the data loaders of the original datasets with the concatenated datasts
-# bbox_data.trn_dl.dataset = train
-# bbox_data.val_dl.dataset = valid
+# Create Transform and image classifier data from CSV
+transform = tfms_from_model(RESNET, sz, crop_type=CropType.NO, tfm_y=TfmType.COORD, aug_tfms=augs)
+bbox_data = ImageClassifierData.from_csv(PATH, JPEGS, CSV_BB, tfms=transform, bs=bs, continuous=True, val_idxs=val_idxs)
+name_data = ImageClassifierData.from_csv(PATH, JPEGS, CSV, tfms=tfms_from_model(RESNET, sz))
+
+# Concatenate the labels to the bounding box dataset
+concat_train = ConcatLblDataset(bbox_data.trn_ds, name_data.trn_y)
+concat_valid = ConcatLblDataset(bbox_data.val_ds, name_data.val_y)
+
+# Replace the dataset with these concatenated datasets
+image_data = bbox_data
+image_data.trn_dl.dataset = concat_train
+image_data.val_dl.dataset = concat_valid
+
+del bbox_data
+del concat_train
+del concat_valid
 ```
+
+## Creating Detection Model
+
+
+```python
+# Custom un-trained top layers
+regression_head = nn.Sequential(
+    Flatten(), 
+    nn.ReLU(),
+    nn.Dropout(0.5),
+    nn.Linear(25088, 256),
+    nn.ReLU(),
+    nn.BatchNorm1d(256),
+    nn.Dropout(0.5),
+    nn.Linear(256, 4 + len(category))
+)
+
+# Build a Convolutional Neural Network from pretrained ResNET
+base_model = ConvnetBuilder(RESNET, 0, 0, 0, custom_head=regression_head)
+trainer = ConvLearner(image_data, base_model)
+
+trainer.opt_fn = optim.Adam
+```
+
+## Observations
+The last layer of the model is a *bounding box + categories* vector output, which provides the predicted values for the 4 points of the bounding box plus the probabilities of each class. In order to calculate the loss, we need to split the prediction vector into two arrays and apply a different loss function for each segment. The Bounding Box regression model would use an l1 loss while the category classification would use a cross entropy loss.
+
+### Custom Loss Functions
+
+
+```python
+def c_loss(input, target):
+    bb_t,c_t = target
+    bb_i,c_i = input[:, :4], input[:, 4:]
+    bb_i = F.sigmoid(bb_i)*224
+    # I looked at these quantities separately first then picked a multiplier
+    #   to make them approximately equal
+    return F.l1_loss(bb_i, bb_t) + F.cross_entropy(c_i, c_t)*20
+
+def c_L1(input, target):
+    bb_t, _ = target
+    bb_i = input[:, :4]
+    bb_i = F.sigmoid(bb_i)*224
+    return F.l1_loss(V(bb_i),V(bb_t)).data
+    
+def c_accuracy(input, target):
+    _,c_t = target
+    c_i = input[:, 4:]
+    return accuracy(c_i, c_t)
+
+```
+
+## Begin Training, Search for Learning Rate
+
+
+```python
+trainer.crit = c_loss
+trainer.metrics = [c_accuracy, c_L1]
+```
+
+
+```python
+trainer.lr_find()
+```
+
+
+    HBox(children=(IntProgress(value=0, description='Epoch', max=1), HTML(value='')))
+
+
+     94%|█████████▍| 30/32 [00:07<00:00,  4.20it/s, loss=517]
+    
+
+
+```python
+trainer.sched.plot()
+```
+
+
+![png](output_70_0.png)
+
+
+
+```python
+lr = 1e-3
+trainer.fit(lr, 1, cycle_len=3, use_clr=(32,5))
+```
+
+
+    HBox(children=(IntProgress(value=0, description='Epoch', max=3), HTML(value='')))
+
+
+    epoch      trn_loss   val_loss   c_accuracy c_L1       
+        0      110.116441 78.790763  0.782      60.250147 
+        1      94.266435  69.14885   0.828      52.567067 
+        2      82.389443  60.218006  0.822      44.285609 
+
+    [array([ 60.21801]), 0.82199999809265134, 44.285608886718748]
+
+
+
+
+```python
+trainer.freeze_to(-2)
+lrs = np.array([lr/100, lr/10, lr])
+trainer.fit(lr/1000, 2, cycle_len=1, cycle_mult=2)
+```
+
+
+    HBox(children=(IntProgress(value=0, description='Epoch', max=3), HTML(value='')))
+
+
+    epoch      trn_loss   val_loss   c_accuracy c_L1       
+        0      71.683878  62.39245   0.822      46.004802 
+        1      72.08925   62.811565  0.824      46.603734 
+        2      71.430985  62.464286  0.824      46.191416 
+    
+    
+
+
+
+
+    [array([ 62.46429]), 0.8240000023841858, 46.191415832519532]
+
+
+
+After training for a few epochs, I'm going to reduce the learning rate by a few orders of magnitude and continue training the weights across the network. I want to reduce the gradient updates on earlier parts of the network where there was already pre-training, but keep the learning rate on the later gradients higher.
+
+
+```python
+trainer.sched.plot()
+```
+
+## Observations:
+Loss starts to increase when the learning rate is higher than 10e-3. We'll keep the learning rate as it's set, unfreeze one more layer in the pretrained model and continue training.
+
+
+```python
+trainer.freeze_to(-3)
+trainer.fit(lrs, 1, cycle_len=2)
+```
+
+
+    HBox(children=(IntProgress(value=0, description='Epoch', max=2), HTML(value='')))
+
+
+    epoch      trn_loss   val_loss   c_accuracy c_L1       
+        0      65.01083   47.136854  0.826      33.88456  
+        1      54.240846  42.824002  0.828      29.762054 
+    
+    [array([ 42.824]), 0.82800000286102293, 29.762053649902345]
+
+
+
+## Continue Training On All Layers
+The top layers have been trained a bit from random intialization to close to (hopefully) the optimal parameters. I'm going to unfreeze the whole network and train all the layers for several epochs.
+
+
+```python
+trainer.unfreeze()
+trainer.fit(lrs/10, 1, cycle_len=10, use_clr=(32,10))
+```
+
+
+    HBox(children=(IntProgress(value=0, description='Epoch', max=10), HTML(value='')))
+
+
+    epoch      trn_loss   val_loss   c_accuracy c_L1       
+        0      46.644491  41.282319  0.838      28.554704 
+        1      45.133588  38.875178  0.83       26.615679 
+        2      43.658426  38.005706  0.85       26.121076 
+        3      41.97118   37.091973  0.832      25.305689 
+        4      40.160971  36.848199  0.846      25.064068 
+        5      38.446587  36.161445  0.846      24.629682 
+        6      37.604964  35.888004  0.846      24.448113 
+        7      36.57852   35.617709  0.842      24.24911  
+        8      35.998207  35.325163  0.842      23.915489 
+        9      35.321802  35.349842  0.844      23.965771 
+    
+    
+
+
+
+
+    [array([ 35.34984]), 0.84399999809265136, 23.965771392822266]
+
+
+
+
+```python
+trainer.save('Final_Model')
+```
+
+### Run predictions on sample set
+After training for several epochs it doesn't seem like the accuracy is improving much. With the current parameters and data, it seems like 84% accuracy is the best we're going to get for image recognition. The L1 loss looks like it was still decreasing somewhat, so the bounding box prediction with this model most likely will not be the best, but we're going to run with the models capabilities as is and do some predictions on sample images.
+
+
+```python
+y = trainer.predict()
+x, _ = next(iter(image_data.val_dl))
+```
+
+
+```python
+from scipy.special import expit
+
+fig, axes = plt.subplots(3, 4, figsize=(12, 8))
+for i,ax in enumerate(axes.flat):
+    i = i + 30  # look at different image set
+    # Get a de-normalized image
+    ima = image_data.val_ds.ds.denorm(to_np(x))[i]
+    
+    # Get bounding Box from prediction vector
+    bb = expit(y[i][:4]) * 224  # multiplied by image size
+    
+    # Get Class Label from prediction vectpr
+    c = np.argmax(y[i][4:])
+    c = int(name_data.classes[c])
+    
+    # Plot
+    ax = display_img(ima, bb, c, ax=ax)
+    
+printmd('### Running Prediction on Sample Images...')
+plt.tight_layout()
+```
+
+
+### Running Prediction on Sample Images...
+
+
+
+![png](output_82_1.png)
+
