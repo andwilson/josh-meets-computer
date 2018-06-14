@@ -1,5 +1,5 @@
 ---
-title: "Building a Housing Prediction Engine"
+title: "Analysis and Regression model"
 date: "2018-04-11"
 path: "/housing-predictions-with-data-science/"
 category: "Projects"
