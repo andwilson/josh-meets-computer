@@ -13,17 +13,6 @@ Another problem I had months later was a Purchase Price variance report for Fina
 In both of these scenarios, it was useful to aggregate a character field into a comma seperated list for grouping. Below is how to do so in both PostgreSQL and SQL Server.
 
 
-```python
-%sql postgresql://Joshua:Sparky80@localhost:5432/pgguide
-```
-
-
-
-
-    'Connected: Joshua@pgguide'
-
-
-
 ## Understanding the Dataset
 I will be using a demo dataset that can be downloaded from the PostgreSQL website. It has three tables: 
 
@@ -41,9 +30,6 @@ I will be using a demo dataset that can be downloaded from the PostgreSQL websit
 
     5 rows affected.
     
-
-
-
 
 <table>
     <tr>
