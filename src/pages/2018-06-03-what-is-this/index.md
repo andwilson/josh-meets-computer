@@ -11,7 +11,7 @@ Andrew and I stood at the flight ticket counter in the Hawaiian Airport. The tic
 
 It was a 9 hour flight from Hawaii to Japan, set to land 19 hours later. Unsurprisingly AirAsia doesn't offer food or water, but on the bright side there was an empty seat next to Andrew so we got some chips and drinks and hung out. Overall we had a decent flight . We landed at 8pm. The Osakan Airport felt like it was still in it's original packaging -- sterile, clean, orderly and very well lit. Pink bold signs with excited Japanese messages popped out against the clean whites and blacks of the interiour airport design. 
 
-![Andrew unpacking our bags](baggage.gif) 
+![Andrew unpacking our bags](baggage.GIF) 
 
 We found our way to the train station and hopped on the express towards downtown Osaka. Osaka is considered Japan's Kitchen -- a merchant city right on the water that served as an inlet for a lot of goods shipped in from other parts of the world. Unlike the professional, orderly and regimented Tokyo natives, the people of Osaka are a bit warmer, friendlier and boisterous. A bartender we made friends with days later described Osaka more similar to L.A and Tokyo more similar to New York. Restaurants here compete on flavor, and the locals love to go out and have a drink and be merry. There seems to be no end to the number of food spots here. 
 ​
