@@ -1,5 +1,5 @@
 ---
-title: "Greedy, Recursion, Memoization and Dynamic Programming"
+title: "Returning minimum coins for change"
 date: "2018-06-19"
 path: "/coin-change/"
 category: "Notes"
