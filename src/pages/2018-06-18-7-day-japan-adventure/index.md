@@ -50,7 +50,7 @@ We were trying really hard to get a cool skateboard picture with the pumpkin but
 ## Miyajima
 ___
 The following day we took a train over to another island called Miyajima. This place is famous for their shrines, specifically the Itsukushima Shrine, and their oysters. 
-![ITsukushima Shrine](https://lh3.googleusercontent.com/2anGO1YIXChUw0U5ugEGU4g9TYajdmhct8I9_Mp6pkSqT0x0ZtW0mQn2T48t_irRtsLAwte1do1-ao_AyCknUm85rZ-cihL1fXcRYRzQh5UBuPIQ-ci6EK9ddLfGn0NRzTMmJRb-kVw=w2400)
+![Itsukushima Shrine](https://lh3.googleusercontent.com/2anGO1YIXChUw0U5ugEGU4g9TYajdmhct8I9_Mp6pkSqT0x0ZtW0mQn2T48t_irRtsLAwte1do1-ao_AyCknUm85rZ-cihL1fXcRYRzQh5UBuPIQ-ci6EK9ddLfGn0NRzTMmJRb-kVw=w900)
 
 It was very expensive to book a stay on the island, so we just did an afternoon trip and walked around for a while before heading to Hiroshima. I really loved the town here, felt like a lot of the people who lived on the island knew each other and had a tight knit feel. The architecture around the shrine was incredibly beautiful, especially the sanctuaries. I felt very zen walking through the shrines and local streets.
 
@@ -78,7 +78,7 @@ Kanazawa was our next stop on the itinerary. The city was fairly easy to navigat
 
 We didn't see any geisha, but got some soft serve green tea ice cream and biked around a bit.
 ![Geisha Village](https://lh3.googleusercontent.com/WhB0yukktTDg7tizqNGZTkSOC5dO4z1T_X8Q6JhxdOJ7kUuzHB5mZ6KCq9f81vgAJJQtZiCZggFPDUbMVgScs7y7CnERHB-Savw1_MKHQM9qaKzPhOXK5CensI8LQdpdIQX2e1o84wE=w900)
-![Biking](https://lh3.googleusercontent.com/ytGREINT55Vr-HeuCuHbyGT3REklk767N0U9ASSmHoL614vaKlDlPmdNwT5YUn3rWd_rXbB_bWPAdQOPIE0_kxpjnpH2wSbBNLJ3blmF4Dmkf48gJUlOjdy1MYuiuxcg_hLeUpJMoqg=w2400)
+![Biking](https://lh3.googleusercontent.com/ytGREINT55Vr-HeuCuHbyGT3REklk767N0U9ASSmHoL614vaKlDlPmdNwT5YUn3rWd_rXbB_bWPAdQOPIE0_kxpjnpH2wSbBNLJ3blmF4Dmkf48gJUlOjdy1MYuiuxcg_hLeUpJMoqg=w900)
 ![Ice cream](https://lh3.googleusercontent.com/z1wHIaN3unaxOJbuc2-fBqkUqyzGSQtHTJRihEbjqojPWr8VNIWzWo69lDcrHCC9nfiitxk54j78U5d-Ta737sj9kGcAMjI0WlSOPC5LVE1rTx3TXDa3hBVZi4TIa1t8cBF-FTDZQEU=w900)
 
 ## Takayama
