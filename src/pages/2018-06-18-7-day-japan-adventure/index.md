@@ -11,8 +11,10 @@ I just finished up a week long cross country adventure, taking me through shrine
 
 ## Nara
 ___
-Nara is a small city about 40 minutes away from Osaka, and our first stop on our travels. I wrote a bit about it last week; it is famous for having the largest bronze Buddha Statue in the world. ![largest bronze Buddha Statue](https://lh3.googleusercontent.com/oeB1ip8sasMwHVRaUVTK_yhBzELamZptIiVx_qwcbgOVLR1-ipByULwBwRDpLWLRTtXg6uUJAbMsyg5J5sw4L7ehE2xLb3N_X7gF1R3xLUDw1wZsmSNrEnJGJtPNgR1xPXUU4hJjs_s=w2400) Also an amazing sanctuary to walk around in and of course a large deer population that are totally cool hanging with their human guests. 150 Yen ($1.50) gets you five cookies and a ton of deer friends.![deer friends](https://lh3.googleusercontent.com/apW8lqfcnqOKvX9PLBx_EsWWw0jVXS5ut5zAiCDhUmeL5ErItKAyRx5FbKAxsQWxlqORYA59ixApyZgS1-G49rtpM9BYcuP3_Lyo0S8VeLp7x0bWdM_SsMm0gdrNMNHJMK6ji28UF94=w2400)
-
+Nara is a small city about 40 minutes away from Osaka, and our first stop on our travels. I wrote a bit about it last week; it is famous for having the largest bronze Buddha Statue in the world. 
+<img src="https://lh3.googleusercontent.com/oeB1ip8sasMwHVRaUVTK_yhBzELamZptIiVx_qwcbgOVLR1-ipByULwBwRDpLWLRTtXg6uUJAbMsyg5J5sw4L7ehE2xLb3N_X7gF1R3xLUDw1wZsmSNrEnJGJtPNgR1xPXUU4hJjs_s=w2400" alt="largest bronze Buddha Statue" width="900px"/>
+Also an amazing sanctuary to walk around in and of course a large deer population that are totally cool hanging with their human guests. 150 Yen ($1.50) gets you five cookies and a ton of deer friends.
+<img src="https://lh3.googleusercontent.com/apW8lqfcnqOKvX9PLBx_EsWWw0jVXS5ut5zAiCDhUmeL5ErItKAyRx5FbKAxsQWxlqORYA59ixApyZgS1-G49rtpM9BYcuP3_Lyo0S8VeLp7x0bWdM_SsMm0gdrNMNHJMK6ji28UF94=w2400" alt="deer friends" width="900px"/>
 
 ## Osaka
 ___
