@@ -12,7 +12,7 @@ I just finished up a week long cross country adventure, taking me through shrine
 ## Nara
 ___
 Nara is a small city about 40 minutes away from Osaka, and our first stop on our travels. I wrote a bit about it last week; it is famous for having the largest bronze Buddha Statue in the world. 
-<img src="https://lh3.googleusercontent.com/oeB1ip8sasMwHVRaUVTK_yhBzELamZptIiVx_qwcbgOVLR1-ipByULwBwRDpLWLRTtXg6uUJAbMsyg5J5sw4L7ehE2xLb3N_X7gF1R3xLUDw1wZsmSNrEnJGJtPNgR1xPXUU4hJjs_s=w2400" alt="largest bronze Buddha Statue" width="900px"/>
+<img src="https://lh3.googleusercontent.com/oeB1ip8sasMwHVRaUVTK_yhBzELamZptIiVx_qwcbgOVLR1-ipByULwBwRDpLWLRTtXg6uUJAbMsyg5J5sw4L7ehE2xLb3N_X7gF1R3xLUDw1wZsmSNrEnJGJtPNgR1xPXUU4hJjs_s=w900" alt="largest bronze Buddha Statue" width="900px"/>
 Also an amazing sanctuary to walk around in and of course a large deer population that are totally cool hanging with their human guests. 150 Yen ($1.50) gets you five cookies and a ton of deer friends.
 <img src="https://lh3.googleusercontent.com/apW8lqfcnqOKvX9PLBx_EsWWw0jVXS5ut5zAiCDhUmeL5ErItKAyRx5FbKAxsQWxlqORYA59ixApyZgS1-G49rtpM9BYcuP3_Lyo0S8VeLp7x0bWdM_SsMm0gdrNMNHJMK6ji28UF94=w2400" alt="deer friends" width="900px"/>
 
@@ -20,8 +20,7 @@ Also an amazing sanctuary to walk around in and of course a large deer populatio
 ___
 We spent two weeks in Osaka, and on the very last day we finally got around to visiting Osaka Castle. A super impressive structure, definitely worth a visit. 
 
-<img src=https://lh3.googleusercontent.com/GNzVKvQBoDfGzrLpxDufPHJ6PHpxiLef07YPkjahOIVmZ3CNNxLoALbRkRIi0uGdcjPy0sF5rYeDgQyiwLmPKgApSi59tRLKo-WsMH6fkFaSzT9UshiioTuVeU0EoRi2EnqwynG8KAA=w2400 alt="Osaka Castle" width="900px"/>
-
+![Osaka Castle](https://lh3.googleusercontent.com/GNzVKvQBoDfGzrLpxDufPHJ6PHpxiLef07YPkjahOIVmZ3CNNxLoALbRkRIi0uGdcjPy0sF5rYeDgQyiwLmPKgApSi59tRLKo-WsMH6fkFaSzT9UshiioTuVeU0EoRi2EnqwynG8KAA=w900)
 We skipped the long line to the elevator and hiked the eight flight of stairs to the top of the cast and got a panoramic view of the entirety of Osaka. We were able to see a good amount in the last 30 minutes of them being open, would have been nice to have about an hour or two for the full castle.
 
 ## Himeji
