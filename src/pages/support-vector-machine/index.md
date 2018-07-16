@@ -6,7 +6,7 @@ category: "Notes"
 section: "Machine Learning Algorithms"
 ---
 
-Support Vector Machine is a machine learning model that makes use of an L2 hinge loss function to optimize a linear classification model. It's best described by it's loss function, which seeks to create a margin between the score it gives to the correct label, and the score it gives to the other incorrect labels.
+Support Vector Machine is a machine learning model that makes use of a hinge loss function (and usually a regularizer component) to optimize a linear classification model. It's best described by it's loss function, which seeks to create a margin between the score it gives to the correct label, and the score it gives to the other incorrect labels.
 
 $$\large L_i = \sum_{j \neq y} max(0, s_j - s_{y_i} + \Delta)$$
 
