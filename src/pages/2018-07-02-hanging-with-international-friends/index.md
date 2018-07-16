@@ -1,7 +1,7 @@
 ---
-title: "Week 25: Matane Japan"
-date: "2018-07-08"
-path: "/2018-07-08-matane-japan/"
+title: "Week 24: Hanging with International Friends"
+date: "2018-07-02"
+path: "/2018-07-02-haniging-with-international-friends/"
 category: "Letters"
 ---
 
