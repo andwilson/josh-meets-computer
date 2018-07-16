@@ -1,7 +1,7 @@
 ---
 title: "Week 24: Hanging with International Friends"
 date: "2018-07-02"
-path: "/2018-07-02-haniging-with-international-friends/"
+path: "/2018-07-02-hanging-with-international-friends/"
 category: "Letters"
 ---
 
