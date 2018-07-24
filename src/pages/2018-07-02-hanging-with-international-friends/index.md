@@ -12,6 +12,7 @@ Back in November I was staying at Loft Hostel in Budapest when I met a friendly 
 Fast forward several months, He had messaged me a asking what my summer plans were, and I mentioned I would be in Japan. He had been planning on going to Asia, so he flew out to Tokyo this week met me over here. It's a cool thing to have international friends who you only hang out with in different parts of the world. I hope the future is more like that.
 
 
+![Two Traveling Buddies](https://lh3.googleusercontent.com/F2KhvTV9qNBaBBIeMeRTuZRnkh7EH6dFk8q9VuctokhCXPGzBQSkuezMGqcHFKaSoTFS4NR-RpYbweJst5dNwsJPbVEB3OuksgGXHDzTX4RI3mc-iYhuHfsUHvM-e6I3IxEjhfdHd4A=w900)
 
 
 I squeezed some time between work sessions to hang with him and his fellow travel partner Tatiana. We walked along the manicured lawns of the Imperial Palace garden, because turned out the Palace itself was closed on the day we went. The Palace is supposed to be another stunning example of traditional Japanese Architecture, right in the center of Tokyo. 
@@ -19,6 +20,7 @@ I squeezed some time between work sessions to hang with him and his fellow trave
 We did manage to make it to the Fish Market, which is a famous spot where the tuna fisherman will auction off their wares to local restaurants. It's supposed to be a really cool experience, except it happens at about 5am, so you have to be an early bird or still on US time to pull it off. Instead we went to the market for lunch and snagged a sashimi bowl. The raw shrimp was probably the most difficult piece to eat, but being a sushi fan the rest went down pretty easily.
 
 
+![Sushi Bowl](https://lh3.googleusercontent.com/yhf0jFIXOkrTv5SXarPACkS7i0irezQU9x9jfwBoh4PTTxIXFFEnUnOpHRlEWcIQ1F1dhly2n0NKvE9MuqayC-UNsFRcEMv18TbGAsrrbpV_BMUI4qRDMG6v_m2aGOLQNXP1VSsjyPc=w900)
 
 
 I volunteered at Venture Cafe Tokyo this week. They gave me a Venture Cafe shirt to add to my collection. Theirs say "Action Trumps Everything". I find that the English interpretation of Japanese has a peculiar archetype to it, and I can't quite put my finger on it. 
@@ -31,6 +33,7 @@ On Saturday I went to a spin class with Tatiana and another Tokyo friend I met, 
 
 Later that night I went out with Andrew, Tatiana and our hostel friend Damien to meet up with some of Andrew's older coworkers. Turns out he's not the only one who takes advantage of the free Canadian Air flights. We ordered some highballs and sat in a loud, hot, lively Izakaya restaurant in the Shinjuku district. Shinjuku is known for being a little crazy, usually filled with the younger crowd and full of the gleaming thin billboards that line the edges of the city buildings. 
 
+![Live, Love Laugh](https://lh3.googleusercontent.com/EzjFQ0boPtylNPyFb9-lmW8nisqdPm0Xbb3VIfrCcYR0COcb6xTbAgES0GbWuwQLJbuXPL9hB81Ct2Vvgozgc8VB9zasQ8Ca1ELxmW1H468yzcFipgOkaZyWN4OPML4NL_adO1WRp6g=w900)
 
 
 As it turns out, Runa from the Venture Cafe late-night group taught calligraphy, so I convinced her to give me a lesson. She stopped by my hostel on Sunday and we went to an arts and craft store to pick up all the necessary paint supplies, and she taught me how to write a couple characters. I made three signs that say: "Live, Love, Laugh". 
