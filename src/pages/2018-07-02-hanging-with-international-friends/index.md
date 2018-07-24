@@ -7,44 +7,39 @@ category: "Letters"
 
 Hi,
 
-Or Swa-dee-cap as it's pronounced in Thai. At the moment I am sitting on a bean bag chair at a hostel in downtown Bangkok. I was beginning to feel a bit restless in Japan, so I decided to fly out. I think I was in need of healthier food options and an outlet for exercise, and I figured surfing would do me some good. I've already done Bali, and Vietnam is a current no-go due to data restrictions with some of the work I'm doing, so I decided I'm going to head to Kata Beach in Phuket, stopping at Bangkok along the way. 
+Back in November I was staying at Loft Hostel in Budapest when I met a friendly Canadian named Andrew. He works for Canadian Airlines, which has the perk of being able to fly standby on any of their flights. I met him hanging out on the couch at a tiny homey hostel and we became fast friends. He is a boisterous, incredibly gregarious fellow that will bashfully talk and exchange joking remarks with everyone. Definitely a likable guy. 
 
-I've spent the weekend so far in Bangkok. The memories and craziness of Bangkok all came rushing back in the moment I got into the city.  The heavy, hot and damp heat of the city. The familiar twang of the thai language. The roar of traffic through the inner city roadways as scooters, tuk-tuks, taxis speed by. The fragrant scent of thai dishes, combined with the unholy mixture of urban pollution, pungent fish sauce, and sun baked food spoils assault the nostrils. Oh Bangkok.
-
-To recap my last week of Japan:
-
-On Sunday Tak and I stayed up to watch the Japan vs Belgium game. We went to a public viewing at the Tokyo Tower (a famous landmark that looks like an orange Eiffel Tower) where about 500 devout Japanese soccer fans were packed into a auditorium with an IMAX sized viewing screen. I mistakenly wore yellow, which is Belgiums colors. Japanese reporters came over to interview me, hoping that I would be the token Belgium guy in the sea of blue jerseys. Unfortunately I was just an American who is also rooting for the Japan team, so they lost interest pretty quickly.  
-
-![Catching Japans last soccer game of the World Cup](https://lh3.googleusercontent.com/gdUVh8yKu574AZp8fJ89odT7N8YJ8snZuEVzxUXHTfMSbTuL42uRWy4nt8QEJNbXtihAwyhpSJfGnz5gq2WlydZeRa2rv-yUeSNXGiSR9pcoSoAd3sczM1LC8P2ULTlwZ__Aw2Hyj4A=w900)
+Fast forward several months, He had messaged me a asking what my summer plans were, and I mentioned I would be in Japan. He had been planning on going to Asia, so he flew out to Tokyo this week met me over here. It's a cool thing to have international friends who you only hang out with in different parts of the world. I hope the future is more like that.
 
 
-Japan scored twice in a row the first half, and you could feel the energy and excitement in the room with each chant of "Nippon!" (which means Japan in Japanese). Then the palpable sadness when Belgium scoring the winning kick 30 seconds before overtime. The last call of "Nippon!" from the announcers microphone went unanswered. 
-
-I stopped by Yokohama the following evening to cook Hiroshi a nice Italian dinner. He called me on Monday wondering where I was, and if I was going to come back to Yokohama before I left Japan. I forgot I told him I would do so before leaving Japan, so I had to squeeze in one more visit. On Tuesday I met him at the station next to his clinic and we picked up ingredients. We decided to make chicken piccata, pasta carbonara and sauteed zucchini. The pancetta and fresh noodles were particularly hard to find -- we had to go to three grocery stores to get all the ingredients. In the end the searching was worth it, dinner turned out really delicious.
-
-![Home cooked italian](https://lh3.googleusercontent.com/psAvkgWU4lMJ3Yi66mVMNOJA9fGrFpLXz0eAsvOvIrj8p8F3yy5btZGxAjWocQeWMauQvQd9q5hTDoYWb2jr2bwms1HBgoBrOGHmjG5wpNY8hWQZln7h863S45VwCyCd9qgJ7YOQBDM=w900)
 
 
-The next morning I went to Hiroshi's work and walked over to the station to get back to Tokyo. I met up with Tak at his apartment and got settled in for work. The Azuba-juban area of Roppongi is a very westernized version of Japan. A lot of ex-pats live in the area, and the infrastructure seems to have a familiar feel to it. I ate a a 200 year old soba restaurant. The noodles came on a square bamboo mat bin, accompanied by a flavored soy suace, ground daikon, ginger and spring onion. Apparently soba noodles are very good for you -- full of antioxidant rutin, very low glycemic index (so doesn't raise blood sugar levels), contains fiber and a good source of protein. I think I'm going to incorporate soba noodles into my diet once I'm back in the states. 
+I squeezed some time between work sessions to hang with him and his fellow travel partner Tatiana. We walked along the manicured lawns of the Imperial Palace garden, because turned out the Palace itself was closed on the day we went. The Palace is supposed to be another stunning example of traditional Japanese Architecture, right in the center of Tokyo. 
 
-![A super traditional soba noodle meal](https://lh3.googleusercontent.com/8GDMN03e2MRjllB2wp0S5WwZANwReW_ULZ34rjIRd0soQe0qAcW867xeGiYy2PmuXNBCC0myFh7h8mc1BUTzExM1rNR0cFnuIjBW7KP1HKbSz9DZQcyME_8nGnQU7LvX1Ldqr4VMgaw=w900)
-
-That night was 4th of July. Unfortunately there is almost no evidence of the holiday in Japan, so the day went by rather spectacularly as far as holiday standards go. I went to a grill restaurant with Tak, where we ordered probably too much food. An assortment of thinly sliced marinated steaks, mushrooms, rice, garlic, garlic rice, three different kinds of kimchii and some miso soup for the two of us. It was phenomenal. 
-
-![A good dinner with a good friend](https://lh3.googleusercontent.com/SJj088xoPD-h1HsgUQfJYNs3RvdWeghmh0w2dTOpA9-9JjmXFEL_x4aMZUU20a8ApHDjCZ94VOc5LqC-4SNfYy-3M3P_OFeOLPeYmXg4EUKkBtA_qlIPcWKhHTSPefdhF12Oe3AfiAg=w900)
+We did manage to make it to the Fish Market, which is a famous spot where the tuna fisherman will auction off their wares to local restaurants. It's supposed to be a really cool experience, except it happens at about 5am, so you have to be an early bird or still on US time to pull it off. Instead we went to the market for lunch and snagged a sashimi bowl. The raw shrimp was probably the most difficult piece to eat, but being a sushi fan the rest went down pretty easily.
 
 
-Ashley, who I met for lunch with Tatiana a week earlier, works for a club in Roppongi called One Oak that was doing a Fourth Of July celebration. I stopped by after dinner. Even though the club was all America themed, it didn't feel quite the same as the traditional celebrations. As great as it was to see Ashley again, I was pretty full from dinner, so I went back home after a couple songs.  
 
-Thursday was my last Venture Cafe Tokyo night. I volunteered to help setup, then became bartender in one of the rooms. One of the managers from Japan's Post Bank Investment group had come to Venture Cafe to meet me. We had a good chat on the state of Venture Capital in Japan, and I think the group is interested in investing once we have a few clients. I also met one of Tak's friends -- a video producer who helped shoot the marketing material for Venture Cafe Tokyo. We all went to an Izakaya afterwards for some Shochu and bar food.
 
-![Post Venture Cafe food and drinks](https://lh3.googleusercontent.com/HZN5ANPqamXB4P0ltSkz1uoL8nhLyDSVbeHH6Q9xVenr0_RwFq2bJXcyn2bxEv1wi5oC7Visan7Z0cLa_wHyWVwTmlhXYMsfsqvMgW048IwjXQmotSLGoSFDqNSEjFO4GJnR_Rcpqyw=w900)
+I volunteered at Venture Cafe Tokyo this week. They gave me a Venture Cafe shirt to add to my collection. Theirs say "Action Trumps Everything". I find that the English interpretation of Japanese has a peculiar archetype to it, and I can't quite put my finger on it. 
 
-Shochu is a distilled Japanese liquor made from either potatoes, barley, rice or brown sugar. It's usually mixed with club soda and either lemon, grapefruit or a preserved plum. I had one that came with a plum, which was not as great as I thought it would be. Mainly because the plum was preserved in a salty brine instead of a sweet syrup, which made the drink slightly salty. I think it's an acquired taste. Around midnight we rushed over to the train station to catch the last train home. Tak and I stayed up for a while playing Super Mario Kart on his Nintendo Switch until it was finally time for bed. 
+The Venture Cafe has been an incredible event for networking, I've been pitching the consulting company and have a couple bites. Also some really important people seem to like to go to Venture Cafe. I was talking with the minister of economic affairs when the director of Japans largest investment firm walked by. We were introduced, we chatted. Next thing I know he's interested in having a meeting about my consulting company! Now I just need to figure out how to get the company's valuation up from about nothing to 100 million...
 
-The following morning (Friday) I caught a 6am train to Narita and finally left Japan. Since Thursday was spent volunteering and Friday was spent traveling, I spent most of my time in Bangkok working. I ventured out a few times to find a food market and to grab a drink in the evening, but nothing too exciting. The hostel gets food delivered from a local thai restaurant, so most of my meals have been brought over to me, and the hostel has a very fat cat that is fun to play with. I feel pretty good about how productive this weekend has been on the work front, but looking forward to tomorrow when I fly out to Phuket!
+I also have become pretty close friends with the organizer, Takuo. He went to Northeastern as undergrad and Babson College. We ended up going out after Venture Cafe to catch the Japanese soccer game at a local Isakaya bar. We ordered a round or two of the popular Japanese bar drinks called Highballs (whiskey and club soda), a slew of Japanese Bar food. The only semblance of American food was the fries. A small island of familiar food amongst a moat of kimchi, kushiyaki, korean fried chicken and Japanese mayonnaise. Needless to say we missed the midnight train home (last train), so the group of us wandered around until we found a family restaurant that was open. We snagged a booth and hung out, drinking coffee, beer and milkshakes while chatting until the trains opened back up at 4am.
 
-Talk to you next week.
+On Saturday I went to a spin class with Tatiana and another Tokyo friend I met, Van. It was a VR spin class, with a huge panoramic movie screen that takes you along a TRON like roadway through futuristic civilizations while loud dance music cheers you on. 
+
+Later that night I went out with Andrew, Tatiana and our hostel friend Damien to meet up with some of Andrew's older coworkers. Turns out he's not the only one who takes advantage of the free Canadian Air flights. We ordered some highballs and sat in a loud, hot, lively Izakaya restaurant in the Shinjuku district. Shinjuku is known for being a little crazy, usually filled with the younger crowd and full of the gleaming thin billboards that line the edges of the city buildings. 
+
+
+
+As it turns out, Runa from the Venture Cafe late-night group taught calligraphy, so I convinced her to give me a lesson. She stopped by my hostel on Sunday and we went to an arts and craft store to pick up all the necessary paint supplies, and she taught me how to write a couple characters. I made three signs that say: "Live, Love, Laugh". 
+
+
+Here's a video of me painting. So much pressure riding on each stroke, because I only had three cards to do it right.
+
+That's it for now, see you next week.
+
 
 Josh
  
